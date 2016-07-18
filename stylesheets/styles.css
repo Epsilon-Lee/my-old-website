@@ -1000,7 +1000,8 @@ footer {
 }
 @media print, screen and (max-height: 480px) {
   nav {
-    display: none;
+  /*  display: none; */
+      display: block;
   }
 
   footer {
