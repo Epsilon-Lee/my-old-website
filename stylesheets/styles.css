@@ -871,7 +871,8 @@ footer {
   }
 
   nav {
-    display: none;
+  /* display: none; */
+    display: block;
   }
 
   header, section, footer {
@@ -1000,8 +1001,8 @@ footer {
 }
 @media print, screen and (max-height: 480px) {
   nav {
-  /*  display: none; */
-      display: block;
+    display: none;
+  /*  display: block; */
   }
 
   footer {
