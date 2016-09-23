@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Zen of Epsilon Lee</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/github-dark.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Thought Zen</h1>
+        <p>Sand and Diamond from My Life</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/Epsilon-Lee" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul>
+	    <li><a href="../about.html">about</a></li>
+	    <li><a href="../research.html">research</li>
+	    <li><a href="./blogs.html">blog</a></li>
+	    <li>project</li>
+	    <li><a href="https://epsilon-lee.github.io">back</a></li>
+	</ul>
+      </nav>
+      <section>
+        <h3><a id="welcome-to-my-github-pages" class="anchor" href="#welcome-to-my-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to My GitHub Pages.</h3>
+	<img src="../images/the-starry-night-1889.jpg"/>
+
+  <p>
+    <b>Annoucement</b>: I feel about a new way of doing the blog thing as a way to train mind and learn new stuffs. That is you could do the knowledge distillation work while learning new materials, or reviewing old materials. The <b>knowledge distillation</b> process is about write and summarize strange mathematical conclusions and logical intuitions that used to be vague and hidden from myself. So let me start to do this.
+  </p>
+  
+  <p>
+    Recently I am working on Reinforcement learning, a very amazing paradigm of human learning (or more broadly speaking biology learning) as well as machine learning. As it has multiple sources of origins, namely, operations research, control, and machine learning, I mainly write about it from the point of view and conventionality from machine learning community.
+  </p>
+
+  <p>
+    As every development of a paradigm has its start point of thinking, reinforcement learning also has its motivations in real world phyisics. That is the <b>interaction</b> of an decision-making agent and the enviroment it is in or the objective being it interacts with, and the agent is going to explore the environment and exploit the feedback (s)he gains then to optimize a long term goal, i.e. to learn to act well. We set up to formalize the situation. Think of the uncertainty we could encounter, we would better use theory of probability and statistcs to mitigate the gap.
+  </p>
+
+  <p>
+    We now start to give our formalization its language of describing, like mathemtical signs embody abstract meaning. Then think about the elements we need in an agent-enviroment situation. Agent performs actions based on some dicision rules (dubbed as policy). Environment will change. So, we need an action space $\mathcal{A}$ to cover all the actions an agent can take, an state space $\mathcal{X}$ that indexs all kinds of states of the environment. Those are the static parts of our formalism, and we also need dynamics that describe behaviors as policy and change of environment as transitions. That is where probability comes to play a role.
+  </p>
+
+  <p>
+    Transitions always happen spontaneously, even if the agent acts nothing. However, it is very hard to keep track of the transition continuously with respect to time, since it is always the accumulative change that matters with decision making, so called quantitative change to qualitative change. To simplify the situation, the agent measures the state $x \in \mathcal{X}$ of the environment after each time (s)he performs an action $a \in \mathcal{A}$. So the agent wishes to see its transition after (s)he puts effects on it. We measure the transition as a conitional probability density over state space given current state and action taken:
+    $$X_{t+1} \sim P(X_{t+1}|X_{t},A_{t})$$
+    We intentionally use capital letters to denote state, action, since they are random variables. We also need a probability measure over action space for action we may take at each time step:
+    $$A_{t+1} \sim P(A_{t+1}|X_{1:t},A_{2:t})$$
+  </p>
+
+  <p>
+    Then comes today's protagonist
+  </p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
