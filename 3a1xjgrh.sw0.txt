@@ -1,0 +1,15 @@
+﻿Add GANs
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   about.html
+#	new file:   blog/Generative Adversarial Networks - The Basics.html
+#	new file:   blog/Oct-30-2016.html
+#	modified:   blog/Sep-23-2016.html
+#	new file:   blog/Sep-26-2016.html
+#	modified:   blog/blogs.html
+#
+
