@@ -61,12 +61,18 @@
   </p>
 
   <p>
-    We now start to give our formalization its language of describing, like mathemtical signs embody abstract meaning. Then think about the elements we need in an agent-enviroment situation. Agent performs actions based on some dicision rules (dubbed as policy). Environment will change. So, we need an action space $\mathcal{A}$ to cover all the actions an agent can take, an state space $\mathcal{X}$ that indexs all kinds of states of the environment. Those are the static parts of our formalism, and we also need dynamics that describe behaviors as policy and change of environment as transitions. That is where probability comes to play a role.
+    We now start to give our formalization, its language of describing state of affairs, like mathemtical signs embody abstract meanings. Then think about the elements we need in an agent-environment situation. Agent performs actions based on some dicision rules (dubbed as policy). Environment will change simultaneously. So, we need an action space $\mathcal{A}$ to cover all the actions an agent can take, a state space $\mathcal{X}$ that indexs all kinds of states of the environment. Those are the static parts of our formalism, and we also need dynamics that describe behaviors as policy and change of environment as transitions. That is where probability comes to play a role.
   </p>
 
   <p>
-    Transitions always happen spontaneously, even if the agent acts nothing. However, it is very hard to keep track of the transition continuously with respect to time, since it is always the accumulative change that matters with decision making, so called quantitative change to qualitative change. To simplify the situation, the agent measures the state $x \in \mathcal{X}$ of the environment after each time (s)he performs an action $a \in \mathcal{A}$. So the agent wishes to see its transition after (s)he puts effects on it. We measure the transition as a conitional probability density over state space given current state and action taken:
+    Transitions always happen spontaneously, even if the agent acts nothing. However, it is very hard to keep track of the transition continuously with respect to continuous time, and moreover, it is always the accumulative change that matters with decision making, so-called quantitative change to qualitative change in Chinese. To simplify the situation, the agent measures the state $x \in \mathcal{X}$ of the environment after each time (s)he performs an action $a \in \mathcal{A}$. So the agent wishes to see its transition after (s)he puts effects on it. We measure the transition as a <i>conitional probability density</i> over state space given current state and action taken:
     $$X_{t+1} \sim P(X_{t+1}|X_{t},A_{t})$$
+
+    <blockquote>
+      <b>Conditional p.d.f.</b> Let X and Y have a continuous joint distribution with joint p.d.f. $f$ and respective marginals $f_1$ and $f_2$. Let $y$ be a value such that $f_2(y)>0$. Then the <i>conditional p.d.f.</i> $g_1$ of X given that $Y=y$ is defined as follows:
+      $$g_1(x|y)=\frac{f(x,y)}{f_2(y)} for -\infty < x < \infty$$
+    </blockquote>
+
     We intentionally use capital letters to denote state, action, since they are random variables. We also need a probability measure over action space for action we may take at each time step:
     $$A_{t+1} \sim P(A_{t+1}|X_{1:t},A_{2:t})$$
   </p>

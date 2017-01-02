@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative Adversarial Networks - The Basics</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="generative-adversarial-networks-the-basics">Generative Adversarial Networks - The Basics</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#generative-adversarial-networks-the-basics">Generative Adversarial Networks - The Basics</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#learning-phases">Learning Phases</a><ul>
+<li><a href="#first-phase">First phase</a></li>
+<li><a href="#second-phase">Second phase</a></li>
+<li><a href="#third-phase">Third phase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="introduction">Introduction</h2>
+
+<p><strong>Generative Adversarial Networks</strong> is a kind of neural network based generative model, augmented with a discriminator to better enhance the confidence of the generator for generating high quality data points under desired distribution.</p>
+
+<p>To start this post, with little background reading and understanding of GAN, the aim of this article is to distill <em>refined</em> reading resources for gaining a <strong>good intuition</strong> of the <strong>very stuff</strong> related to GAN and adversarial training paradigm. Possibly, to put applicable situations here after iterative discussion with my colleagues.</p>
+
+
+
+<h2 id="learning-phases">Learning Phases</h2>
+
+
+
+<h3 id="first-phase">First phase</h3>
+
+<p>The first read must go to original paper.</p>
+
+<ul>
+<li><strong>Generative Adversarial Nets</strong>, read it on <a href="https://arxiv.org/pdf/1406.2661v1.pdf">arXiv</a>, or <a href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf">NIPS</a>. <br>
+<ul><li>This may be the first read. Gain as sufficient intuitions as possible and forget about the proof of convergence.</li></ul></li>
+<li><strong>Ian’s talk slides at 2014 on GAN</strong>, read and think about statistical problems GAN tending to solve <a href="http://www.cs.toronto.edu/~dtarlow/pos14/talks/goodfellow.pdf">here</a>.</li>
+<li><p><strong>Understanding the training/learning process</strong> in depth.</p>
+
+<ul><li>Reread the theoretical and algorithmic part of the original paper.</li>
+<li>Lili Mou’s report <a href="http://sei.pku.edu.cn/~moull12/resource/GAN.pdf">slides</a>, focus on the training process and demonstrative figures.</li>
+<li>See Karpathy’s visualization <a href="http://cs.stanford.edu/people/karpathy/gan/">here</a>, and try to figure out the change of each function (<em>Discriminator, generator and ground truth.</em>)</li></ul></li>
+<li><p><strong>Demonstrative Example</strong> (the implementation part) based on TensorFlow, a very <a href="http://blog.aylien.com/introduction-generative-adversarial-networks-code-tensorflow/">toy instance</a>.</p>
+
+<ul><li>This example use GAN to approximate a <em>normal distribution</em>, very simple but instructive for practitioner to write real world code.</li>
+<li>The videos in this post are very impressive demonstration of the training processes, and after the video finished, <em>PLEASE</em> watch Ian’s own videos among <strong>recommendations</strong>.</li>
+<li><strong>Similar example</strong> by Eric Jang, <a href="http://blog.evjang.com/2016/06/generative-adversarial-nets-in.html">here</a>, clearer interpretation.</li></ul></li>
+<li><p>The <strong>wikipedia</strong> <a href="https://en.wikipedia.org/wiki/Generative_adversarial_networks">entry</a> of GANs, take a look to gain further intuition or (maybe enhance some concepts).</p></li>
+<li><p>Read through the 2016 NIPS tutorial on GANs by Ian Goodfellow <a href="http://www.iangoodfellow.com/slides/2016-12-9-gans.pdf">here</a>.</p></li>
+</ul>
+
+<h3 id="second-phase">Second phase</h3>
+
+<ul>
+<li><p>Stability of GANs, see <a href="http://www.araya.org/archives/1183">here</a>.</p></li>
+<li><p>What is adversarial examples?</p>
+
+<ul><li>See Ian’s KDnuggets post <a href="http://www.kdnuggets.com/2015/07/deep-learning-adversarial-examples-misconceptions.html">here</a>.</li></ul></li>
+<li><p>What is adversarial training? [TO-DO]</p></li>
+</ul>
+
+<h4 id="more-theoretical">More Theoretical</h4>
+
+<ul>
+<li>Read this post for <a href="http://www.inference.vc/how-to-train-your-generative-models-why-generative-adversarial-networks-work-so-well-2/"><em>How to train generative models and why GANs work so well?</em></a>, and the author has several great posts on the same topics, worth surveying.</li>
+</ul>
+
+<h3 id="third-phase">Third phase</h3>
+
+<ul>
+<li><strong>Applications</strong> <br>
+<ul><li>See <a href="https://www.reddit.com/r/MachineLearning/comments/40ldq6/generative_adversarial_networks_for_text/">this</a> post on reddit by Ian, with explanation of how to adapt GAN to other domains like NLP and so on. Pay attention to the <strong>discrete/continuous latent/observed</strong> states/variables and the applicability of GAN in those situations.</li>
+<li>Following are a few applications of GAN to natural language tasks. <br>
+<ul><li>[TO-DO]</li></ul></li>
+<li><em>For CV</em> <br>
+<ul><li><a href="http://soumith.ch/eyescream/">eyescream</a>, real world scene image generation by improved GANs from Facebook, written in Lua.</li>
+<li><a href="https://arxiv.org/abs/1511.06434">DCGAN</a> on arXiv, Deep Convolutional GAN. And the <a href="https://code.facebook.com/posts/1587249151575490/a-path-to-unsupervised-learning-through-adversarial-networks/">post</a> for explanation.</li>
+<li>Read the <a href="http://www.kdnuggets.com/2016/10/deep-learning-research-review-generative-adversarial-networks.html/2">post</a> for a well explanation for real image generation by GANs.</li>
+<li>etc.</li></ul></li></ul></li>
+</ul>
+
+<h2 id="relation-with-other-deep-generative-models">Relation with Other Deep Generative Models</h2>
+
+<p>GANs are one type of generative models which are designed to solve the <strong>sharpness</strong> problems of maximum likelihood estimation (that is GANs could generate more sharp distributions so that data point can be more realistic). </p>
+
+<ul>
+<li>There are <strong>other types</strong> of generative models which is based on Neural Networks. Read the OpenAI <a href="https://openai.com/blog/generative-models/">post</a> for a very recent review based on their research works.</li>
+<li>For a thorough introduction, <strong>Chapter 20</strong> of the <em>Deep Learning</em> book is a must read. Following is a list of the family of deep generative models. <br>
+<ul><li><strong>Directed Models</strong> <br>
+<ul><li>Deep Belief Nets</li>
+<li>Variational Auto Encoders</li>
+<li>GANs</li>
+<li>Generative Moment Matching Networks</li></ul></li>
+<li><strong>Undirected Models</strong> <br>
+<ul><li>(Deep) Restricted Boltzmann Machine</li></ul></li>
+<li><strong>Generative Adversarial Networks</strong></li>
+<li><strong>Autoregressive Networks</strong> for sequence data</li>
+<li>etc.</li></ul></li>
+</ul>
+
+<h2 id="other-unclassified-resources">Other Unclassified Resources</h2>
+
+<ul>
+<li><a href="http://blog.aylien.com/highlights-nips-2016/">Highlights of 2016 NIPS</a>, with improvement report in GAN, including training tips, papers for NLP, i.e. <em>modeling document, generating text, adversarial evalutation of dialogue model</em>.</li>
+<li><a href="http://beamandrew.github.io/deeplearning/2016/12/12/nips-2016.html">Part of Slides and Tutorials of NIPS</a>, with funny pictures in the post (enjoy the joke!). GAN tutorials and LeCun group’s follow-up works with GAN based on Energy model.</li>
+</ul></div></body>
+</html>
