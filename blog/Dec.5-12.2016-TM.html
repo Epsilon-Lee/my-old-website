@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dec.5-12.2016 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="dec5-122016-trivial-matters">Dec.5-12.2016 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#dec5-122016-trivial-matters">Dec.5-12.2016 - Trivial Matters</a><ul>
+<li><a href="#1-integration-by-substitution">1.   Integration by Substitution</a></li>
+<li><a href="#2-generative-attention-for-parsing">2. Generative Attention for Parsing</a></li>
+<li><a href="#3-reinforcement-learning-for-nlp-at-ms-redmond">3. Reinforcement Learning for NLP at MS Redmond</a></li>
+<li><a href="#4-to-learn-from-lili-mou-4-th-phd-candidate-at-peking-university">4. To Learn from Lili Mou: 4-th PhD Candidate at Peking University</a></li>
+<li><a href="#cache">Cache</a></li>
+<li><a href="#people">People</a></li>
+<li><a href="#theano-code-resource">Theano Code Resource</a></li>
+<li><a href="#conference-videos-weekly">Conference Videos Weekly</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="1-integration-by-substitution">1.   Integration by Substitution</h2>
+
+<p>It is a basic rule in calculus.</p>
+
+<blockquote>
+  <p><strong>Definition</strong>. Let <script type="math/tex" id="MathJax-Element-1">I \subseteq \mathbb{R}</script> be an interval and <script type="math/tex" id="MathJax-Element-2">\varphi : [a,b] \rightarrow I</script> be a differentiable function with integrable derivative. Suppose that <script type="math/tex" id="MathJax-Element-3">f : I \rightarrow \mathbb{R}</script> is a continuous function. Then <script type="math/tex; mode=display" id="MathJax-Element-4">\int_{\varphi(a)}^{\varphi(b)} f(x) dx = \int_a^b f(\varphi(t)) \varphi'(t) dt</script></p>
+</blockquote>
+
+<p>We need this theorem to confirm the following theorem in probability theory of <strong><em>Linear Function of Two Random Variables</em></strong>.</p>
+
+<blockquote>
+  <p><strong>Theorem</strong>. Let <script type="math/tex" id="MathJax-Element-5">X_1</script> and <script type="math/tex" id="MathJax-Element-6">X_2</script> have joint p.d.f. <script type="math/tex" id="MathJax-Element-7">f(x_1,x_2)</script>, and let <script type="math/tex" id="MathJax-Element-8">Y = a_1 X_1 + a_2 X_2 + b</script> with  <script type="math/tex" id="MathJax-Element-9">a_1 \ne 0</script>. Then <script type="math/tex" id="MathJax-Element-10">Y</script> has a continuous distribution whose p.d.f. is  <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-11">g(y) = \int_{-\infty}^{+\infty} f(\frac{y - b - a_2 X_2}{a_1}, x_2) \frac{1}{|a_1|} dx_2</script></p>
+</blockquote>
+
+
+
+<h2 id="2-generative-attention-for-parsing">2. Generative Attention for Parsing</h2>
+
+<p>Read the following paper that motivate my colleg:</p>
+
+<ul>
+<li><a href="https://www.cs.toronto.edu/~hinton/absps/grammar.pdf">Grammar as A Foreign Language</a>, NIPS 2015.</li>
+<li><a href="https://arxiv.org/abs/1609.03441">Read, Tag, and Parse All at Once, or Fully-neural Dependency Parsing</a></li>
+<li><a href="https://arxiv.org/abs/1511.06391">Order Matters: Sequence to Sequence for Sets</a>, ICLR 2016.</li>
+</ul>
+
+
+
+<h2 id="3-reinforcement-learning-for-nlp-at-ms-redmond">3. Reinforcement Learning for NLP at MS Redmond</h2>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1609.05284.pdf">ReasoNet: Learning to stop reading in machine comprehension</a></li>
+<li><a href="https://arxiv.org/pdf/1606.03667.pdf">Deep reinforcement learning with a combinatorial action space for predicting popular reddit threads</a></li>
+<li><a href="https://arxiv.org/pdf/1602.02261.pdf">End-to-End Goal-Driven Web Navigation</a></li>
+<li><a href="https://arxiv.org/pdf/1509.03044.pdf">Recurrent Reinforcement Learning: A Hybrid Approach</a></li>
+</ul>
+
+
+
+<h2 id="4-to-learn-from-lili-mou-4-th-phd-candidate-at-peking-university">4. To Learn from Lili Mou: 4-th PhD Candidate at Peking University</h2>
+
+<p>In this section this week, I want to introduce to myself a PhD student <strong>Lili Mou</strong> (about 2-years older than me, like a little brother). Today I suddenly/accidentally roamed over his <a href="http://sei.pku.edu.cn/~moull12/">homepage</a>. During his 3 year PhD life (till now), he has made representative work in the field I am keen on, Natural Language Processing, i.e. Deep learning and <strong>tree-based convolution over linguistic structures</strong>.</p>
+
+<p>However, that is not the main reason he caught my admiration. It is the <a href="http://sei.pku.edu.cn/~moull12/seminar.html">webpage</a> on his <strong>seminar</strong>, which encourages and inspires me what I am doing is <strong>right</strong>, and, one step further, should be <strong>improved</strong>.</p>
+
+<p>I don’t know whether his seminar is official or casual. To quote a few words he said:</p>
+
+<blockquote>
+  <p>“In our seminars, we discuss machine learning theories, algorithms, and applications (with special interest in NLP). We start from the foundations, and move to the frontiers.”</p>
+</blockquote>
+
+<p>This is the very truth. Since as a lifelong learner, I should keep creating and studying or more precisely speaking, doing <strong>creation/creativeness-driven  study</strong>.</p>
+
+<p>They studied all the basics/nuts and trivials in the great field of machine learning and math statistics and shedded light on NLP.  NLP can be researched through a very linguistic-oriented background, that is what I used to hold fast. However, under this pursuit, some NLG people converge to rule-based works or more psycholinguistical aspects. It is not bad, but under the definition of Artificial Intelligence, we should search most for less human labor. And only until yesterday, did I start to understand the relation between human-labor and machine learning ability. It is all about prior inductive bias and posterior learning procedure and data quality, and more importantly, plus the evolving environment.</p>
+
+<p>So I turned to be absorbed by reinforcement learning, and be fascinated by interactive/human-in-the-loop learning. Since the inductive bias is itself intact or not complete for evolving human-like intelligence with special ability. I think reinforcement learning with inductive bias inducing mechanism can survive in natural/human society selection.</p>
+
+<p>Yes. Back to their seminars, there are lot coincides with my knowledge system construction process.</p>
+
+<ul>
+<li>In <strong>2016</strong>, Lili Mou conducted 5 seminar talks: <br>
+<ul><li><strong>Knowledge Base Embedding</strong>, Trans*, a family of methods of learning vector representations about entities and relations in KBs.</li>
+<li><strong>Forward/Backward Language Model</strong>, a model to predict context (with order) given a middle positioned span of text, with application in summarization and NLG.</li>
+<li><strong>Monte Carlo Tree Search &amp; Deep CNN with Policy Control</strong>, the Nature paper on AlphGo and its relevance.</li>
+<li><strong>Neural Science</strong></li>
+<li><strong>Generative Adversarial Networks</strong>, the GAN family.</li></ul></li>
+<li>In <strong>2015</strong>, Lili Mou conducted 15 seminar talks: <br>
+<ul><li><strong>Copulas</strong>, Given marginal distributions, the joint distribution is not unique because of all possible kinds of independencies among varibles. A copula is defined as the joint distribution on a unit cube with uniform marginals. It can (just can) capture nontrivial independencies and link marginals with joint distributions. Sklar’s theorem says, Copula(Marginals)=Joint. <em>If I wnat to know more, read Ch4, 6 of Statistical Pattern Recognition</em>.</li>
+<li><strong>Deep Belief Network</strong>, mostly from Hinton’s course slides. Restricted Boltzmann Machine and so on.</li>
+<li><strong>Sum Product Network</strong>, joint work with Pedro Domingos.</li>
+<li><strong>Gaussian Process</strong>, for Bayesian linear regression. Gaussian process regression extends Bayesian linear regression with kernels. <em>So, this is the kernel methods part of ML knowledge I lack.</em></li>
+<li><strong>Memory Networks</strong>.</li>
+<li><strong>Variational Inference &amp; Auto Encoder</strong></li>
+<li><strong>Discourse Analysis &amp; Parsing</strong></li>
+<li><strong>Domain Adaptation</strong>, semi-supervised learning, unsupervised learning, so on.</li>
+<li><strong>Statistical Decision Theory and Bayesian Analysis</strong>, the classic book by James O. Berger. They conduct partial reading over this book. Make me feel impressive.</li></ul></li>
+</ul>
+
+
+
+<h2 id="cache">Cache</h2>
+
+<ol>
+<li>Technical Questions for data scientists:  <br>
+<a href="https://www.analyticsvidhya.com/blog/2016/11/solution-for-skilltest-machine-learning-revealed/">https://www.analyticsvidhya.com/blog/2016/11/solution-for-skilltest-machine-learning-revealed/</a></li>
+<li>Composing graphical models with neural networks for structured representations and fast inference <br>
+[<a href="https://arxiv.org/pdf/1603.06277v3.pdf]">https://arxiv.org/pdf/1603.06277v3.pdf]</a></li>
+<li>About <strong>QA</strong>: <br>
+<ul><li>Learning Recurrent Span Representations for Extractive Question Answering <br>
+[<a href="https://arxiv.org/pdf/1611.01436.pdf]">https://arxiv.org/pdf/1611.01436.pdf]</a></li>
+<li>Hierarchical Question Answering for Long Documents <br>
+[<a href="https://arxiv.org/pdf/1611.01839v1.pdf]">https://arxiv.org/pdf/1611.01839v1.pdf]</a> <br>
+<em>In this paper, REINFORCE algorithm from Williams is used AGAIN.</em></li></ul></li>
+<li>About <strong>CCG Parsing</strong>: <br>
+<ul><li>Global Neural CCG Parsing with Optimality Guarantees <br>
+[<a href="https://arxiv.org/pdf/1607.01432v2.pdf]">https://arxiv.org/pdf/1607.01432v2.pdf]</a></li></ul></li>
+<li>etc.</li>
+</ol>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="https://cocoxu.github.io/"><strong>Wei Xu</strong></a></p>
+
+<ul><li>Assistant professor at Ohio State University. Graduated from Tsinghua. Her current research is about machine learning, NLP with a focus on social media (twitter) and text simplification.</li>
+<li>Her work on <strong>Large-scale paraphrases</strong> and <strong>Natural language generation</strong> are representative. <br>
+<ul><li><a href="https://cocoxu.github.io/publications/tacl2016-smt-simplification.pdf">Optimizing Statistical Machine Translation for Text Simplification</a>, TACL 2016.</li>
+<li><a href="https://cocoxu.github.io/publications/tacl2015-text-simplification-opinion.pdf">Problems in Current Text Simplification Research: New Data Can Help</a>, TACL 2015.</li></ul></li>
+<li>She also has a course on <a href="http://socialmedia-class.org/syllabus.html">Social media with NLP</a> which is a worth reading.</li></ul></li>
+<li><p><strong>Arya Mazumdar</strong></p>
+
+<ul><li>Assistant professor at UMass (Univ. of Massachusetts at Amherst), his main research areas are: <br>
+<ul><li>Coding theory</li>
+<li>Information theory</li>
+<li>Learning</li></ul></li>
+<li>There is possibility of understanding neural networks’ amazing capacity and effectiveness by lens of Information Theory, seeing hidden vectors (so-called memory vectors as Information encoded). So we could borrow theory from data compression to try to explain NN’s power.</li>
+<li>Paper on Memory mechanism: <br>
+<ul><li><a href="https://people.cs.umass.edu/~arya/papers/Associative-final-main.pdf">Associative Memory via a Sparse Recovery Model</a>, NIPS 2015.</li>
+<li>Here is his new AAAI 2016 paper on <strong>Memory Mechanism</strong> <br>
+<ul><li><a href="https://arxiv.org/pdf/1611.09621v1.pdf">Associative Memory using Dictionary Learning and Expander Encoding</a></li></ul></li></ul></li></ul></li>
+<li><p><a href="http://www.cs.unc.edu/~mbansal/"><strong>Mohit Bansal</strong></a></p>
+
+<ul><li>Assistant Professor at UNC Chapel Hill from fall 2016.</li>
+<li>He used to do research on Dependency parsing and other semantic related tasks, coreference, taxonomy induction, etc. His current focus is on <strong>dialogue modeling</strong> and <strong>generation</strong>. To list a few papers worth reading: <br>
+<ul><li><a href="https://arxiv.org/abs/1611.06997">Coherent Dialogue with Attention-based Language Models</a>, AAAI 2017.</li>
+<li><a href="http://arxiv.org/abs/1509.00838">What to talk about and how? Selective Generation using LSTMs with Coarse-to-fine Alignment</a>, NAACL 2016.</li></ul></li></ul></li>
+<li><p><a href="http://danielmankowitz.wixsite.com/danielm"><strong>Daniel Jaymin Mankowitz</strong></a></p>
+
+<ul><li>PhD Candidate Reinforcement Learning, Machine Learning.</li>
+<li>His work in Reinforcement Learning is quite amazing, following are papers worth reading: <br>
+<ul><li><a href="https://arxiv.org/pdf/1602.03351v2.pdf">Adaptive Skills Adaptive Partitions (ASAP)</a> <br>
+<em>Try to understand the skill concept in this paper. How does the agent learns to obtain skills within infinite action space.</em></li>
+<li><a href="https://arxiv.org/pdf/1604.07255v1.pdf">A Deep Hierarchical Approach to Lifelong Learning in Minecraft</a></li></ul></li>
+<li>He has co-organized a Workshop at ICML 2016 on <a href="http://rlabstraction2016.wixsite.com/icml/videos-and-slides"><strong>Abstraction in Reinforcement Learning</strong></a> <br>
+<ul><li>This is very similar to my <strong>Symbolization</strong> ability hypothesis of human being.</li></ul></li></ul></li>
+<li><p><a href="http://homes.cs.washington.edu/~tmandel/"><strong>Travis Manel</strong></a></p>
+
+<ul><li>6-th year PhD student at Washington University. Recently he has worked on Reinforcement Learning a lot.</li>
+<li>Some of his must read works: <br>
+<ul><li><a href="http://grail.cs.washington.edu/projects/stateselection/">Where to Add Actions in Human-in-the-loop Reinforcement Learning</a></li>
+<li>[Efficient Bayesian Clustering for Reinforcement Learning]</li></ul></li></ul></li>
+<li><p><a href="http://www.cs.utexas.edu/~yezhang/"><strong>Ye Zhang</strong></a></p>
+
+<ul><li>2nd year PhD student at Univ. Texas Austin. He is now working on text (long documents) classification.</li>
+<li>Some must read papers: <br>
+<ul><li><a href="https://arxiv.org/pdf/1605.04469v3.pdf">Rationale-augmented convolutional neural network for text classification</a></li>
+<li><a href="https://arxiv.org/pdf/1606.04212v4.pdf">Active Discriminative Text Representation Learning</a></li></ul></li></ul></li>
+</ul>
+
+
+
+<h2 id="theano-code-resource">Theano Code Resource</h2>
+
+<ul>
+<li><strong>Mixture Density Network</strong> <br>
+<ul><li><a href="https://github.com/aalmah/ift6266amjad/blob/master/experiments/mdn.py">https://github.com/aalmah/ift6266amjad/blob/master/experiments/mdn.py</a></li></ul></li>
+</ul>
+
+
+
+<h2 id="conference-videos-weekly">Conference Videos Weekly</h2>
+
+<p>This week, I will focus on this year’s NAACL. Here is the <a href="http://techtalks.tv/events/371/1946/">link</a> to all videos.</p>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+<ul>
+<li><p><strong>Visual Semantics: Captioning, VQA, etc.</strong></p>
+
+<ul><li>Making the V in VQA Matter: Elevating the Role of Image Understanding in Visual Question Answering <br>
+[<a href="https://arxiv.org/pdf/1612.00837.pdf]">https://arxiv.org/pdf/1612.00837.pdf]</a></li>
+<li>Video Captioning via Multifaceted Attention <br>
+[<a href="https://arxiv.org/pdf/1612.00234.pdf]">https://arxiv.org/pdf/1612.00234.pdf]</a></li>
+<li>Modeling Relationships in Referential Expressions with Compositional Modular Networks <br>
+[<a href="https://arxiv.org/pdf/1611.09978.pdf]">https://arxiv.org/pdf/1611.09978.pdf]</a></li>
+<li>Hierarchical Boundary-aware Neural Encoder for Video Captioning <br>
+[<a href="https://arxiv.org/pdf/1611.09312.pdf]">https://arxiv.org/pdf/1611.09312.pdf]</a></li>
+<li>Self-critique Sequence Training for Image Captioning <br>
+[<a href="https://arxiv.org/pdf/1612.00563.pdf]">https://arxiv.org/pdf/1612.00563.pdf]</a></li>
+<li>DeepSetNet: Predicting Sets with Deep Neural Networks <br>
+[<a href="https://arxiv.org/pdf/1611.08998.pdf]">https://arxiv.org/pdf/1611.08998.pdf]</a> <br>
+<ul><li>Very interestingly defined a likelihood over a set distribution using deep neural networks.</li></ul></li></ul></li>
+<li><p><strong>Dialogue Modeling, Generation &amp; Summarization</strong></p>
+
+<ul><li>Dialogue Learning with Human-in-the-loop <br>
+[<a href="https://arxiv.org/pdf/1611.09823.pdf]">https://arxiv.org/pdf/1611.09823.pdf]</a></li>
+<li>Joint Copying and Restricted Generation for Paraphrase <br>
+[<a href="https://arxiv.org/pdf/1611.09235.pdf]">https://arxiv.org/pdf/1611.09235.pdf]</a></li>
+<li>Deep Reinforcement Learning for Multi-domain Dialogue Systems <br>
+[<a href="https://arxiv.org/pdf/1611.08675.pdf]">https://arxiv.org/pdf/1611.08675.pdf]</a></li>
+<li>Improving Multi-Document Summarization via Text Classification <br>
+[<a href="https://arxiv.org/pdf/1611.09238.pdf]">https://arxiv.org/pdf/1611.09238.pdf]</a></li>
+<li>Context-aware Natural Language Generation with Recurrent Neural Networks <br>
+[<a href="https://arxiv.org/pdf/1611.09900.pdf]">https://arxiv.org/pdf/1611.09900.pdf]</a></li></ul></li>
+<li><p><strong>Semantic Parsing</strong></p>
+
+<ul><li>Learning a Neural Language Interface with Neural Programmer <br>
+[<a href="https://arxiv.org/pdf/1611.08945.pdf]">https://arxiv.org/pdf/1611.08945.pdf]</a></li></ul></li>
+<li><p><strong>Machine Comprehension and Reading</strong></p>
+
+<ul><li>NewsQA: A Machine Comprehension Dataset <br>
+[<a href="https://arxiv.org/pdf/1611.09830.pdf]">https://arxiv.org/pdf/1611.09830.pdf]</a></li>
+<li>MS MARCO: A Human Generated MAchine Reading COmprehension Dataset <br>
+[<a href="https://arxiv.org/pdf/1611.09268.pdf]">https://arxiv.org/pdf/1611.09268.pdf]</a></li>
+<li>Accelerated Gradient Temporal Difference Learning <br>
+[<a href="https://arxiv.org/pdf/1611.09328.pdf]">https://arxiv.org/pdf/1611.09328.pdf]</a></li></ul></li>
+<li><p><strong>Reinforcement Learning</strong></p>
+
+<ul><li>Learning to compose words into sentences with reinforcement learning <br>
+[<a href="https://arxiv.org/pdf/1611.09100.pdf]">https://arxiv.org/pdf/1611.09100.pdf]</a></li>
+<li>Training an Interactive Humanoid Robot Using Multi-modal Deep Reinforcement Learning <br>
+[<a href="https://arxiv.org/pdf/1611.08666]">https://arxiv.org/pdf/1611.08666]</a></li>
+<li>Tuning Recurrent Neural Networks with Reinforcement Learning <br>
+[<a href="https://arxiv.org/pdf/1611.02796v3.pdf]">https://arxiv.org/pdf/1611.02796v3.pdf]</a></li></ul></li>
+<li><p><strong>Representation Learning of Linguistic Units</strong></p>
+
+<ul><li>Learning to compose words into sentences with reinforcement learning <br>
+[<a href="https://arxiv.org/pdf/1611.09100.pdf]">https://arxiv.org/pdf/1611.09100.pdf]</a></li>
+<li>Neural Document Embeddings for Intensive Care Patient Mortality Prediction <br>
+[<a href="https://arxiv.org/pdf/1612.00467.pdf]">https://arxiv.org/pdf/1612.00467.pdf]</a></li>
+<li>Semi Supervised Preposition-Sense Disambiguation using Multilingual Data <br>
+[<a href="https://arxiv.org/pdf/1611.08813.pdf]">https://arxiv.org/pdf/1611.08813.pdf]</a></li>
+<li>Intelligible Language Modeling with Input Switched Affine Networks <br>
+[<a href="https://arxiv.org/pdf/1611.09434.pdf]">https://arxiv.org/pdf/1611.09434.pdf]</a></li>
+<li>Learning to distill: the essence vector modeling framework <br>
+[<a href="https://arxiv.org/ftp/arxiv/papers/1611/1611.07206.pdf]">https://arxiv.org/ftp/arxiv/papers/1611/1611.07206.pdf]</a></li></ul></li>
+<li><p><strong>Cross-lingual sentiment analysis</strong></p>
+
+<ul><li><a href="https://arxiv.org/pdf/1611.08737.pdf">Structural Correspondence Learning for Cross-lingual Sentiment Classification with one-to-many mappings</a>, AAAI 2017. <br>
+<ul><li>In this Paper, try to understand what is so-called <strong>structural correspondence learning</strong>. To quote a bit, “[SCL] its key idea is to identify a low-dimensional representation that captures the correspondence between features from both domain by modeling their correlations with some special <strong>pivot</strong> features.”</li>
+<li>Another take-away instant knowledge is the so-called <strong>Cross lingual sentiment classification (CLSC)</strong>, what is its definition? Just to quote, “It is expected to make use of the knowledge learned from those resource-rich language to perform sentiment in other languages, which can substantially reduce human efforts.”</li></ul></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Knowledge Base &amp; Deep Learning</strong></p>
+
+<ul><li>Knowledge graph representation with jointly structural and textual encoding <br>
+[<a href="https://arxiv.org/pdf/1611.08661.pdf]">https://arxiv.org/pdf/1611.08661.pdf]</a></li></ul></li>
+<li><p><strong>Neural Network Architecture: Neural Memory etc.</strong></p>
+
+<ul><li>Associative Memory Using Dictionary Learning and Expander Decoding (a theoretic paper to try to understand memory mechanism in NN with dictionary learning formalism) <br>
+[<a href="https://arxiv.org/pdf/1611.09621.pdf]">https://arxiv.org/pdf/1611.09621.pdf]</a></li>
+<li>Dynamic Key-value Memory Network for Knowledge Tracing <br>
+[<a href="https://arxiv.org/pdf/1611.08108.pdf]">https://arxiv.org/pdf/1611.08108.pdf]</a> <br>
+The key question while reading this title is <strong>knowledge tracing</strong>. So by reading this paper, I should get familiar with the term knowledge tracing.</li></ul></li>
+<li><p><strong>Curriculum Learning and Incremental Learning</strong></p>
+
+<ul><li>iCaRL: Incremental Classifier and Representation Learning <br>
+[<a href="https://arxiv.org/pdf/1611.07725.pdf]">https://arxiv.org/pdf/1611.07725.pdf]</a> <br>
+“Learning about concepts from stream of data.”</li></ul></li>
+<li><p><strong>Active Learning</strong></p>
+
+<ul><li>Improving Survey Aggregation with Sparsely Represented Signals, Tianlin Shi, KDD 2016. <br>
+[<a href="http://www.kdd.org/kdd2016/papers/files/rpp1085-shiAemb.pdf]">http://www.kdd.org/kdd2016/papers/files/rpp1085-shiAemb.pdf]</a> <br>
+This paper is about <strong>Survey aggregation</strong>, which is an untouched sub-field for me.</li></ul></li>
+<li><p><strong>Kernel &amp; Deep Learning</strong></p>
+
+<ul><li>Deep Kernel Learning, NIPS 2016. <br>
+[<a href="https://arxiv.org/abs/1511.02222]">https://arxiv.org/abs/1511.02222]</a> <br>
+This paper is co-authored by Zhiting Hu at CMU. His supervisor is Eric Xing, and he is now working on kernel methods and deep learning with application on NLP and CV.</li>
+<li>Learning Scalable Deep Kernels with Recurrent Structure <br>
+[<a href="https://arxiv.org/abs/1610.08936]">https://arxiv.org/abs/1610.08936]</a></li></ul></li>
+</ul></div></body>
+</html>

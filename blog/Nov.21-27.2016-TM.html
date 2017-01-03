@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nov. 21-27.2016 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="nov21-272016-trivial-matters">Nov.21-27.2016 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#nov21-272016-trivial-matters">Nov.21-27.2016 - Trivial Matters</a><ul>
+<li><a href="#1-compositionality-deep-learning-with-sets-and-points-clouds">1. Compositionality: Deep Learning with Sets and Points Clouds</a></li>
+<li><a href="#2-memory-networks">2. Memory Networks</a></li>
+<li><a href="#3-grasping-support-vector-machine">3. Grasping Support Vector Machine</a></li>
+<li><a href="#4-adversarial-training-workshop">4. Adversarial Training Workshop</a></li>
+</ul>
+</li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a></li>
+<li><a href="#people">People</a></li>
+<li><a href="#printed-paper">Printed Paper</a></li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="1-compositionality-deep-learning-with-sets-and-points-clouds">1. Compositionality: Deep Learning with Sets and Points Clouds</h2>
+
+<p>One paper at ICLR 2017, <a href="https://arxiv.org/pdf/1611.04500.pdf" title="Deep Learning with Sets and Cloud Points">“Deep Learning with Sets and Points Clouds”</a>.</p>
+
+<p>For linguistic and language philosophical explanation, read this paper:</p>
+
+<ul>
+<li><a href="https://sites.ualberta.ca/~francisp/papers/PrinciplePublished94.pdf">The principle of semantic compositionality</a></li>
+</ul>
+
+
+
+<h2 id="2-memory-networks">2. Memory Networks</h2>
+
+<p><strong>Memory networks</strong>(<strong>MemNet</strong>) is proposed by researchers at Facebook AI (FAIR), mainly by Jason Weston and his colleagues.</p>
+
+<p>Actually, MemNet is not only a specific model, but a general machine learning design considerations that can be used to compose complex modules each of which model a special functionality of a so-called cognitive system.</p>
+
+<p>Conceptually speaking, MemNet consists of 4 modules, Input module(<strong>I</strong>); Generalization module(<strong>G</strong>); Output module(<strong>O</strong>) and Response module(<strong>R</strong>). It is like a cognitive system where the <strong>I</strong> receives stimulus from outside environment; the <strong>G</strong> functions like <em>priming</em> in internal memory to make ready for action; the <strong>O</strong> runs reasoning mechanism to produce intermediate thinking products (outcomes); the <strong>R</strong> finally turns the result of reasoning process to response as normally as a world being.</p>
+
+<p>Formally speaking:</p>
+
+<ul>
+<li><p>Module <strong>I</strong> converts a stimuli <script type="math/tex" id="MathJax-Element-10">x</script>, whatever it is, e.g. word, sentence, text, speech, image, video etc. , to an internal feature representation <script type="math/tex" id="MathJax-Element-11">I(x)</script>, which could be a vector, matrix, and other information carrier.</p></li>
+<li><p>Module <strong>G</strong> use the memory <script type="math/tex" id="MathJax-Element-12">m</script> and <script type="math/tex" id="MathJax-Element-13">I(x)</script> to transform old memory to a new one, since <script type="math/tex" id="MathJax-Element-14">m</script> like computer memory can be addressed by index, so <script type="math/tex" id="MathJax-Element-15">m_i = G(m_i, m, I(x)), \forall i</script>.</p></li>
+<li><p>Module <strong>O</strong> is then activated to reason with intermediate product thought vector, <script type="math/tex" id="MathJax-Element-16">o = O(m, I(x))</script>.</p></li>
+<li><p>Module <strong>R</strong> finally response with target <script type="math/tex" id="MathJax-Element-17">r=R(o)</script>. </p></li>
+</ul>
+
+<p>Some comments to quote from the original paper <a href="https://arxiv.org/abs/1410.3916" title="Memory Networks">Memory Networks</a>:</p>
+
+<blockquote>
+  <p>These process (i.e. I, G, O, R) is applied to both train and test time, if there is a distinction between such phases, that is, memories are also stored at test time, but the model parameters of I, G, O and R are not updated.</p>
+  
+  <p>The components I, G, O and R can potentially use any existing ideas from the machine learning literature, e.g. make use of our favorite models (SVMs, decision trees, etc.).</p>
+</blockquote>
+
+
+
+<h2 id="3-grasping-support-vector-machine">3. Grasping Support Vector Machine</h2>
+
+<p>SVM is my weak point, only know the formulation of SVM as convex constrained optimization problem is not enough, there are other points should be learned with leveraging ability:</p>
+
+<ul>
+<li>SVM for Structured Prediction: <br>
+<ul><li><a href="http://www.cs.cornell.edu/people/tj/publications/tsochantaridis_etal_04a.pdf">Support Vector Machine learning for Interdependent and Structured Output Spaces</a></li>
+<li><a href="http://www.csie.ntu.edu.tw/~cjlin/papers/multisvm.pdf">Support Vector Machine for Multi-class Classification</a></li></ul></li>
+</ul>
+
+
+
+<h2 id="4-adversarial-training-workshop">4. Adversarial Training Workshop</h2>
+
+<p>At this <a href="https://sites.google.com/site/nips2016adversarial/">URL</a>.</p>
+
+
+
+<h1 id="arxiv-weekly">arXiv Weekly</h1>
+
+<ul>
+<li><p><strong>Image captioning</strong></p>
+
+<ul><li>Bootstrap, Review, Decode: Using Out-of-domain Textual Data to Improve Image Captioning <br>
+[<a href="https://arxiv.org/pdf/1611.05321.pdf]">https://arxiv.org/pdf/1611.05321.pdf]</a></li>
+<li>Leveraging Video Description to Learn Video Question Answering <br>
+[<a href="https://arxiv.org/pdf/1611.04021.pdf]">https://arxiv.org/pdf/1611.04021.pdf]</a></li>
+<li>Instance-aware Image and Sentence Matching with Selective Multimodal LSTM <br>
+[<a href="https://arxiv.org/pdf/1611.05588.pdf]">https://arxiv.org/pdf/1611.05588.pdf]</a></li>
+<li>Semantic Regularization for Recurrent Image Annotation <br>
+[<a href="https://arxiv.org/pdf/1611.05490.pdf]">https://arxiv.org/pdf/1611.05490.pdf]</a></li>
+<li>Multimodal Memory Modelling for Video Captioning <br>
+[<a href="https://arxiv.org/pdf/1611.05592.pdf]">https://arxiv.org/pdf/1611.05592.pdf]</a></li>
+<li>A Hierarchical Approach for Generating Descriptive Image Paragraphs <br>
+[<a href="https://arxiv.org/pdf/1611.06607.pdf]">https://arxiv.org/pdf/1611.06607.pdf]</a></li>
+<li>Recurrent Memory Addressing for Describing Videos <br>
+[<a href="https://arxiv.org/pdf/1611.06492.pdf]">https://arxiv.org/pdf/1611.06492.pdf]</a></li>
+<li>The Amazing Mysteries of the Gutter: Drawing Inferences Between Panels in Comic Book Narratives <br>
+[<a href="https://arxiv.org/pdf/1611.05118v1.pdf]">https://arxiv.org/pdf/1611.05118v1.pdf]</a></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Reinforcement learning</strong></p>
+
+<ul><li>Learning to Reinforcement Learn <br>
+[<a href="https://arxiv.org/pdf/1611.05763.pdf]">https://arxiv.org/pdf/1611.05763.pdf]</a></li>
+<li>#Exploration: A Study of Count-based Exploration for Deep Reinforcement Learning <br>
+[<a href="https://arxiv.org/pdf/1611.04717.pdf]">https://arxiv.org/pdf/1611.04717.pdf]</a></li>
+<li>Reinforcement Learning with Unsupervised Auxiliary Tasks <br>
+[<a href="https://arxiv.org/pdf/1611.05397.pdf]">https://arxiv.org/pdf/1611.05397.pdf]</a></li>
+<li>Unimodal Thompson Sampling for Graph-Structured Arms <br>
+[<a href="https://arxiv.org/pdf/1611.05724.pdf]">https://arxiv.org/pdf/1611.05724.pdf]</a></li>
+<li>Reinforcement learning with TensorFlow <br>
+[<a href="https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0#.yhf42kuih]">https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-0-q-learning-with-tables-and-neural-networks-d195264329d0#.yhf42kuih]</a></li></ul></li>
+<li><p><strong>Variational Inference</strong></p>
+
+<ul><li>Boosting Variational Inference <br>
+[<a href="https://arxiv.org/pdf/1611.05559.pdf]">https://arxiv.org/pdf/1611.05559.pdf]</a></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Recurrent Neural Network Architecture</strong></p>
+
+<ul><li>Variable Computation in Recurrent Neural Networks <br>
+[<a href="https://arxiv.org/pdf/1611.06188.pdf]">https://arxiv.org/pdf/1611.06188.pdf]</a></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Curriculum Learning</strong></p>
+
+<ul><li>Visualizing and Understanding Curriculum Learning for Long Short-term Memory Networks <br>
+[<a href="https://arxiv.org/pdf/1611.06204.pdf]">https://arxiv.org/pdf/1611.06204.pdf]</a></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Dialogue</strong></p>
+
+<ul><li>Generative Deep Neural Networks for Dialogue: A Short Review <br>
+[<a href="https://arxiv.org/pdf/1611.06216.pdf]">https://arxiv.org/pdf/1611.06216.pdf]</a></li>
+<li>Coherent Dialogue with Attention-based Language Models <br>
+[<a href="https://arxiv.org/pdf/1611.06997.pdf]">https://arxiv.org/pdf/1611.06997.pdf]</a></li></ul></li>
+<li><p><strong>Generative Model &amp; Distribution Similarity</strong></p>
+
+<ul><li>Generative Models and Model Criticism via Optimized Maximum Mean Discrepancy <br>
+[<a href="https://arxiv.org/pdf/1611.04488.pdf]">https://arxiv.org/pdf/1611.04488.pdf]</a></li>
+<li>etc.</li></ul></li>
+<li><p><strong>Incremental Embedding for Representation</strong></p>
+
+<ul><li>Multi-Shot Mining Semantic Part Concepts in CNNs <br>
+[<a href="https://arxiv.org/pdf/1611.04246.pdf]">https://arxiv.org/pdf/1611.04246.pdf]</a> <br>
+This proposes idea of incremental embedding from parts to whole.</li>
+<li>etc.</li></ul></li>
+<li><p><strong>Online Semantic Segmentation</strong></p>
+
+<ul><li>Convolutional Gated Recurrent Networks for Video Segmentation <br>
+[<a href="https://arxiv.org/pdf/1611.05435.pdf]">https://arxiv.org/pdf/1611.05435.pdf]</a> <br>
+Online property is intriguing, read to understand how they do this.</li>
+<li>etc.</li></ul></li>
+<li><p><strong>Knowledge Base Embedding and Completion</strong></p>
+
+<ul><li>Compositional Learning of Relation Paths Embedding for Knowledge Base Completion <br>
+[<a href="https://arxiv.org/pdf/1611.07232.pdf]">https://arxiv.org/pdf/1611.07232.pdf]</a></li></ul></li>
+</ul>
+
+
+
+<h1 id="people">People</h1>
+
+<ul>
+<li><p><a href="http://cs.stanford.edu/~ppasupat/">Panupong (Ice) Pasupat</a></p>
+
+<ul><li>Interested in Natural Language Processing and Machine Learning.</li>
+<li>His recent work about <strong>semantic analysis</strong> is my must read of this week. <br>
+<ul><li><a href="http://cs.stanford.edu/~ppasupat/resource/ACL2016-paper.pdf">Inferring Logical Forms from Denotations</a>, ACL 2016.</li>
+<li><a href="https://arxiv.org/pdf/1606.05378.pdf">Simple Context-Dependent Logical Forms via Model Prediction</a>, ACL 2016.</li></ul></li></ul></li>
+<li><p><a href="http://people.csail.mit.edu/yuanzh/">Yuan Zhang</a></p>
+
+<ul><li>6th year PhD at CSAIL, MIT, under supervision by Regina Barzilay.</li>
+<li>He is interested in traditional syntax processing, with work on syntactic parsing, segmentation and POS tagging. He likes using <strong>transfer learning</strong> (<a href="http://people.csail.mit.edu/yuanzh/papers/emnlp2015_hierarchy.pdf">A</a> and <a href="http://people.csail.mit.edu/yuanzh/papers/acl2013.pdf">B</a>), and novel <strong>probabilistic inference</strong> methods(<a href="http://people.csail.mit.edu/yuanzh/papers/acl2014_yuan.pdf">A</a> and <a href="http://people.csail.mit.edu/yuanzh/papers/emnlp_2014.pdf">B</a>) on syntax analysis.</li></ul></li>
+<li><p><a href="http://people.csail.mit.edu/mattjj/index.shtml">Matthew James Johnson</a></p>
+
+<ul><li>Postdoc at Harvard Univ. with broad interests in machine learning, statistics and optimization.</li>
+<li>His <strong><a href="http://arxiv.org/abs/1603.06277">NIPS2016 paper</a></strong> is the must read, which claims to successfully combine neural nets and graphical models.</li></ul></li>
+<li><p><a href="http://www-bcf.usc.edu/~feisha/">Fei</a> <a href="http://web.cs.ucla.edu/~feisha/index.html">Sha</a></p>
+
+<ul><li>His research interest is statistical machine learning. His objective is to advance principled statistical methods and algorithms, driven by real-world applications for building intelligence and autonomous systems as well as understanding intelligence.</li>
+<li>More specifically, Statistical machine learning is a vast field that has rapidly changing the landscape of Artificial Intelligence (AI). His collaborations and he have worked on many subareas in machine learning. Our past (and ongoing) research topics include: (1) <strong>unsupervised learning</strong> including probabilistic latent variable models and dimensionality reduction; (2) <strong>supervised learning</strong> especially under data paucity (or learning with small data): multi-task learning, transfer learning, zero-shot learning and domain adaptation; (3) <strong>representation learning</strong> for automatically inferring useful features from data: learning kernels and metrics, deep learning architectures, etc; (4) <strong>large-scale machine learning systems and algorithms</strong>: distributed optimization, large-scale kernel methods, etc.</li></ul></li>
+<li><p><a href="http://people.csail.mit.edu/stefje/">Stefanie Jegelka</a></p>
+
+<ul><li>Her research is in algorithmic machine learning, and spans modeling, optimization algorithms, theory and applications. In particular, they have been working on exploiting <strong>mathematical structure for discrete and combinatorial machine learning problems</strong>.</li>
+<li>Determinant Point Processes are elegant probabilistic models of diversity: these probability of subsets prefer sets that are diverse, and conveniently many inference computation reduce to <strong>linear algebra</strong>.</li>
+<li>Submodularity and Submodular Edge Weights in Graphs: She is interested in how to use submodularity in machine learning, an what new interesting (combinatorial) models are possible.</li>
+<li>Her joint work about <strong>Weakly supervised object detection</strong> which model the problem as combinatorial and convex optimization.</li></ul></li>
+<li><p><a href="http://richardkwo.net/index.html">Richard Guo</a></p>
+
+<ul><li>MIT PhD student the first year, model to learn from.</li>
+<li>His research interests are: <br>
+<ul><li><strong>scalable Learning Algorithms</strong>: parallel MCMC, stochastic/subsampling based algorithms, relaxations.</li>
+<li><strong>Bayesian Inference</strong></li>
+<li><strong>Nonparametric Bayes</strong></li>
+<li><strong>Stochastic Processes</strong>: point processes modeling for social interactions &amp; human behaviors</li>
+<li>Connecting ML and statistical mechanics: Monte Carlo, belief propagation, phase transition, etc.</li></ul></li></ul></li>
+<li><p><a href="https://www.cs.uic.edu/Ziebart">Brian Ziebart</a></p>
+
+<ul><li><p>primarily interested in machine learning and its applications to problems in robotics, assistive technologies, and human-computer interaction. He develop and apply new techniques for prediction structured data.</p>
+
+<ul><li><strong>Adversarial prediction</strong>: Approximating our training data and optimizing over the exact performance measure to provide greater flexibility for: <br>
+<ul><li>Learning under covariate shift (input distribution bias) and active learning;</li>
+<li>Cost-sensitive classification and inductive optimization of univariate performance measures;</li>
+<li>Learning to optimize for F-measure, discounted cumulative gain, and other multivariate performance measures; and</li>
+<li>Structured prediction problems over sequences, trees, graphs, etc.</li></ul></li></ul></li>
+<li><p>He has a paper at NIPS 2015, which from the title is worth reading.</p>
+
+<ul><li><a href="https://www.cs.uic.edu/pub/Ziebart/Publications/wang2015adversarial.pdf">Adversarial Prediction Games for Multivariate Losses</a> and this one</li>
+<li><a href="https://www.cs.uic.edu/pub/Ziebart/Publications/liu2014robust.pdf">Robust Classification Under Sample Selection Bias</a></li></ul></li></ul></li>
+<li><p><a href="http://djweiss.com/">David Weiss</a> <br>
+        - After supervision of Ben Taskar (who sadly passed away.), he has background in Neuroscience. He does structured prediction and has great work in speeding up inference. <br>
+            - <a href="http://djweiss.com/pdf/cascades-aistats2010.pdf">Structured Prediction Cascade</a></p></li>
+<li><p><a href="http://www.cis.upenn.edu/~ungar/">Lyle Ungar</a></p>
+
+<ul><li>He has very broad interests in ML, NLP and Text Mining etc. He has a course on Cognitive Science which has a lot reading materials.</li></ul></li>
+<li><p><a href="http://www.cs.columbia.edu/~jebara/index.html">Tony Jebara</a> <br>
+</p><ul><li>Professor at Columbia University. His work of combining discriminative (large-margin) and generative (probabilistic) is very representative.  <br>
+<ul><li>Variational maximum conditional likelihood</li>
+<li>Maximum entropy discrimination</li></ul></li>
+<li>His PhD thesis (a preprinted book) is very worth reading!  <br></li></ul><p></p>
+
+<blockquote>
+  <p>I don’t know whether Fei Sha’s work is driven by this combination of ML approaches, like in this paper <a href="http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2006_143.pdf">“Large Margin Hidden Markov Models for Automatic Speech Recognition”</a>.</p></blockquote></li></ul>
+
+<li><p><a href="https://am.is.tuebingen.mpg.de/person/jbohg">Jeannette Bohg</a></p>
+
+<ul><li>A Master Thesis about visual attention, <a href="https://am.is.tuebingen.mpg.de/uploads_file/attachment/attachment/254/thesis.pdf">“Learning Where to Search Using Visual Attention”</a> about top-down saliency generation.</li>
+<li>There are similar papers must read, to model attention variables generatively. <br>
+<ul><li>Like this NIPS 14 paper <a href="http://www.cs.toronto.edu/~rsalakhu/papers/atten_nips14.pdf">“Learning Generative Models with Visual Attention”</a> from Ruslan Salakhutdinov.</li>
+<li>And this one, <a href="https://arxiv.org/pdf/1511.04119v3.pdf">“Action Recognition with Visual Attention”</a>, which is also from Ruslan’s group.</li></ul></li></ul></li>
+<li><p><a href="http://geometry.stanford.edu/person.php?id=justso1">Justin Solomon</a></p>
+
+<ul><li>Earth mover’s distance, which can be used to model <strong>Divergence</strong> between two distribution.</li>
+<li>He has a course on <strong>Differential Geometry for Computer Science</strong>.</li></ul></li>
+<li><p><a href="http://www.petrovi.de/">Slav Petrov</a></p>
+
+<ul><li>They won <strong>Best Paper</strong> at ACL 2016, on neural network based global decision making while decoding, titled <a href="http://www.petrovi.de/data/acl16.pdf">“Globally Normalized Transition-based Neural Networks”</a>, which is a must read!</li></ul></li>
+<li><p>etc.</p></li>
+
+
+
+
+<h1 id="printed-paper">Printed Paper</h1>
+
+<ul>
+<li>Interactive Control of Diverse Complex Characters with Neural Networks <br>
+[<a href="https://papers.nips.cc/paper/5764-interactive-control-of-diverse-complex-characters-with-neural-networks.pdf]">https://papers.nips.cc/paper/5764-interactive-control-of-diverse-complex-characters-with-neural-networks.pdf]</a></li>
+<li>Learning from Human-Generated Lists <br>
+[<a href="http://burrsettles.com/pub/jun.icml13.pdf]">http://burrsettles.com/pub/jun.icml13.pdf]</a></li>
+<li>Auto-Encoding Variational Bayes</li>
+<li>Using Fast Weights to Attend to the Recent Past</li>
+<li>etc.</li>
+</ul></div></body>
+</html>

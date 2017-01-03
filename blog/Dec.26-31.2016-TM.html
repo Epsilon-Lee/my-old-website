@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dec.26-31.2016 - Trivials Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="dec26-312016-trivial-matters">Dec.26-31.2016 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#dec26-312016-trivial-matters">Dec.26-31.2016 - Trivial Matters</a><ul>
+<li><a href="#ruslan-unsupervised-learning-talk">Ruslan Unsupervised Learning Talk</a></li>
+<li><a href="#deep-reinforcement-learning-the-first-place-to-begin">Deep Reinforcement Learning: The First Place to Begin</a></li>
+<li><a href="#sebastian-ruders-catch-of-taste-on-emnlp2016">Sebastian Ruder’s Catch of Taste on EMNLP2016</a></li>
+<li><a href="#percys-course-notes-on-statistical-machine-learning">Percy’s Course Notes on Statistical Machine Learning</a></li>
+<li><a href="#nonparametric-model-two-specific-models">Nonparametric Model - Two specific models</a></li>
+<li><a href="#explaining-away-in-graphical-models">‘Explaining Away’ in Graphical Models</a></li>
+<li><a href="#memnet-code">MemNet Code</a></li>
+<li><a href="#microsoft-research-nips-2016-paper-archive">Microsoft Research NIPS 2016 Paper Archive</a></li>
+<li><a href="#generative-adversarial-nets-resources-code">Generative Adversarial Nets - Resources &amp; Code</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#online-active-learning-bayesian-crowdsourcing">Online &amp; Active Learning (Bayesian Crowdsourcing)</a></li>
+<li><a href="#visual-semantics-captioning">Visual Semantics &amp; Captioning</a></li>
+<li><a href="#interpreting-neural-networks">Interpreting Neural Networks</a></li>
+<li><a href="#language-modeling">Language Modeling</a></li>
+<li><a href="#image-parsing">Image Parsing</a></li>
+<li><a href="#generative-modeling">Generative Modeling</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="ruslan-unsupervised-learning-talk">Ruslan Unsupervised Learning Talk</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rK6bchqeaN8">Deep Unsupervised Learning talk</a></li>
+</ul>
+
+
+
+<h2 id="deep-reinforcement-learning-the-first-place-to-begin">Deep Reinforcement Learning: The First Place to Begin</h2>
+
+<ul>
+<li><a href="https://www.nervanasys.com/demystifying-deep-reinforcement-learning/?utm_content=buffer2874c&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">Here</a> <br>
+<ul><li>Pay attention to <strong>Credit Assignment problem</strong> and <strong>Experience Replay</strong> and the implementation side of <strong>Deep Q-learning Network</strong>.</li></ul></li>
+</ul>
+
+
+
+<h2 id="sebastian-ruders-catch-of-taste-on-emnlp2016">Sebastian Ruder’s Catch of Taste on EMNLP2016</h2>
+
+<ul>
+<li>See his blog post <a href="http://sebastianruder.com/emnlp-2016-highlights/">here</a></li>
+</ul>
+
+
+
+<h2 id="percys-course-notes-on-statistical-machine-learning">Percy’s Course Notes on Statistical Machine Learning</h2>
+
+<ul>
+<li>The <a href="http://web.stanford.edu/class/cs229t/2015/notes.pdf">link</a>.</li>
+</ul>
+
+
+
+<h2 id="nonparametric-model-two-specific-models">Nonparametric Model - Two specific models</h2>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1006.1062.pdf">Tree-structured Stick Breaking Processes for Hierarchical Data</a>, 2010.</p>
+
+<ul><li>This paper do experiment on image clustering and topic modeling of text. The True structured clusters discovered by the algorithm is very impressive, especially image tree clusters on CIFAR-100 dataset.</li>
+<li>“The approach uses nested stick-breaking processes to allow for trees of unbounded width and depth, where data can live at any node and are infinitely exchangeable. […] We can apply Markov chain Monte Carlo methods based on slice sampling to perform Bayesian inference and simulate from the posterior distribution on trees.”</li></ul></li>
+<li><p><a href="http://mlg.eng.cam.ac.uk/zoubin/papers/ihmm.pdf">The Infinite Hidden Markov Model</a></p>
+
+<ul><li>Nonparametric model on Sequence where the hidden state can be countably infinite.</li></ul></li>
+</ul>
+
+
+
+<h2 id="explaining-away-in-graphical-models">‘Explaining Away’ in Graphical Models</h2>
+
+<ul>
+<li>A stackexchage post on <a href="http://stats.stackexchange.com/questions/54849/why-does-explaining-away-make-intuitive-sense">why-does-explaining-away-make-intuitive-sense</a>, which gives a very intuitive explanation.</li>
+<li>The <a href="http://strategicreasoning.org/wp-content/uploads/2010/03/pami93.pdf">original paper</a> for explanation of ‘Explaining away’.</li>
+</ul>
+
+
+
+<h2 id="memnet-code">MemNet Code</h2>
+
+<p>This <a href="https://github.com/facebook/MemNN">link</a>.</p>
+
+
+
+<h2 id="microsoft-research-nips-2016-paper-archive">Microsoft Research NIPS 2016 Paper Archive</h2>
+
+<p>This <a href="https://www.microsoft.com/en-us/research/event/nips-2016-microsoft-research/">link</a>. Among those papers, the following are must read.</p>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1610.09893">LightRNN: Memory and Computation-Efficient Recurrent Neural Network</a></li>
+</ul>
+
+
+
+<h2 id="generative-adversarial-nets-resources-code">Generative Adversarial Nets - Resources &amp; Code</h2>
+
+<ul>
+<li><p><a href="https://github.com/aleju/cat-generator">Cat Generator</a></p>
+
+<ul><li>Torch &amp; Lua based.</li></ul></li>
+<li><p><a href="https://bayesianbiologist.com/2016/12/07/generative-adversarial-networks-are-the-hotness-at-nips-2016/">Toy Example on GAN</a></p></li>
+<li><p><a href="https://github.com/openai/cleverhans">Cleverhans (v1.0.0)</a></p>
+
+<ul><li>A python library to benchmark machine learning systems’ vulnerability to adversarial examples.</li></ul></li>
+</ul>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="online-active-learning-bayesian-crowdsourcing">Online &amp; Active Learning (Bayesian Crowdsourcing)</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.07222.pdf">Bayesian Decision Process for Cost-Efficient Dynamic Ranking via Crowdsourcing</a> <br>
+<ul><li>Bayesian Decision Processes, a decision making problem.</li>
+<li>Knowledge Gradient</li>
+<li>The first author <a href="http://www.cs.cmu.edu/~./xichen/">Xi Chen</a> is very famous for his work in statistical inference of high dimensional data.</li></ul></li>
+</ul>
+
+
+
+<h3 id="visual-semantics-captioning">Visual Semantics &amp; Captioning</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.07833.pdf">Understanding Image and Text Simultaneously: A Dual Vision-Language Machine Comprehension Task</a>, Google Inc. with Nan Ding and Fei Sha.</li>
+</ul>
+
+
+
+<h3 id="interpreting-neural-networks">Interpreting Neural Networks</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.08220">Understanding Neural Networks through Representation Erasure</a> <br>
+<ul><li>Jiwei Li et al. Using Reinforcement Learning to Learn good dropout-like connection.</li></ul></li>
+</ul>
+
+
+
+<h3 id="language-modeling">Language Modeling</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.08083">Language Modeling with Gated Convolutional Networks</a></li>
+</ul>
+
+
+
+<h3 id="image-parsing">Image Parsing</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.06017.pdf">Parsing Images of Overlapping Organisms with Deep Singling-Out Networks</a> <br>
+<ul><li>Image-level optimization based on integer programming can pick a subset of hypotheses to explain (parse) the whole image and disentangle groups of organisms. ILP solver.</li>
+<li>Learn how to formulate your problem as an ILP problem.</li></ul></li>
+</ul>
+
+
+
+<h3 id="generative-modeling">Generative Modeling</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.05424.pdf">Unsupervised Pixel-Level Domain Adaptation with Generative Adversarial Networks</a></p>
+
+<ul><li>Paper from Google Brain.</li>
+<li>The <strong>Content Similarity Loss</strong> is the most important ingredient.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07828.pdf">Learning from Simulated and Unsupervised Images through Adversarial Training</a></p></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><a href="https://cs.brown.edu/~dabel/">David Abel</a> <br>
+<ul><li>My research investigates the computational, <strong>philosophical</strong>, and mathematical foundations of Artificial Intelligence and its applications to scientific and societal challenges. </li>
+<li>I’m currently focused on a theory of abstraction for decision making agents. How do intelligent agents model their surroundings? What are the necessary and sufficient conditions of representations that support effective exploration, generalization, and causal inference? I address these questions through the learning paradigm of Reinforcement Learning (RL), drawing on tools from computational learning theory, probability, complex systems, and information theory to develop simple claims, analyze them mathematically, and evaluate them empirically. A central goal of this investigation is to leverage insights in abstraction and RL to offer new philosophical perspectives on the nature of mind and machine.</li></ul></li>
+</ul></div></body>
+</html>

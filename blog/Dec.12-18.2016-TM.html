@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dec.12-18.2016 -  Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="dec12-182016-trivial-matters">Dec.12 - 18.2016 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#dec12-182016-trivial-matters">Dec.12 - 18.2016 - Trivial Matters</a><ul>
+<li><a href="#1-kernel-approximation">1. Kernel Approximation</a></li>
+<li><a href="#2-domain-adaptation">2. Domain Adaptation</a></li>
+<li><a href="#3-self-knowledge-graph">3. Self Knowledge Graph</a></li>
+<li><a href="#4-neural-program-learning">4. Neural Program Learning</a></li>
+<li><a href="#5-deep-reinforcement-learning">5. Deep Reinforcement Learning</a><ul>
+<li><a href="#reinforcement-learning-the-setting">Reinforcement Learning: The setting</a></li>
+<li><a href="#markov-decision-process">Markov Decision Process</a></li>
+</ul>
+</li>
+<li><a href="#6-intro-to-python-interpreter">6. Intro to Python Interpreter</a></li>
+<li><a href="#mathbbeunknowns"><script type="math/tex" id="MathJax-Element-1">\mathbb{E}[Unknowns]</script></a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#generative-neural-networks">Generative Neural Networks</a></li>
+<li><a href="#image-processing-and-vision">Image Processing and Vision</a></li>
+<li><a href="#knowledge-elicitation">Knowledge Elicitation</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="1-kernel-approximation">1. Kernel Approximation</h2>
+
+<p>Support Vector Machine is a great test bed for Kernel Method. Yesterday (Dec. 14) ‘s talk on <strong>Multi-target Regression via joint sparse and low-rank learning</strong> put insights in using kernel methods plus linear methods as pipeline for multi-target regression. To deal with large-scale data in real world situation, kernel method needs to be <strong>APPROXIMATED</strong> to fit in. The author uses kernel approximation methods to tackle with this situation.</p>
+
+<p>A <em>THEOREM</em> is used to give a solution, <strong>Bochner’s Theorem</strong>.</p>
+
+<blockquote>
+  <p><strong>Bochner Theorem</strong>.  <br>
+  <em>A continuous kernel <script type="math/tex" id="MathJax-Element-2"> k(x, y) = k(x-y) </script> on <script type="math/tex" id="MathJax-Element-3"> \mathbb{R}^d </script> is positive definite if and only if <script type="math/tex" id="MathJax-Element-4"> k(\delta) </script> is the Fourier transform of a non-negative measure.</em> <br>
+  If a shifted -invariant kernel <script type="math/tex" id="MathJax-Element-5"> k(\delta) </script> is properly scaled, Bochner’s theorem guarantees that its Fourier transform <script type="math/tex" id="MathJax-Element-6"> p(w) </script> is a proper probability distribution. Defining <script type="math/tex" id="MathJax-Element-7">\zeta(\mathrm{x}) = e^{jw'\mathrm{x}}</script>, we have: <br>
+  <script type="math/tex; mode=display" id="MathJax-Element-8"> k(\mathrm{x} - \mathrm{y}) = \int_{\mathbb{R}^d} p(w) e^{jw'\mathrm{(x-y)}} dw = \mathit{E}_w [\zeta_w(\mathrm{x}) \zeta_w(\mathrm{y})^*)]</script></p>
+</blockquote>
+
+<p>So, <script type="math/tex" id="MathJax-Element-9"> \zeta_w({\mathrm{x}}) \zeta_w{(\mathrm{y})^*} </script> is an unbiased estimation of <script type="math/tex" id="MathJax-Element-10"> k(\mathrm{x, y}) </script>, when <script type="math/tex" id="MathJax-Element-11"> w </script> is drawn from <script type="math/tex" id="MathJax-Element-12"> p </script>.</p>
+
+<p>From Zhi-Hua Zhou’s Machine Learning book. He says that:</p>
+
+<blockquote>
+  <p>如何提高效率，使<script type="math/tex" id="MathJax-Element-13"> SVM</script>能使用于大规模数据一直是研究重点. 对线性核SVM已有很多成果，例如基于割平面法（cutting plane algorithm）的<script type="math/tex" id="MathJax-Element-14"> SVM^{perf} </script>具有线性复杂度，基于梯度下降的<script type="math/tex" id="MathJax-Element-15"> Pegasos </script>速度甚至更快，而坐标下降法则在稀疏数据上有很高的效率. </p>
+  
+  <p>非线性核<script type="math/tex" id="MathJax-Element-16"> SVM </script>的时间复杂度在理论上不可能低于<script type="math/tex" id="MathJax-Element-17"> O(m^2) </script>，因此研究重点是设计快速近似算法，如基于采样的<script type="math/tex" id="MathJax-Element-18"> CVM </script>、基于低秩逼近的<script type="math/tex" id="MathJax-Element-19"> Nystrom </script> 方法、基于随机傅里叶特征的方法等. 最近有研究显示，当核矩阵特征值有很大差别时，<script type="math/tex" id="MathJax-Element-20"> Nystrom </script>方法往往优于随机傅里叶特征方法.</p>
+</blockquote>
+
+
+
+<h2 id="2-domain-adaptation">2. Domain Adaptation</h2>
+
+<p>Must read <strong>Shai Ben-David</strong>’s NIPS paper:</p>
+
+<ul>
+<li><a href="http://papers.nips.cc/paper/2983-analysis-of-representations-for-domain-adaptation.pdf"><em>Analysis of Representation for Domain Adaptation</em></a>, NIPS 2007.</li>
+</ul>
+
+<p>And an ML Journal paper:</p>
+
+<ul>
+<li><a href="http://www.alexkulesza.com/pubs/adapt_mlj10.pdf"><em>A theory of learning from different domain</em></a>, Machine Learning, 2010.</li>
+</ul>
+
+<p>In Prof. Cao’s COLING paper, <a href="http://aclweb.org/anthology/C/C16/C16-1171.pdf"><em>A distribution based model to learn bilingual word embeddings</em></a>. He borrows insights from Domain Adaptation, to learn from monolingual corpus using Word2vec and forces constraints on the respectively learned distribution sufficient statistics of embeddings. He assumed <strong>Multivariate Normal Distribution</strong> so constraints should be put on mean and covariance matrix.</p>
+
+
+
+<h2 id="3-self-knowledge-graph">3. Self Knowledge Graph</h2>
+
+<p>It should be an open source project. See William Cohen’s wiki for more insights.</p>
+
+<p>He has organize the paper he read in his knowledge organism. That’s the most impressive part for me. Like his <a href="http://curtis.ml.cmu.edu/w/courses/index.php/Minimum_error_rate_training">notes</a> on Minimum rate training for MT.</p>
+
+<p>And here is another project (Commercialized) for drawing mind graph. It is called <a href="https://www.mindmeister.com/zh">Mindmeister</a>.</p>
+
+
+
+<h2 id="4-neural-program-learning">4. Neural Program Learning</h2>
+
+<p>The <a href="https://uclmr.github.io/nampi/">NIPS 2016 workshop</a> which should be put concentration on.</p>
+
+
+
+<h2 id="5-deep-reinforcement-learning">5. Deep Reinforcement Learning</h2>
+
+<p>Some notes taken from reading this <a href="https://adeshpande3.github.io/adeshpande3.github.io/Deep-Learning-Research-Review-Week-2-Reinforcement-Learning">blog</a>.</p>
+
+<hr>
+
+
+
+<h3 id="reinforcement-learning-the-setting">Reinforcement Learning: The setting</h3>
+
+<blockquote>
+  <p><em>Reinforcement learning is the task of learning what actions to take, given a certain situation/environment, so as to maximize a reward signal. The interesting difference between supervised and reinforcement learning is that this reward signal simply tells you whether the action (or input) that the agent takes is good or bad. It doesn’t tell you anything about what the best action is. Contrast this to CNNs where the corresponding label for each image input is a definite instruction of what the output should be for each input.  Another unique component of RL is that an agent’s actions will affect the subsequent data it receives. For example, an agent’s action of moving left instead of right means that the agent will receive different input from the environment at the next time step. Let’s look at an example to start off.</em></p>
+</blockquote>
+
+<p>What <em>ingredients</em> we have in a Reinforcement Learning situation.</p>
+
+<ul>
+<li>Agent: The decision maker, the learner, the artificial intelligence we’d like to build.</li>
+<li>Environment: <em>“The agent view of the environment.”</em> or Model.</li>
+<li>States: <em>“Description of the environment.”</em></li>
+<li>Actions: There is an action domain where any action belongs to <script type="math/tex" id="MathJax-Element-21"> a \in A </script> is an action POOL.</li>
+<li>Reward: <em>“How well a agent is doing in short term.”</em>, at each time step, the reward is denoted as <script type="math/tex" id="MathJax-Element-22"> r_t </script>.</li>
+</ul>
+
+<p>I list the above terms with a nearly causal order. An agent is a learning SELF with objective. It is put into an environment which is strange to him. It perceives some objective phenomenon of the environment as states. And take actions according to its observation and experience if it has some. Sometimes, some short term happiness is achieved, by taking a sequence of actions through passage of observations, from its long-term objectives. To be more and more experienced, accumulative reward as long-term gains rise as a consequence.</p>
+
+<ul>
+<li>Policy: <em>“An agent’s behavior (How it maps from state to actions?)”</em>, how we formalize it? One solution is that it can be modeled by a probabilistic map, but HOW?</li>
+<li>Value: <em>“How good it is be in a particular position/take a certain action.”</em> in a long run.</li>
+</ul>
+
+<hr>
+
+
+
+<h3 id="markov-decision-process">Markov Decision Process</h3>
+
+<p>A position with high value means good to be in that position. And we can now start to model this decision making <strong>game</strong>, like in game theory where number of agent may be more than one (Multi-agent). The formalism is called <em>Markov Decision Process</em>. It is a Markov Process with reward augmentation on state transitions. </p>
+
+<p>An MDP is a tuple <script type="math/tex" id="MathJax-Element-23"> (A, S, P_0) </script>, where <script type="math/tex" id="MathJax-Element-24"> A, S </script> is domain of action and state. <script type="math/tex" id="MathJax-Element-25"> P_0 </script> is a probability kernel with a <strong>conditional form</strong> on the previous state and <strong>joint form</strong> on current reward and state. That is <script type="math/tex" id="MathJax-Element-26"> P_0(s_t, r_t | s_{t-1}) </script>. And then, the state-to-state transition probability and stochastic reward can be computed via <strong>marginalizing</strong> probability kernel <script type="math/tex" id="MathJax-Element-27"> P_0 </script>.</p>
+
+<p>With the help of so-called <strong>state value function</strong> &amp; <strong>state-action value function</strong>, we can try to learn more reasonable policy for taking actions and be more knowledgeable of the environment.</p>
+
+<ul>
+<li><strong>State value function</strong>: is defined as expected discounted, accumulative rewards following policy <script type="math/tex" id="MathJax-Element-28"> \pi </script>. That is: <script type="math/tex; mode=display" id="MathJax-Element-29"> \mathbb{E}_{\pi}[\gamma^0 r_0 + \gamma^1 r_1 + ... + \gamma^T r_T | s_0] </script></li>
+<li><strong>State-action value function</strong>: is defined as expected discounted, accumulative rewards following policy <script type="math/tex" id="MathJax-Element-30"> \pi </script> after start from state <script type="math/tex" id="MathJax-Element-31"> s_0 </script> and take an arbitrary action <script type="math/tex" id="MathJax-Element-32"> a_0 </script>. That is: <script type="math/tex; mode=display" id="MathJax-Element-33"> \mathbb{E}_{\pi}[\gamma^0 r_0 + \gamma^1 r_1 + ... + \gamma^T r_T | s_0, a_0] </script></li>
+</ul>
+
+<p>Note that, here are 2 expectation operators <script type="math/tex" id="MathJax-Element-34"> \mathbb{E} </script>, one w.r.t. each value function. As we know in probability theory and mathematical statistics, we can expand the form with expectation operator to sum or integral form according to the probability distribution each r.v. obeys. </p>
+
+
+
+<h2 id="6-intro-to-python-interpreter">6. Intro to Python Interpreter</h2>
+
+<p>Notes from 4 blog posts on understanding Python interpreter, on <a href="http://akaptur.com/blog/2013/11/15/introduction-to-the-python-interpreter/">function object</a>, <a href="http://akaptur.com/blog/2013/11/15/introduction-to-the-python-interpreter-2/">code object</a>, <a href="">bytecode</a>, </p>
+
+<p>While we hit return in a REPL (Run-Evaluate-Print-Loop environment).</p>
+
+<ul>
+<li><strong>Function object</strong></li>
+<li><strong>Code object</strong></li>
+</ul>
+
+
+
+<h2 id="mathbbeunknowns"><script type="math/tex" id="MathJax-Element-35">\mathbb{E}[Unknowns]</script></h2>
+
+<ul>
+<li><p><a href="http://www.cs.cmu.edu/~zguo/publications/concurrent_pac_rl.pdf"><strong>Concurrent PAC RL</strong></a></p>
+
+<ul><li>In real-world situation, decision maker may take actions across many separate reinforcement learning tasks in parallel.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1610.02847v1.pdf"><strong>Situational Awareness by Risk-Conscious Skills</strong></a></p>
+
+<ul><li>So what is <em>HIERARCHICAL REINFORCEMENT LEARNING?</em> How is it doing speed-up? <strong>Hierarchical Abstraction</strong> or  <em>SKILLS</em> - a type of temporally extended action to <em>PLAN</em> at a higher level, abstracting away from low level details.</li>
+<li>What is <em>PROBABILISTIC GOAL SEMI-MARKOV DECISION PROCESS</em>.</li></ul></li>
+</ul>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.03975.pdf">ConceptNet 5.5: An Open Multilingual Graph of General Knowledge</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03929.pdf">Online Sequence-to-sequence Active Learning for Open-domain Dialogue Generation</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04609.pdf">Neural Emoji Recommendation in Dialogue Systems</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05310.pdf">Modeling Trolling in Social Media Conversations</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04936.pdf">Learning through Dialogue Interaction</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03651.pdf">FastText.zip: Compressing Text Classification Models</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05348.pdf">Machine Reading with Background Knowledge</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04211.pdf">Multi-Perspective Context Matching for Machine Comprehension</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04342.pdf">Building Large Machine Reading-Comprehension Datasets using Paragraph Vectors</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03551.pdf">Reading Comprehension using Entity-based Memory Networks</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03969.pdf">Tracking the world state with Recurrent Entity Networks</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03791.pdf">Neural Machine Translation by Minimizing the Bayes-risk with Respect to Syntactic Translation Lattices</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04118.pdf">Information Extraction with Character level Neural Networks and Noisy Supervision</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04732.pdf">Multilingual Word Embeddings using Multigraphs</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04757.pdf">Attentive Explanations: Justifying Decisions and Pointing to the Evidence</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04949.pdf">Recurrent Image Captioner: Describing Images with Spatial-Invariant Transformation and Attention Filtering</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04426.pdf">Improving Neural Language Models with A Continuous Cache</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03628.pdf">VIBIKNet: Visual Bidirectional Kernelized Network for Visual Question Answering</a></p></li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.05628.pdf">A New Softmax Operator for Reinforcement Learning</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04340.pdf">End-to-End Deep Reinforcement Learning for Lane Keeping Assist</a></p></li>
+</ul>
+
+
+
+<h3 id="generative-neural-networks">Generative Neural Networks</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.04357.pdf">Stacked Generative Adversarial Networks</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04739.pdf">An Architecture for Deep, Hierarchical Generative Models</a>, Maluuba Research.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04021.pdf">Generative Adversarial Parallelization</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04440.pdf">Disentangling Space and Time in Video with Hierarchical Variational Auto-encoders</a></p></li>
+</ul>
+
+
+
+<h3 id="image-processing-and-vision">Image Processing and Vision</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.03809.pdf">Generalize Features From Unsupervised Learning</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03268.pdf">Generalized Deep Image to Image Regression</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.03897.pdf">Inverse Compositional Spatial Transformer Networks</a></p></li>
+</ul>
+
+
+
+<h3 id="knowledge-elicitation">Knowledge Elicitation</h3>
+
+<p>This paper have some ideas similar to my, they model the knowledge elicitation process as a process of probabilistic inference. Key words are <em>Active learning, Interactive Learning</em>.</p>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.03328.pdf">Knowledge Elicitation via Sequential Probabilistic Inference for High-Dimensional Prediction</a></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://www.cs.umd.edu/~marine/"><strong>Marine Carpuat</strong></a></p>
+
+<ul><li><strong>Assistant Professor at University of Maryland</strong>. She do research in Natural Language Processing, Semantics and Machine Learning. </li>
+<li>Recently, she and her team are focusing on bilingual word representation. Her work is somehow linguistic oriented, which could be a huge source of linguistic intuition!</li>
+<li>Their paper: <br>
+<ul><li><a href="https://github.com/yogarshi/bisparse">Sparse Bilingual Word Representations for Cross-Lingual Lexical Entailment</a>, is worth reading.</li></ul></li>
+<li>In the past, her main contributions are in <strong>Machine Translation</strong>.</li></ul></li>
+<li><p><a href="https://www.psy.pku.edu.cn/~lijian/styled-2/supervisor_page.html"><strong>Jian Li</strong></a></p>
+
+<ul><li>Professor at Peking University, at Department of Psychology. Some of his work in  <strong>Neural Basis</strong> of <strong>Reinforcement Learning</strong> is representative, can sometimes read to gain intuitions.</li>
+<li>His 2011 paper about reinforcement learning of Human demonstrates experimental results about how human can reinforce his policy of decision by cue-reward probability. (However, I think of it as a way of Bayesian prior for decision maker to choose among actions.) See this paper: <br>
+<ul><li><a href="http://www.pnas.org/content/108/1/55.long">How instructed knowledge modulates the neural systems of reward learning</a>, to quote a few words:</li>
+<li>“<em>Humans have also developed efficient, symbolic means of communication, namely language, that allow the social communication of information about value without the necessity for committing multiple errors across trials to learn. Little is known about how this explicit, symbolic knowledge can infiltrate the valuation structures mentioned above and exert its influence on action selection, and how the brain’s embodiment of the RL algorithm differs in the face of instructed knowledge. […] To address these questions, we used functional MRI (fMRI) together with a probabilistic reward task (Fig. 1) to assess the relative contributions of trial-and-error feedback and instructed knowledge on choice selection.</em>”</li></ul></li></ul></li>
+<li><p><a href="http://www.princeton.edu/~mengdiw/index.html"><strong>Mengdi Wang</strong></a></p>
+
+<ul><li>Assistant Professor at Princeton University. She is interested in <strong>data-driven stochastic optimization and applications in machine and reinforcement learning</strong>. She was advised by <strong>Dimitri P. Bertsekas</strong>.</li>
+<li>So, if I want to formulate some <strong>REINFORCEMENT LEARNING PROBLEMS</strong> as <em>OPTIMIZATION</em>, I may take advantage of her study.</li>
+<li>To read one of her best paper: <br>
+<ul><li><a href="https://arxiv.org/pdf/1411.3803v1.pdf">Stochastic Compositional Gradient Descent: Algorithms for Minimizing Compositions of Expected-Value Functions</a></li></ul></li></ul></li>
+<li><p><a href="http://www.cs.cmu.edu/afs/cs/user/xiaodan1/www/"><strong>Xiaodan Liang</strong></a></p>
+
+<ul><li>CMU Postdoc, working with Eric Xing. Her graduated from Sun Yat-sen University in June 2016 under supervision of Prof. Liang Lin.</li>
+<li>Her research interest is to develop structured machine learning techniques for computer vision tasks. She mainly investigate <em>HUMAN COMMONSENSE</em> and incorporate them to develop advanced Artificial Intelligence Systems.</li>
+<li>She is a master of <strong>RECURSIVE Learning</strong> or <strong>Sequential Learning</strong>. Their recent work is on learning relationship (caption-like predicate-argument clause) based on <strong>Reinforcement Learning</strong>. Yesterday (Dec. 15), she talked on VALSE, and gave me a good question about the philosophy of <em>Reinforcement Objective Function Design</em>. <br>
+<ul><li>The question is: <strong>What is the difference between REINFORCE by Williams &amp; DQ-Learning?</strong> I think her explanation is not the complete answer in essence. So let me <strong>FIGURE IT OUT!</strong></li></ul></li>
+<li>Some of here <strong>MUST READ</strong> paper: <br>
+<ul><li><a href="https://papers.nips.cc/paper/6532-tree-structured-reinforcement-learning-for-sequential-object-localization.pdf"><em>Tree-structured reinforcement learning for sequential object localization</em></a>, NIPS 2016.</li>
+<li><a href="http://users.eecs.northwestern.edu/~xsh835/assets/eccv2016_graphlstm.pdf"><em>Semantic Object Parsing with Graph LSTM</em></a>, ECCV 2016, Spotlight.</li></ul></li></ul></li>
+<li><p><a href="https://cs.uwaterloo.ca/~ppoupart/index.html"><strong>Pascal Poupart</strong></a></p>
+
+<ul><li>His recent interests are: Sum-product Networks, Bayesian Learning, Prob. reasoning, Decision theory, Reinforcement Learning etc. As we can see, he has a very broad interests.</li>
+<li>One of his PhD student <a href="http://www.cs.cmu.edu/~hzhao1/">Zhan Han</a> (now at CMU) is my learning model. His Master work on <a href="https://cs.uwaterloo.ca/~ppoupart/students/han-zhao-thesis.pdf">Sum-product Network</a> is thoughtful.</li></ul></li>
+<li><p><a href="https://people.eecs.berkeley.edu/~brecht/index.html"><strong>Ben Recht</strong></a></p>
+
+<ul><li>Associate Prof. at UC Berkeley. <em>“My research focuses on scalable computational tools for large-scale data analysis, statistical signal processing, and machine learning. I explore the intersections of convex optimization, mathematical statistics, and randomized algorithms. I am particularly interested in simplifying the analysis and manipulation of noisy and incomplete data by exploiting domain-specific knowledge and prior information about structure.”</em></li>
+<li>He has two course which is very great for me to study through. <br>
+<ul><li><a href="https://people.eecs.berkeley.edu/~brecht/eecs227c.html">Optimization for Modern Data Analysis</a>, Standard Opt Methods, with more grouped philosophy.</li>
+<li><a href="https://people.eecs.berkeley.edu/~brecht/cs294.html">Mathematics of Information and Data</a>, Focused on Randomized algorithms, more advanced topics.</li></ul></li></ul></li>
+<li><p><a href="http://www.cc.gatech.edu/~ndu8/#"><strong>Nan Du</strong></a></p>
+
+<ul><li>Research Scientist at Google Research. <em>“My research focuses on developing large-scale machine learning models and algorithms for statistical analysis of temporal/spatial dynamics arising from social networks and social media, which has practical applications in promoting online user engagement, optimizing advertisement allocations and providing context-aware recommendations.”</em></li>
+<li>He has great influence and contribution in Social Network research. And won NIPS 2013 Best Paper: <br>
+<ul><li><a href="http://www.cc.gatech.edu/~ndu8/pdf/DuSonZhaMan-NIPS-2013.pdf">Scalable Influence Estimation in Continuous-Time Diffusion Networks</a></li></ul></li></ul></li>
+<li><p><a href="http://www.hutter1.net/"><strong>Marcus Hutter</strong></a></p>
+
+<ul><li>Professor at Australia National University in Canberra. His research is centered around Universal Artificial Intelligence, which is a mathematical top-down approach to AI, based on Kolmogorov complexity, algorithmic probability, universal Solomonoff induction, Occam’s Razer, Levin search, sequential decision theory, dynamic programming, reinforcement learning, and rational agents. </li>
+<li><em>“Generally I’m attracted by fundamental problems on the boundary between Science and Philosophy, which have a chance of being solved in my expected lifespan. One is Artificial Intelligence. The other is Particle Physics with questions related to physical Theories of Everything. Mathematics in its whole breadth (statistics, numerics, algebra, …) has become my constant and cherished companion.</em></li></ul></li>
+<li><p><a href="http://www2.isye.gatech.edu/~nemirovs/"><strong>A. Nemirovski</strong></a></p>
+
+<ul><li>Master of optimization. He has several profound notes on all kinds of topics of optimization. Such as: <br>
+<ul><li><a href="http://www2.isye.gatech.edu/~nemirovs/Lect_OptII.pdf"><em>Optimization II: Standard Numerical Methods for Nonlinear Continuous Optimization</em></a></li>
+<li><a href="http://www2.isye.gatech.edu/~nemirovs/Lect_OptII.pdf"><em>Modern Convex Optimization</em></a></li></ul></li></ul></li>
+<li><p><a href="http://cs.nyu.edu/~dsontag/"><strong>David Sontag</strong></a></p>
+
+<ul><li>Assistant Professor at NYU. His research focuses are machine learning and probabilistic inference, with particular focus on applications to clinical medicine. For example, we are developing algorithms to learn Probabilistic models for medical diagnosis from unstructured clinical data, automatically discovering and predicting latent (hidden) variables. His PhD is at MIT on approximate inference and learning in probabilistic models.</li>
+<li>Inference and Learning in Probabilistic Graphical models is very tightly connected with optimization (Dual decomposition etc.) like the following application in language modeling using MRF. <br>
+<ul><li><a href="http://cs.nyu.edu/~dsontag/papers/JerRusSon_icml15.pdf"><strong>A fast variational approach for learning Markov Random Field language models</strong></a>, ICML 2015.</li>
+<li>This paper gives a different view of Word2vec and Bilinear language model as local normalization model (thus, corresponding to local optimization). It claims that they can achieve global optimization through dual decomposition and lifted variational inference.</li></ul></li></ul></li>
+<li><p><a href="http://people.csail.mit.edu/tommi/tommi.html"><strong>Tommi S. Jaakkola</strong></a></p>
+
+<ul><li>Supervisor of <strong>David Sontag</strong>. Recently, he has been working closely with Regina Barzilay on Probabilistic models in applying to NLP. Like Tao Lei’s recent work. <br>
+<ul><li><a href="http://people.csail.mit.edu/tommi/papers/Lei_etal_EMNLP2016.pdf">Rationalizing neural predictions</a>, EMNLP 2016.</li></ul></li></ul></li>
+</ul></div></body>
+</html>

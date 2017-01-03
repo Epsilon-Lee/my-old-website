@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nov.14-20.2016 Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="1-surrogate-loss-function-in-machine-learning">1. Surrogate loss function in Machine Learning</h1>
+
+<p>This concept is subtle, but ver worth researching on for its theoretic sake.</p>
+
+<p>All the story starts from 0-1 loss function. By definition, it is of the following form:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1"> \mathcal{l}:\{-1,1\} \times \{-1,1\} \to \mathbb{R} </script></p>
+
+<p>Then, given a parameterized model of hypothesis <script type="math/tex" id="MathJax-Element-2">h</script> and ground truth concept <script type="math/tex" id="MathJax-Element-3">c</script> the real loss under underlying data distribution is:</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-4"> R(h)=Pr_{x \thicksim D}(h(x) \ne c(x))=\mathbb{E}_{x \thicksim D}[1_{h(x) \ne c(x)}] </script></p>
+
+<p>Usually, our task is to minimize the risk <script type="math/tex" id="MathJax-Element-5">R(h)</script>, which is, unfortunately, uncomputable. Firstly, because the ground truth distribution over feature space <script type="math/tex" id="MathJax-Element-6">\mathcal{X}</script> is unknown. Secondly, since <script type="math/tex" id="MathJax-Element-7">h</script> is a map from feature space <script type="math/tex" id="MathJax-Element-8">\mathcal{X}</script> to a discrete set <script type="math/tex" id="MathJax-Element-9">\{-1,1\}</script>, so it is not feasible for gradient based learning.</p>
+
+<p>As for the ground truth issue, we simply use the empirical distribution, which could be modeled by a histogram given finite training data. As for the second issue, that is where comes the so-called surrogate function, which we design to be differentiable according to parameters of the model. </p>
+
+<p><strong>TO-DO</strong></p>
+
+<p>Summarize following materials, one blog, two course notes.</p>
+
+<ul>
+<li><p>Surrogate loss in machine learning <br>
+[<a href="http://fa.bianp.net/blog/2014/surrogate-loss-functions-in-machine-learning/]">http://fa.bianp.net/blog/2014/surrogate-loss-functions-in-machine-learning/]</a></p></li>
+<li><p>11.1 Surrogate loss function <br>
+[<a href="https://people.eecs.berkeley.edu/~wainwrig/stat241b/lec11.pdf]">https://people.eecs.berkeley.edu/~wainwrig/stat241b/lec11.pdf]</a></p></li>
+<li><p>Calibrated surrogate losses <br>
+[<a href="http://web.eecs.umich.edu/~cscott/past_courses/eecs598w14/notes/14_calibrated.pdf]">http://web.eecs.umich.edu/~cscott/past_courses/eecs598w14/notes/14_calibrated.pdf]</a></p></li>
+</ul>
+
+
+
+<h1 id="2-manifold-embedding-and-structure-preserving">2. Manifold Embedding and Structure Preserving</h1>
+
+<p>Manifold is a geometric and algebric concept of high-dimensional subspace.In representation learning of natural language, a group of methods is to embed linguistic elements onto a manifold where those elements will exhibit some intuitively explanable regularities, such as linearity, neighborhoodness etc. </p>
+
+<p>This kind of transformation from original representatioin to a representation on a manifold with intuitive property preservation is dubbed as ‘embedding’.</p>
+
+<p>Regularities that have been researched on are very naive and only experimentally showed their capability to facilitate high-level tasks in NLP. To imagine a bit more, natural language is perceived with latent linguistic structures locally and latent knowledge (concept) structures globally. </p>
+
+<p>Cognitively speaking, the first type of perception always happens implicitly but becomes explicit while disambiguating sensible semantic meaning; the second type happens by retrieving working and episode memory. These two kinds of structures for understanding natural laugange is worth exploring.</p>
+
+<p>Computing with vectors and other algebric structures is one of the advantages of embedding. A basic idea is to embed everything the model or algorithm needs to achieve high-level tasks.</p>
+
+<p>Structure embedding might be an elegant key to this idea. Following are some papers about this topic. </p>
+
+<ul>
+<li><p><strong>Sparse Manifold Clustering and Embedding, NIPS 2011</strong> <br>
+[<a href="http://www.vision.jhu.edu/assets/ElhamifarNIPS11.pdf]">http://www.vision.jhu.edu/assets/ElhamifarNIPS11.pdf]</a></p>
+
+<p>[<strong>Abstract</strong>] We propose an algorithm called Sparse Manifold Clustering and Embedding(SMCE) for simultaneous clustering and dimensionality reduction of data lying in multiple nonlinear manifolds. Similar to most dimensionality reduction methods,SMCE finds a small neighborhood around each data point and connects each point to its neighbors with appropriate weights. The key difference is that SMCE finds both the neighbors and the weights automatically. This is done by solving a sparse optimization problem, which encourages selecting nearby points that lie in the same manifold and approximately span a low-dimensional affine subspace. The optimal solution encodes information that can be used for clustering and dimensionality reduction using spectral clustering and embedding. Moreover, the size of the optimal neighborhood of a data point, which can be different for different points, provides an estimate of the dimension of the manifold to which the point belongs. Experiments demonstrate that our method can effectively handle multiple manifolds that are very close to each other, manifolds with non-uniform sampling and holes, as well as estimate the intrinsic dimensions of the manifolds.</p></li>
+<li><p><strong>Learning Deep Structure-Preserving Embedding for Image-Text Embeddings, CVPR 2016</strong> <br>
+[<a href="http://slazebni.cs.illinois.edu/publications/cvpr16_structure.pdf]">http://slazebni.cs.illinois.edu/publications/cvpr16_structure.pdf]</a></p>
+
+<p>[<strong>Abstract</strong>] This paper proposes a method for learning joint embeddings of images and text using a two-branch neural network with multiple layers of linear projections followed by nonlinearities. The network is trained using a largemargin objective that combines cross-view ranking constraints with within-view neighborhood structure preservation constraints inspired by metric learning literature. Extensive experiments show that our approach gains significant improvements in accuracy for image-to-text and text-to-image retrieval. Our method achieves new state-of-theart results on the Flickr30K and MSCOCO image-sentence datasets and shows promise on the new task of phrase localization on the Flickr30K Entities dataset.</p></li>
+<li><p><strong>Structure Preserving Embedding, ICML 2009</strong> <br>
+[<a href="http://www.metablake.com/spe/spe-icml09.pdf]">http://www.metablake.com/spe/spe-icml09.pdf]</a></p></li>
+<li><p><strong>Neighborhood Preserving Embedding</strong> <br>
+[<a href="http://people.cs.uchicago.edu/~xiaofei/conference-15.pdf]">http://people.cs.uchicago.edu/~xiaofei/conference-15.pdf]</a></p></li>
+<li><p><strong>Tree-preserving Embedding</strong> <br>
+[<a href="http://www.pnas.org/content/108/41/16916.full.pdf]">http://www.pnas.org/content/108/41/16916.full.pdf]</a></p></li>
+<li><p><strong>Sparse Manifold Aligment</strong> <br>
+[<a href="http://people.cs.umass.edu/~boliu/publication.html]">http://people.cs.umass.edu/~boliu/publication.html]</a></p>
+
+<p>This Bo Liu’s homepage, which manifold works can be found.</p></li>
+</ul>
+
+
+
+<h1 id="3-some-notes-on-gradient-descent">3. Some notes on gradient descent</h1>
+
+<p>I leave a few links which explain what is natural gradient and its usage.</p>
+
+<ul>
+<li><p><strong>Natural Gradients Works Efficiently in Learning</strong> <br>
+[<a href="http://www.maths.tcd.ie/~mnl/store/Amari1998a.pdf]">http://www.maths.tcd.ie/~mnl/store/Amari1998a.pdf]</a></p></li>
+<li><p><strong>The Natural Gradient</strong> <br>
+[<a href="https://hips.seas.harvard.edu/blog/2013/01/25/the-natural-gradient/]">https://hips.seas.harvard.edu/blog/2013/01/25/the-natural-gradient/]</a></p></li>
+<li><p><strong>Lecture Notes: Some notes on gradient descent</strong> <br>
+[<a href="https://ipvs.informatik.uni-stuttgart.de/mlr/marc/notes/gradientDescent.pdf]">https://ipvs.informatik.uni-stuttgart.de/mlr/marc/notes/gradientDescent.pdf]</a></p></li>
+</ul>
+
+
+
+<h1 id="4-compositionality-with-neural-networks">4. Compositionality with Neural Networks</h1>
+
+<p>Two papers must be read. Both composed by Ozan Irsoy, PhD at Cornell University.</p>
+
+<ul>
+<li><p><strong>Deep Recursive Neural Networks for Compositionality in Language</strong> <br>
+[<a href="https://www.cs.cornell.edu/~oirsoy/files/nips14drsv.pdf]">https://www.cs.cornell.edu/~oirsoy/files/nips14drsv.pdf]</a></p></li>
+<li><p><strong>Modeling Compositionality with Multiplicative Recurrent Neural Networks</strong> <br>
+[<a href="https://arxiv.org/pdf/1412.6577v3.pdf]">https://arxiv.org/pdf/1412.6577v3.pdf]</a></p></li>
+</ul>
+
+
+
+<h1 id="5-curriculum-learning">5. Curriculum Learning</h1>
+
+<p>This idea is very important since the idea is in harmony with human learning process, i.e. a gradual knowledge, experience pickup procedure.</p>
+
+<ul>
+<li><strong>Self-paced Curriculum Learning</strong> <br>
+[<a href="http://www.cs.cmu.edu/~lujiang/camera_ready_papers/AAAI_SPCL_2015.pdf]">http://www.cs.cmu.edu/~lujiang/camera_ready_papers/AAAI_SPCL_2015.pdf]</a></li>
+</ul>
+
+<p>As a combination between self-paced learning and curriculum learning.</p>
+
+<ul>
+<li><p><strong>Curriculum Learning</strong> <br>
+[<a href="http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf]">http://ronan.collobert.com/pub/matos/2009_curriculum_icml.pdf]</a></p></li>
+<li><p><strong>Self-paced Learning for Latent Variable Models</strong> <br>
+[<a href="http://ai.stanford.edu/~pawan/publications/KPK-NIPS2010.pdf]">http://ai.stanford.edu/~pawan/publications/KPK-NIPS2010.pdf]</a></p></li>
+<li><p><strong>How do humans Teach: On Curriculum Learning and Teaching Dimension</strong> <br>
+[<a href="http://pages.cs.wisc.edu/~faisal/teaching.pdf]">http://pages.cs.wisc.edu/~faisal/teaching.pdf]</a></p></li>
+<li><p><strong>Curriculum Learning of Multiple Tasks</strong> <br>
+[<a href="http://pub.ist.ac.at/~chl/papers/pentina-cvpr2015.pdf]">http://pub.ist.ac.at/~chl/papers/pentina-cvpr2015.pdf]</a></p></li>
+</ul>
+
+
+
+<h1 id="6-better-understanding-numpy-tensor-manipulation">6. Better Understanding Numpy Tensor Manipulation</h1>
+
+<ul>
+<li><strong>Understanding Numpy Reshape, Transpose, and Theano Dimshuffle</strong> <br>
+[<a href="http://anie.me/numpy-reshape-transpose-theano-dimshuffle/]">http://anie.me/numpy-reshape-transpose-theano-dimshuffle/]</a></li>
+</ul>
+
+
+
+<h1 id="7-batch-normalization-better-understanding">7. Batch Normalization: Better Understanding</h1>
+
+<ul>
+<li><p><strong>Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</strong> <br>
+[<a href="http://jmlr.org/proceedings/papers/v37/ioffe15.pdf]">http://jmlr.org/proceedings/papers/v37/ioffe15.pdf]</a></p>
+
+<p>There are a blog view which also illustrates and explains <a href="http://mp.weixin.qq.com/s?__biz=MzA5MjM0MDQ1NA==&amp;mid=2650011306&amp;idx=1&amp;sn=3d5ad63d06786de1268440c3274df1b6"><strong>Batch Normalization</strong></a>, which is very clear.</p></li>
+</ul>
+
+
+
+<h1 id="arxiv-weekly">arXiv Weekly</h1>
+
+<ul>
+<li><p><strong>What do Recurrent Neural Network Grammar Learn About Syntax</strong> <br>
+[<a href="https://arxiv.org/abs/1611.05774]">https://arxiv.org/abs/1611.05774]</a></p></li>
+<li><p><strong>Zero-shot Visual Question Answering</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.05546.pdf]">https://arxiv.org/pdf/1611.05546.pdf]</a></p></li>
+<li><p><strong>A Long Dependency Aware Deep Architecture for Joint Chinese Word Segmentation and POS Tagging</strong> <br>
+[<a href="https://arxiv.org/abs/1611.05384]">https://arxiv.org/abs/1611.05384]</a></p></li>
+<li><p><strong>A Way out of the Odyssey: Analyzing and Combining Recent Insights for LSTMs</strong> <br>
+[<a href="https://arxiv.org/abs/1611.05104]">https://arxiv.org/abs/1611.05104]</a></p></li>
+<li><p><strong>The Amazing Mysteries of the Gutter: Drawing Inferences between Panels in Comic Book Narratives</strong> <br>
+[<a href="https://arxiv.org/abs/1611.05118]">https://arxiv.org/abs/1611.05118]</a></p></li>
+<li><p><strong>End-to-End Sentence Ordering Using Pointer Network</strong> <br>
+[<a href="https://arxiv.org/abs/1611.04953]">https://arxiv.org/abs/1611.04953]</a></p></li>
+<li><p><strong>Neural Machine Translation with Pivot Languages</strong> <br>
+[<a href="https://arxiv.org/abs/1611.04928]">https://arxiv.org/abs/1611.04928]</a></p></li>
+<li><p><strong>Implicit ReasoNet: Modeling Large-scale Structure Relationships with Shared Memory</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04642.pdf]">https://arxiv.org/pdf/1611.04642.pdf]</a></p></li>
+<li><p><strong>Knowledge Enhanced Hybrid Neural Network for Text Matching</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04684.pdf]">https://arxiv.org/pdf/1611.04684.pdf]</a></p></li>
+<li><p><strong>Google’s Multilingual Neural Machine Translation System: Enabling Zero-shot Translation</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04558.pdf]">https://arxiv.org/pdf/1611.04558.pdf]</a></p></li>
+<li><p><strong>A Neural Architecture Mimicking Humans End-to-End for Natural Language Inference</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04741.pdf]">https://arxiv.org/pdf/1611.04741.pdf]</a></p></li>
+<li><p><strong>Toward Multilingual Neural Machine Translation with Universal Encoder and Decoder</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04798.pdf]">https://arxiv.org/pdf/1611.04798.pdf]</a></p></li>
+<li><p><strong>Attending to Charactors in Neural Sequence Labelling Models</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04361.pdf]">https://arxiv.org/pdf/1611.04361.pdf]</a></p></li>
+<li><p><strong>A New Recurrent Neural CRF for Learning Non-linear Edge Features</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04233.pdf]">https://arxiv.org/pdf/1611.04233.pdf]</a></p></li>
+<li><p><strong>Classifying and Select: Neural Architectures for Extractive Documents Summarization</strong> <br>
+[<a href="https://arxiv.org/abs/1611.04244]">https://arxiv.org/abs/1611.04244]</a></p></li>
+<li><p><strong>SummaRuNNer: A Recurrent Neural Network based Sequence Model for Extractive Summarization of Documents</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04230.pdf]">https://arxiv.org/pdf/1611.04230.pdf]</a></p></li>
+<li><p><strong>Joint Representation Learning of Text and Knowledge for Knowledge Graph Completion</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.04125.pdf]">https://arxiv.org/pdf/1611.04125.pdf]</a></p></li>
+<li><p><strong>Linguistically Regularized LSTMs for Sentiment Classification</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.03949.pdf]">https://arxiv.org/pdf/1611.03949.pdf]</a></p></li>
+<li><p><strong>Multilingual Knowledge Graph Embeddings for Gross-lingual Knowledge Alignment</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.03954.pdf]">https://arxiv.org/pdf/1611.03954.pdf]</a></p></li>
+<li><p><strong>Improving Reliability of Word Similarity Evaluation by Redesigning Annotation Task and Performance Measure</strong> <br>
+[<a href="https://arxiv.org/pdf/1611.03641.pdf]">https://arxiv.org/pdf/1611.03641.pdf]</a></p></li>
+</ul>
+
+
+
+<h1 id="people-weekly">People Weekly</h1>
+
+<ul>
+<li><p><strong><em>Antti Oulasvirta</em></strong> <br>
+[<a href="http://users.comnet.aalto.fi/oulasvir/]">http://users.comnet.aalto.fi/oulasvir/]</a></p>
+
+<p>The means for constructing user interfaces have extended vastly, but we see limited progress in adopting them. Our group’s mission is to identify and exploit optima of human-computer performance. We formulate interface design problems as optimization tasks, develop predictive modeling of interaction, and implement computational methods for interface design. Whereas previous work in human-computer interaction has been largely based on trial and error, this approach allows aggressive exploration of design spaces for desired designs. Computational methods are particularly useful when the search space becomes too complex to be explored manually. Unlike user-centered design, optimization guarantees better and even optimal designs. Optimization allows designers to delegate well-known problems and focus on truly creative aspects of a design problem. Even novices can design great interfaces without understanding design.</p></li>
+<li><p><strong><em>Miltos Allamalis</em></strong> <br>
+[<a href="https://miltos.allamanis.com]">https://miltos.allamanis.com]</a></p>
+
+<p>My current research interests include application of machine learning and natural language processing to software engineering. My PhD, so far, is about probabilistic models of source code. A list of my publications can be found here.</p></li>
+<li><p><strong><em>Cameron Freer</em></strong> <br>
+[<a href="http://math.mit.edu/~freer/]">http://math.mit.edu/~freer/]</a></p>
+
+<p>My research interests are in the computability and complexity theory of probabilistic inference, computable probability theory, the model theory of graphs and graph limits, and the physics of causality and computation.</p>
+
+<p>He has a paper on “Commonsense reasoning” which is worth reading.</p></li>
+<li><p><strong><em>Sam Bowman</em></strong> <br>
+[<a href="https://www.nyu.edu/projects/bowman/index.shtml]">https://www.nyu.edu/projects/bowman/index.shtml]</a></p>
+
+<p>The famous Stanford Natural Language Inference corpus is built by him. Now he is the assistant professor at NYU.</p></li>
+<li><p><strong><em>Ke Tran</em></strong> <br>
+[<a href="http://ketranm.github.io]">http://ketranm.github.io]</a></p>
+
+<p>Student at University of Amsterdam. He has worked on language modeling using neural networks. <br>
+His paper <strong><em>Neural Hidden Markov Model</em></strong> is worth studied.</p></li>
+</ul></div></body>
+</html>

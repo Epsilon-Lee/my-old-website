@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dec.20-25.2016 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="dec20-252016-trivial-matters">Dec.20-25.2016 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#dec20-252016-trivial-matters">Dec.20-25.2016 - Trivial Matters</a><ul>
+<li><a href="#dirichlet-processes-learning-curve">Dirichlet Processes (Learning Curve)</a></li>
+<li><a href="#hybrid-orthogonal-projection-and-estimation-hope">Hybrid Orthogonal Projection and Estimation (HOPE)</a></li>
+<li><a href="#workshop-on-nips-perturbation-optimization-and-statistics">Workshop on NIPS: Perturbation, Optimization and Statistics</a></li>
+<li><a href="#artificial-intelligence-course">Artificial Intelligence Course</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#representation-learning">Representation Learning</a></li>
+<li><a href="#visual-semantics-reasoning">Visual Semantics &amp; Reasoning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#attention-mechanism">Attention Mechanism</a></li>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#generative-deep-modeling">Generative Deep Modeling</a></li>
+<li><a href="#adversarial">Adversarial</a></li>
+<li><a href="#information-extraction-kb">Information Extraction &amp; KB</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="dirichlet-processes-learning-curve">Dirichlet Processes (Learning Curve)</h2>
+
+<ol>
+<li>Review Multinomial, Beta Distribution, Conjugacy, Dirichlet Distribution (Write ).</li>
+<li>Read Meya Gupta’s <a href="https://www2.ee.washington.edu/techsite/papers/documents/UWEETR-2010-0006.pdf">note</a> on <em>Introduction to Dirichlet Distribution and Related Processes</em>. (pp2-15).</li>
+<li>Read Wikipedia <a href="https://en.wikipedia.org/wiki/Dirichlet_process">page</a>.</li>
+<li>Read Emin Orhan’s <a href="http://www.cns.nyu.edu/~eorhan/notes/dpmm.pdf">note</a>.</li>
+<li>Read Gershman and Blei’s note, <em>A tutorial on Bayesian Nonparametric Models</em>.</li>
+<li>Read rest of <strong>2</strong>.</li>
+</ol>
+
+<p>Other tutorials:</p>
+
+<ul>
+<li><a href="https://www.cse.buffalo.edu/~jcorso/t/2009S_555/files/lecture7.dirichlet.pdf">Non-parametric Clustering with Dirichlet Processes</a>, SUNY at Buffalo, 2009.</li>
+<li><a href="http://www.robots.ox.ac.uk/~fwood/talks/Wood-IGMM-Intro-2006.pdf">Gentle Introduction to Infinite Gaussian Mixture Modeling</a>, Frank Wook, 1999, NIPS.</li>
+<li><a href="http://people.cs.pitt.edu/~huynv/talks/Dirichlet.pdf">Non-parametric Bayesian Models and Dirichlet Processes</a>, Advanced Topics in ML, Univ. of Pittsburgh, 2011.</li>
+</ul>
+
+<p>There are some advanced introduction and tutorials, watch the video.</p>
+
+<ul>
+<li>Yee Whye Teh, <a href="https://www.stats.ox.ac.uk/~teh/research/npbayes/Teh2010a.pdf">Dirichlet Processes</a></li>
+<li>Zoubin Grahramani, talk</li>
+</ul>
+
+<p>Then I should know how to learn a DP, as I already know it has many parameters, so how to fit those parameters to the data at hand.</p>
+
+<ul>
+<li>Blei has a paper on <a href="http://www.cs.columbia.edu/~blei/papers/BleiJordan2004.pdf"><em>Variational Inference for DP</em></a>.</li>
+</ul>
+
+<p>The finally question is how to use DP in my own works. Read some papers.</p>
+
+<p>After get familiar with <strong>DP</strong>, it is very natural to start learn sth. about Hierarchical DP.</p>
+
+<ul>
+<li><a href="http://people.eecs.berkeley.edu/~jordan/papers/hdp.pdf">Hierarchical Dirichlet Processes</a>, Yee Whye Teh.</li>
+<li><a href="http://mlg.eng.cam.ac.uk/tutorials/07/ywt.pdf">A Tutorial on Dirichlet Processes and HDP</a>, Yee Whye Teh, 2007.</li>
+</ul>
+
+<p>How to choose Base Distribution of Dirichlet Processes.</p>
+
+<ul>
+<li><a href="http://www.ics.uci.edu/~dgorur/papers/GorurRasmussen_DPGMM.pdf">Dirichlet Process Gaussian Mixture Models: Choice of the Base Distribution</a></li>
+</ul>
+
+<p>Other resource are with intuition and codes.</p>
+
+<ul>
+<li><a href="https://github.com/echen/dirichlet-process">Introduction to Nonparametric Bayes, Infinite Mixture Models and DP</a>.</li>
+<li><a href="https://pymc-devs.github.io/pymc3/notebooks/dp_mix.html">Dirichlet process mixtures for density estimation</a>, this one is using theano and PyMC.</li>
+<li><a href="https://datamicroscopes.github.io/ncluster.html">Finding the number of clusters with the Dirichlet Process</a>, using simple python scientific toolkit.</li>
+<li>etc.</li>
+</ul>
+
+<p>The Bayesian Nonparametric literature tutorials.</p>
+
+<ul>
+<li>AMS 241: <a href="https://classes.soe.ucsc.edu/ams241/Fall10/">Bayesian nonparametric methods</a></li>
+</ul>
+
+
+
+<h2 id="hybrid-orthogonal-projection-and-estimation-hope">Hybrid Orthogonal Projection and Estimation (HOPE)</h2>
+
+<p>Hui Jiang’s group’s work at York University, Canada. Actually, those are joint works with students at USTC. Here is his talk <a href="https://wiki.eecs.yorku.ca/user/hj/_media/hope-talk-aug2015.pdf">slides</a>.</p>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1502.00702v2.pdf">A New Framework to Probe and Learn Neural Networks</a>, arXiv 2015.</p></li>
+<li><p><a href="http://jmlr.org/papers/volume17/15-335/15-335.pdf">Hybrid Orthogonal Projection and Estimation</a>, JMLR 2016.</p></li>
+</ul>
+
+<p>His co-supervised student, <a href="http://home.ustc.edu.cn/~quanliu/">Quan Liu</a>, PhD at USTC has published recently high-quality papers which need attention.</p>
+
+<ul>
+<li><p><a href="http://www.aclweb.org/anthology/P15-1145"><em>Learning Semantic Word Embeddings based on Ordinal Knowledge Constraints</em></a>, ACL 2015. And the <a href="https://github.com/iunderstand/SWE">Code</a>.</p>
+
+<ul><li>This work is very like machine learning based regularization, using knowledge constraints to regularize the objective function of learning semantic word embeddings (to formulate an optimization problem). By adding constraints from rule based resources like KB WordNet etc. They can formulate the problem of learning semantic word embeddings as a constrained optimization problem and using Lagrange Multiplier to incorporate constraints into the objective function as a regularization term. Their baseline is Word2vec. Their constraints are: <br>
+<ul><li><strong>Synonym Antonym Rule</strong>, e.g. the distance between synonymies is closer than antonymies. <script type="math/tex" id="MathJax-Element-36"> sim('foolish', 'stupid') > sim('foolish', 'clever') </script></li>
+<li><strong>Semantic Category Rule</strong>, e.g. <script type="math/tex" id="MathJax-Element-37"> sim('mallet', 'plessor') > sim('mallet', 'hacksaw') </script>.</li>
+<li><strong>Semantic Hierarchical Rule</strong>, e.g. <script type="math/tex" id="MathJax-Element-38"> sim('mallet', 'hammer') > sim('mallet', 'tool') </script>.</li>
+<li>This last two should view in a hierarchical structure of WordNet. Words within same father category are more similar, and words closer along hierarchical are more similar. The constraints are added as ranking constraints.</li></ul></li></ul></li>
+<li><p><a href="http://anthology.aclweb.org/N/N16/N16-1051.pdf"><em>Intra-Topic Variability Normalization based on Linear Projection for Topic Classification</em></a>, NAACL 2016.</p></li>
+<li><a href="https://arxiv.org/pdf/1603.07704v2.pdf"><em>Probabilistic Reasoning via Deep Learning: Neural Association Models</em></a>, IJCAI 2016.</li>
+</ul>
+
+<p>About FOFE encoding, read the proof in <em>‘Hybrid orthogonal projection and estimation’</em> above. And the following papers are related.</p>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1512.08301.pdf"><strong>Feedforward Sequential Memory Networks: A New Structure to Learn Long-term Dependency</strong></a></li>
+<li><a href="http://www.aclweb.org/anthology/P15-2081"><strong>The Fixed-size Ordinally-Forgetting Encoding Method for Neural Network Language Models</strong></a>, ACL 2015, short.</li>
+</ul>
+
+
+
+<h2 id="workshop-on-nips-perturbation-optimization-and-statistics">Workshop on NIPS: Perturbation, Optimization and Statistics</h2>
+
+<p>See this <a href="http://ttic.uchicago.edu/~gpapan/pos12/index.html#home">url</a>. The beginning words of the workshop:</p>
+
+<ul>
+<li><p>In nearly all machine learning tasks, we expect there to be randomness, or noise, in the data we observe and in the relationships encoded by the model. Usually, this noise is considered undesirable, and we would eliminate it if possible. However, there is an emerging body of work on perturbation methods, showing the benefits of explicitly adding noise into the modeling, learning, and inference pipelines. This workshop will bring together the growing community of researchers interested in different aspects of this area, and will broaden our understanding of why and how perturbation methods can be useful.</p></li>
+<li><p>More generally, perturbation methods usually provide efficient and principled ways to reason about the <strong>neighborhood</strong> of possible outcomes when trying to make the best decision. For example, some might want to arrive at the best outcome that is robust to small changes in model parameters. Others might want to find the best choice while compensating for their lack of knowledge by averaging over the different outcomes. Recently, several works influenced by diverse fields of research such as statistics, optimization, machine learning, and theoretical computer science, use perturbation methods in similar ways. </p></li>
+<li><p><strong>The goal of this workshop is to explore different techniques in perturbation methods and their consequences on computation, statistics and optimization. We shall specifically be interested in understanding the following issues:</strong></p>
+
+<ul><li><strong>Statistical Modeling:</strong> What types of statistical models can be defined for structured prediction? How can random perturbations be used to relate computation and statistics?</li>
+<li><strong>Efficient Sampling:</strong> What are the computational properties that allow efficient and unbiased sampling? How do perturbations control the geometry of such models and how can we construct sampling methods for these families?</li>
+<li><strong>Approximate Inference:</strong> What are the computational and statistical requirements from inference? How can the maximum of random perturbations be used to measure the uncertainty of a system?</li>
+<li><strong>Learning:</strong> How can we probabilistically learn model parameters from training data using random perturbations? What are the connections with max-margin and conditional random fields techniques?</li>
+<li><strong>Theory:</strong> How does the maximum of a random process relate to its complexity? What are the statistical and computational properties it describes in Gaussian free fields over graphs?</li>
+<li><strong>pseudo-sampling:</strong> How do dynamical systems encode randomness? To what extent do perturbations direct us to the “pseudo-randomness” of its underlying dynamics?</li>
+<li><strong>Robust Classification:</strong> How can classifiers be learned in a robust way, and how can support vector machines be realized in this context? What are the relations between adversarial perturbations and regularizations and what are their extensions to structured predictions?</li>
+<li><strong>Robust Reconstruction:</strong> How can information be robustly encoded? In what ways can learning be improved by perturbing the input measurements?</li>
+<li><strong>Adversarial Uncertainty:</strong> How can structured prediction be performed in zero-sum game setting? What are the computational qualities of such solutions, and do Nash-equilibria exists in these cases?</li></ul></li>
+</ul>
+
+<blockquote>
+  <p><strong>Target Audience:</strong> The workshop should appeal to NIPS attendees interested in both theoretical aspects such as Bayesian modeling, Monte Carlo sampling, optimization, inference, and learning, as well as practical applications in <strong>computer vision and language modeling</strong>.</p>
+</blockquote>
+
+<p>And there is a collected work, a book under this name published from MIT Press.</p>
+
+
+
+<h2 id="artificial-intelligence-course">Artificial Intelligence Course</h2>
+
+<ul>
+<li>CMU Graduate Level <a href="http://www.cs.cmu.edu/~15780/">AI</a>, 2016 FALL.</li>
+<li>Stanford <a href="http://web.stanford.edu/class/cs221/">AI Course</a>, by Percy Liang.</li>
+</ul>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.04174.pdf">Models of retrieval in sentence comprehension: A computational evaluation using Bayesian Hierarchical modeling</a></li>
+</ul>
+
+
+
+<h3 id="representation-learning">Representation Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.07659.pdf">Structured Sequence Modeling with Graph Convolutional Recurrent Networks</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07771.pdf">Highway and Residual Networks Learn Unrolled Iterative Estimation</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1507.01526v3.pdf">Grid Long Short-Term Memory</a></p></li>
+</ul>
+
+
+
+<h3 id="visual-semantics-reasoning">Visual Semantics &amp; Reasoning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.06890.pdf">CLEVR: A Diagnostic Dataset for Compositional Language and Elementary Visual Reasoning</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06530.pdf">Automatic Generation of Grounded Visual Questions</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07086.pdf">Recurrent Highway Networks with Language CNN for Image Captioning</a></p>
+
+<ul><li>Decoding with a CNN encoder on the partial generated sequence (like a semantic memory), and moreover, to model the hierarchical structure (syntax) of the partial sentence.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07360.pdf">Top-down Visual Saliency Guided by Captions</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05386.pdf">The VQA-Machine: Learning How to Use Existing Vision Algorithms to Answer New Questions</a></p>
+
+<ul><li>With Augmented facts extracted from Visual Genome Relation triples.</li></ul></li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="">Hierarchical Object Detection with Deep Reinforcement Learning</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06018.pdf">Self-Correcting Models for Model-based Reinforcement Learning</a>, AAAI 2017.</p>
+
+<ul><li>The concept of <em>Hallucinated Replay</em> can correct the agent when producing errors. You can look at <a href="http://auai.org/uai2014/proceedings/individuals/179.pdf">this paper</a>.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05753.pdf">Learning to Predict Where to Look in Interactive Environments Using Deep Recurrent Q-Learning</a>.</p>
+
+<ul><li><em>Saliency modeling</em> in computer vision.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05695.pdf">Quantum Reinforcement Learning</a></p>
+
+<ul><li>With this man, <a href="http://www.math.ubc.ca/~pooya/">Pooya Ronagh</a>, as Corresponding Author.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06699.pdf">Unsupervised Perceptual Rewards for Imitation Learning</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07307.pdf">Loss is Its Own Reward: Self-Supervision for Reinforcement Learning</a></p></li>
+</ul>
+
+
+
+<h3 id="attention-mechanism">Attention Mechanism</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.06043.pdf">Reducing Redundant Computations with Flexible Attention</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06212.pdf">A Recurrent Network without Chaos</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07411.pdf">A Context-aware Attention Network for Interactive Question Answering</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06549.pdf">Exploring Different Dimensions of Attention for Uncertainty Detection</a></p></li>
+</ul>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.05688.pdf">A User Simulator for Task-Completion Dialogue</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06000.pdf">Sample-efficient Deep Reinforcement Learning for Dialogue Control</a></p>
+
+<ul><li>Try to solve the sample inefficient problem, i.e. requiring lots of dialogue tracks.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06572.pdf">Unsupervised Dialogue Act Induction using Gaussian Mixtures</a></p>
+
+<ul><li>HMM with Gaussian emissions.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07182.pdf">Multi-agent Cooperation and the Emergence of (Natural) Language</a> </p>
+
+<ul><li><em>Interactive Machines</em>: through playing <strong>Referential Games</strong>.</li></ul></li>
+</ul>
+
+
+
+<h3 id="generative-deep-modeling">Generative Deep Modeling</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.06370.pdf">Learning Features by Watching Object Move</a> <br>
+<ul><li><em>Reconstruction modeling</em> and <em>Self-supervision via pretext tasks</em>. <em>Learning from motion through video, unsupervised</em>.</li></ul></li>
+</ul>
+
+
+
+<h3 id="adversarial">Adversarial</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.05872.pdf">3D Shape Induction from 2D Views of Multiple Objects</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.06299.pdf">Simple Black-Box Adversarial Perturbations for Deep Networks</a></p></li>
+</ul>
+
+
+
+<h3 id="information-extraction-kb">Information Extraction &amp; KB</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.07495.pdf">Noise Mitigation for Neural Entity Typing and Relation Extraction</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07602.pdf">Joint Extracting Relations with Class Ties via Effective Deep Ranking</a></p>
+
+<ul><li>To seek the semantics of class labels, i.e. <em>class embedding</em>.</li></ul></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://www.alexander-schwing.de/">Alexander Schwing</a></p>
+
+<ul><li>Alex’s research centers around machine learning and computer vision. He is particular interested in algorithms for prediction with and learning of non-linear, multivariate and structured distributions, and their application in numerous tasks, e.g. for 3D scene understanding from a single image.</li></ul></li>
+<li><p><a href="http://web.stanford.edu/~montanar/">Andrea Montanari</a></p>
+
+<ul><li>Statistician and Graphician at Stanford University. His main research area is about probabilistic modeling and inferring on Physics. He has a book named <em>Information, Physics and Computation</em> which as most of the drafts been released. Take a look for <strong>Random Energy based methods</strong>.</li></ul></li>
+<li><p><a href="http://angelikilazaridou.github.io/">Angeliki Lazaridou</a></p>
+
+<ul><li>Graduate student work with Marco Baroni on Multimodal Semantics, at the CLIC Lab of the Center for Mind/Brain Sciences of the University of Trento, Italy.</li>
+<li>She did his MSc in Computational Linguistics at the University of Saarland, working with Ivan Tikov and Caroline Sporleder on Sentiment Analysis.</li>
+<li>She has conducted a project of <a href="http://angelikilazaridou.github.io/">CommAI-env</a>, which is an open-source AI environment meant to stimulate the development of communication-based AI.</li>
+<li>Some of her paper (which I think draw attention to embodied cognition)</li>
+<li><a href="https://arxiv.org/pdf/1605.07133v1.pdf">Towards Multi-Agent Communication-Based Language Learning</a></li></ul></li>
+<li><p><a href="http://www.stats.ox.ac.uk/~cmaddis/">Chris J. Maddison</a></p>
+
+<ul><li>PhD of Statistics at the University of Oxford, supervised by Yee Whye Teh and Amaud Doucet. He spend two days a week as a research scientist at DeepMind.</li></ul></li>
+</ul></div></body>
+</html>
