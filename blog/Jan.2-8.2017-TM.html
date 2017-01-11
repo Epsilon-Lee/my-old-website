@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan.2-8.2017 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="jan2-82017-trivial-matters">Jan.2-8.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#jan2-82017-trivial-matters">Jan.2-8.2017 - Trivial Matters</a><ul>
+<li><a href="#game-theoretic-concepts-for-deep-learning">Game Theoretic Concepts for Deep Learning</a></li>
+<li><a href="#maluubas-insights-on-ai-2017">Maluuba’s Insights on AI 2017</a></li>
+<li><a href="#cs224d-stanford-dl4nlp">CS224d Stanford: DL4NLP</a></li>
+<li><a href="#new-chat-bot-techniques">New Chat Bot Techniques</a></li>
+<li><a href="#a-nice-written-review-of-dimension-reduction">A Nice Written Review of Dimension Reduction</a></li>
+<li><a href="#bayes-neural-networks">Bayes Neural Networks</a></li>
+<li><a href="#a-very-interesting-article-on-hippocampus-predictive-map">A Very Interesting Article on Hippocampus Predictive Map</a></li>
+<li><a href="#d3-data-visualization">D3 Data Visualization</a></li>
+<li><a href="#bayesian-deep-learning">Bayesian Deep Learning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a><ul>
+<li><a href="#bayes-nonparametric-reinforcement-learning">Bayes Nonparametric Reinforcement Learning</a></li>
+<li><a href="#a-course-on-learning-and-sequential-decision-making">A Course on Learning and Sequential Decision Making</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+</li>
+<li><a href="#hunting-through-the-iclr-2017-submissions">Hunting through the ICLR 2017 Submissions</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#adversarial-philosophy">Adversarial Philosophy</a></li>
+<li><a href="#alexander-smola">Alexander Smola</a></li>
+<li><a href="#minimum-risk-training">Minimum Risk Training</a></li>
+<li><a href="#nips-2016">NIPS 2016</a></li>
+<li><a href="#dynamic-approach-adaptability">Dynamic Approach &amp; Adaptability</a></li>
+<li><a href="#automatic-planning">Automatic Planning</a></li>
+<li><a href="#stochastic-processes-model">Stochastic Processes Model</a></li>
+<li><a href="#graph-based-dependency-parsing">Graph-based Dependency Parsing</a></li>
+<li><a href="#machine-reading">Machine Reading</a></li>
+<li><a href="#neural-generative-model-of-sequence-or-document">Neural Generative Model of Sequence or Document</a></li>
+<li><a href="#new-taste-of-reinforce-and-adaptive-learning">New Taste of Reinforce and Adaptive Learning</a></li>
+<li><a href="#attention-in-language-modeling">Attention in Language Modeling</a></li>
+<li><a href="#efficient-recurrent-neural-networks">Efficient Recurrent Neural Networks</a></li>
+<li><a href="#neural-memory">Neural Memory</a></li>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#human-in-the-loop">Human-in-the-loop</a></li>
+<li><a href="#self-taught-text-representation">Self-taught Text Representation</a></li>
+<li><a href="#compositionality">Compositionality</a></li>
+<li><a href="#nlp-tasks-and-task-specific-priorsinductive-bias">NLP Tasks and Task-Specific Priors/Inductive Bias</a></li>
+<li><a href="#natural-language-generation-summarizer">Natural Language Generation &amp; Summarizer</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#printed">Printed</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="game-theoretic-concepts-for-deep-learning">Game Theoretic Concepts for Deep Learning</h2>
+
+<p>I read the <a href="https://medium.com/intuitionmachine/game-theory-maps-the-future-of-deep-learning-21e193b0e33a#.yy73omy5f">post</a> on medium about synergy of ideas from game theory and deep learning. The key points of trying to make connections of the two are:</p>
+
+<ul>
+<li><strong>DL systems will eventually need to tackle situations with imperfect knowledge.</strong></li>
+<li><strong>Intelligent Systems will not remain monolithic but involve multiple components coordination as cliques within the system.</strong> E.g. the design of GANs is a two-player zero-sum game, and MSRA’s Dual Learning paradigm is also a two-player cooperation.</li>
+</ul>
+
+<blockquote>
+  <p>The interesting feature of those systems is that a <strong>closed form objective</strong> function is not required. Adversarial learning consists of finding Nash Equilibrium to a tow-player non-cooperative game.</p>
+</blockquote>
+
+<p>In this post, the author gives three papers he sees as an emergent trend in deep learning or even machine learning research. That is the emergence of game theoretic learning paradigms, models and algorithms. Since tasks as we are currently urged to solve are actually connected (from the viewpoint of multitask learning and transfer learning), we use separate models to fit into each situation, but how do those models act as motivators to each other. Their communication of feedback signals of their own learning process may be helpful to aggregate them around as larger systematic organism. The protocol among them must obey the principle of game theory. That is what the author claims.</p>
+
+<p>Forget about the justification of his statements. The papers he recommends are worth reading.</p>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1603.01121.pdf">Deep RL from Self-Play in Imperfect-Information Games</a>, arXiv March 2016 by David Silver et al.</li>
+</ul>
+
+
+
+<h2 id="maluubas-insights-on-ai-2017">Maluuba’s Insights on AI 2017</h2>
+
+<p>See <a href="http://www.maluuba.com/blog/2017/1/3/maluubas-ai-deep-learning-predictions-for-2017?utm_content=bufferbc470&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">this</a> post.</p>
+
+
+
+<h2 id="cs224d-stanford-dl4nlp">CS224d Stanford: DL4NLP</h2>
+
+<ul>
+<li>The course website is <a href="http://cs224d.stanford.edu/syllabus.html">here</a>. They teach TensorFlow instead of Theano.</li>
+</ul>
+
+
+
+<h2 id="new-chat-bot-techniques">New Chat Bot Techniques</h2>
+
+<p>See <a href="https://techcrunch.com/2016/08/24/the-new-paradigm-for-human-bot-communication/">this</a> post for some new insights in chat bot techniques. As the author mentioned, there are four:</p>
+
+<ul>
+<li>Quick Reply Button: choices the bot want the user to choose, like a predefined activity categories which corresponding to specific semantics. This can relieve natural language understanding.</li>
+<li>Callback Button: a url to call a http request which will in turn activate a specific service action.</li>
+<li>Structured Info Sharing: provide other modal information such as image of a recommended cinema, dish, commercials or profile of the user (e.g. phone number, location as a map etc.)</li>
+<li>Bot Mention: you can use ‘@’ to activate certain functionality of the bot, or to call different functional bot with specific tasks.</li>
+</ul>
+
+
+
+<h2 id="a-nice-written-review-of-dimension-reduction">A Nice Written Review of Dimension Reduction</h2>
+
+<p>See <a href="http://www.nehalemlabs.net/prototype/blog/2015/04/13/dimensionality-reduction-101-linear-algebra-hidden-variables-and-generative-models/">here</a> the blog by a DeepMind Scientist.</p>
+
+
+
+<h2 id="bayes-neural-networks">Bayes Neural Networks</h2>
+
+<ul>
+<li>At NIPS Zoubin Gharahmani talked on this topic, see <a href="http://bayesiandeeplearning.org/slides/nips16bayesdeep.pdf">this</a> tutorial.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Comments</strong>: Dustin Tran says it was a great talk and gave lots of insights on the synergy between Neural Networks and Bayesian approches.</p>
+</blockquote>
+
+
+
+<h2 id="a-very-interesting-article-on-hippocampus-predictive-map">A Very Interesting Article on Hippocampus Predictive Map</h2>
+
+<p>See <a href="http://biorxiv.org/content/biorxiv/early/2016/12/28/097170.full.pdf">here</a>.</p>
+
+
+
+<h2 id="d3-data-visualization">D3 Data Visualization</h2>
+
+<p>D3 is a JS library for data visualization. Yoav Goldberg is trying to learn the basics of D3 and to better visualize experiment result of some NLP tasks. It is also worth for me to learn some. Here are some resources Yoav’s twitter friends suggest.</p>
+
+<ul>
+<li><a href="http://alignedleft.com/tutorials/d3/">Scott Murray’s tutorial</a></li>
+<li><a href="http://zeroviscosity.com/category/d3-js-step-by-step">D3 Step by Step</a></li>
+</ul>
+
+
+
+<h2 id="bayesian-deep-learning">Bayesian Deep Learning</h2>
+
+<ul>
+<li>See the <a href="http://bayesiandeeplearning.org/">Bayesian Deep Learning</a> workshop at NIPS 2016.</li>
+<li><p>And <a href="https://sites.google.com/site/nipsbnp2016/home">Practical Bayesian Nonparametrics</a> workshop as well.</p></li>
+<li><p>As well, the Workshop on approximate inference <a href="http://approximateinference.org/">here</a>.</p></li>
+<li><p>Check out Weekly Sunday classics by Shakir Mohamed <a href="http://blog.shakirm.com/sunday-classic-paper/">here</a>. It is all about <strong>classic</strong> statistics related papers by great statisticians.</p></li>
+</ul>
+
+
+
+<h2 id="reinforcement-learning">Reinforcement Learning</h2>
+
+
+
+<h3 id="bayes-nonparametric-reinforcement-learning">Bayes Nonparametric Reinforcement Learning</h3>
+
+<ul>
+<li><a href="http://www.research.rutgers.edu/~thomaswa/pub/Michini15TRO.pdf">Bayesian Nonparametric Reward Learning from Demonstration</a></li>
+<li><a href="http://finale.seas.harvard.edu/files/finale/files/doshi-velez-tpami-2015.pdf">Bayesian Nonparametric Methods for Partially-Observable Reinforcement Learning</a>, TPAMI 2015.</li>
+<li><a href="https://papers.nips.cc/paper/4737-nonparametric-bayesian-inverse-reinforcement-learning-for-multiple-reward-functions.pdf">Nonparametric Bayesian Inverse Reinforcement Learning for Multiple Reward Functions</a></li>
+</ul>
+
+
+
+<h3 id="a-course-on-learning-and-sequential-decision-making">A Course on Learning and Sequential Decision Making</h3>
+
+<ul>
+<li><a href="http://cs.brown.edu/courses/cs2951f/">Here</a> by <strong>Michael Littman</strong>.</li>
+</ul>
+
+
+
+<h3 id="others">Others</h3>
+
+<ul>
+<li>Csaba Szepesvari’s explanation of <strong>Advantage learning over Q-learning</strong>, see <a href="https://www.quora.com/What-arethe-advantages-of-advantage-learning-over-Q-learning/answer/Csaba-Szepesvari?srid=JC2c">here</a> on Quora.</li>
+</ul>
+
+<blockquote>
+  <p>In advantage learning one throws away information that is not needed for coming up with a good policy. The argument is that throwing away information allows you to focus your resources on learning what is important.</p>
+  
+  <p>As an example consider Tetris when you gain a unit reward for every time step you survive. Arguably the optimal value function takes on large values when the screen is near empty, while it takes on small values when the screen is near full. The range of differences can be enormous (from millions to zero). However, for optimal decision making how long you survive does not matter. What matters is the small differences in how the screen is filled up because this is what determines where to put the individual pieces. If you learn an action value function and your algorithm focuses on something like the mean square error, i.e., getting the magnitudes right, it is very plausible that most resources of the learning algorithm will be spent on capturing how big the values are, while little resource will be spent on capturing the value differences between the actions. This is what advantage learning can fix. The fix comes because advantage learning does not need to wait until the value magnitudes are properly captured before it can start learning the value differences.</p>
+  
+  <p>As can be seen from this example, advantage learning is expected to make a bigger difference where the span of optimal values is orders of magnitudes larger than action-value differences.</p>
+</blockquote>
+
+<p><strong>My Comments</strong>: so actually <em>advantage learning</em> is a kind of reinforcement learning algorithm similar to Q-learning, see <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/learn-43/lib/photoz/.g/web/glossary/advantage.html">this</a> link for more information, and see Leemon Baird’s <a href="http://www.leemon.com/papers/">publication page</a> for his seminal work on this topic. </p>
+
+<ul>
+<li>The <strong>MOST URGENT</strong> question is that <em>WHY</em> people now seldom talk about <strong>Advantage Learning</strong>?</li>
+</ul>
+
+
+
+<h2 id="hunting-through-the-iclr-2017-submissions">Hunting through the ICLR 2017 Submissions</h2>
+
+<p>See <a href="http://smerity.com/articles/2016/iclr_2017_submissions.html">here</a> the summary by Smerity.</p>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="adversarial-philosophy">Adversarial Philosophy</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.01036.pdf">Demystifying Neural Style Transfer</a>, Peking Univ. arXiv 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.01081.pdf">SalGAN: Visual Saliency Prediction with Generative Adversarial Networks</a>, arXiv 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.00939.pdf">Dense Associative Memory is Robust to Adversarial Inputs</a>, arXiv Jan. 2017.</p></li>
+</ul>
+
+
+
+<h3 id="alexander-smola">Alexander Smola</h3>
+
+<ul>
+<li><p><a href="http://www.jmlr.org/proceedings/papers/v5/smola09a/smola09a.pdf">Relative Novelty Detection</a>, ICML 2009. The use of <script type="math/tex" id="MathJax-Element-119">f-</script>divergence as well as in <script type="math/tex" id="MathJax-Element-120">f-</script>GANs in a paper by Now.</p></li>
+<li><p><a href="http://alex.smola.org/drafts/Songetal09.pdf">Discriminative Estimation of <script type="math/tex" id="MathJax-Element-121">f</script>-Divergence</a>. Try to understand the question this paper attempting to solve. <strong>How to compare the difference of two distributions?</strong>.</p>
+
+<ul><li>As the paper says in the <em>Introduction</em>. “A rich class of ‘distance’ relations between two distributions <script type="math/tex" id="MathJax-Element-122">Q(X)</script> and <script type="math/tex" id="MathJax-Element-123">R(X)</script> defined on sample space <script type="math/tex" id="MathJax-Element-124">\mathcal{X}</script> is the <script type="math/tex" id="MathJax-Element-125">f</script>-divergence, <script type="math/tex" id="MathJax-Element-126">I_f(Q, R) :=  \int_\mathcal{X} f(dQ/dR)dR</script>”</li>
+<li>I think this paper propose a very novel method to estimate <script type="math/tex" id="MathJax-Element-127">f</script>-divergence between <script type="math/tex" id="MathJax-Element-128">Q</script> and <script type="math/tex" id="MathJax-Element-129">R</script>, it is conceptually similar related to recent invented GANs, so take a careful look and embrace the art of <em>Optimization based</em> inference. </li>
+<li><strong>[UPDATE]</strong> After re-read, I find out that the formulation is very delicate (exquisite), how to transform one  computation problem of <script type="math/tex" id="MathJax-Element-130">I_f(Q, R)</script> by definition to another of computing <script type="math/tex" id="MathJax-Element-131">I_f(Q,R)</script> by integrate <script type="math/tex" id="MathJax-Element-132">\Delta r_c \gamma(c) dc</script> in interval <script type="math/tex" id="MathJax-Element-133">(0,1)</script>, that is <script type="math/tex" id="MathJax-Element-134">\int_{0}^{1} \Delta r_c \gamma(c) dc</script>.</li>
+<li>I think the <strong>MOST IMPORTANT</strong> thing which should be clear before getting into the math of the work is: <br>
+<ul><li><strong>What is the setting of this problem?</strong></li>
+<li><strong>And what problem is this method supposed to solve?</strong></li></ul></li></ul></li>
+</ul>
+
+
+
+<h3 id="minimum-risk-training">Minimum Risk Training</h3>
+
+<ul>
+<li><p><a href="http://www.aclweb.org/anthology/P06-2101">Minimum Risk Annealing for Training Log-linear Models</a>, ACL 2016.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1604.01904v2.pdf">Neural Headline Generation with Sentence-wise Optimization</a>, arXiv 2016.</p></li>
+<li><p><a href="https://www.ijcai.org/Proceedings/16/Papers/392.pdf">Agreement-Based Joint Training for Bidirectional Attention-Based Neural Machine Translation</a>, IJCAI 2016.</p></li>
+</ul>
+
+
+
+<h3 id="nips-2016">NIPS 2016</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1605.07723v2.pdf">Data Programming: Creating large training sets, quickly</a>.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1605.06376v3.pdf">Fast <script type="math/tex" id="MathJax-Element-135">\epsilon</script>-free Inference of Simulation Models with Bayesian Conditional Density Estimation</a>.</p></li>
+</ul>
+
+
+
+<h3 id="dynamic-approach-adaptability">Dynamic Approach &amp; Adaptability</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.00299.pdf">Dynamic Deep Neural Networks: Optimizing Accuracy-Efficiency Trade-offs by Selective Execution</a>, arXiv 2017.</p>
+
+<ul><li>By pruning unnecessary computation depending on the input, <script type="math/tex" id="MathJax-Element-136">D^2NN</script> provides ways to improve computational efficiency. The question is how to achieve <strong>Dynamic selective execution</strong>, that is, to augment directed acyclic graph of differentiable modules with one or more <strong>controller modules</strong>.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.09508.pdf">Feedback Networks</a>, have connection with Curriculum learning.</p></li>
+<li><p><a href="">A Joint Speaker-Listener-Reinforcer Model for Referring Expressions</a>, <strong>learn how the reinforcer is designed? And draw connection between Dual Learning for MT.</strong></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04770.pdf">Detect, Replace, Refine: Deep Structured Prediction for Pixel Wise Labeling</a></p>
+
+<ul><li>What is pixel wise labeling?</li>
+<li>What is the advantage of the iterative process? <strong>After quick browsing, there is no iteration at all!</strong></li></ul></li>
+</ul>
+
+
+
+<h3 id="automatic-planning">Automatic Planning</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.00287.pdf">STRIPS Planning in Infinite Domains</a>, Leslie Pack Kaelbling et al. <br>
+<ul><li>Spatial planning (motion planning)</li></ul></li>
+</ul>
+
+
+
+<h3 id="stochastic-processes-model">Stochastic Processes Model</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.09328.pdf">The Neural Hawkes Process: A Neurally Self-Modulating Multivariate Point Process</a>, JHU PhD student Hongyuan Mei’s work.</li>
+</ul>
+
+
+
+<h3 id="graph-based-dependency-parsing">Graph-based Dependency Parsing</h3>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1606.01280">Dependency Parsing as Head Selection</a>, by Lapata’s PhD student.</li>
+<li><p><a href="https://arxiv.org/abs/1603.04351">Simple and Accurate Dependency Parsing Using Bidirectional LSTM Feature Representation</a></p>
+
+<ul><li>This paper is pointed from one ICLR17 from Stanford.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.00874.pdf">Neural Probabilistic Model for Non-projective MST Parsing</a></p>
+
+<ul><li>What is the MST decoding algorithm (from the literature of Graph-based Parsing)?</li>
+<li>Matrix Tree Theorem for efficient partition computation.</li></ul></li>
+<li><p>The original paper on Maximum Spanning Tree algorithm for Graph-based parsing, <a href="http://www.seas.upenn.edu/~strctlrn/bib/PDF/nonprojectiveHLT-EMNLP2005.pdf">Non-projective Dependency Parsing using Spanning Tree Algorithms</a> by Ryan McDonald in 2008.</p></li>
+</ul>
+
+
+
+<h3 id="machine-reading">Machine Reading</h3>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1611.01724">Words or Characters? Fine-grained Gating for Reading Comprehension</a>, arXiv Nov. 2016.</li>
+</ul>
+
+
+
+<h3 id="neural-generative-model-of-sequence-or-document">Neural Generative Model of Sequence or Document</h3>
+
+<ul>
+<li>A very early one by Hugo Larochelle, <a href="https://papers.nips.cc/paper/4613-a-neural-autoregressive-topic-model.pdf">A Neural Autogressive Topic Model</a>. <br>
+<ul><li>Replicated Softmax.</li></ul></li>
+<li><a href="https://arxiv.org/abs/1612.09122v1">Modeling Documents with Generative Adversarial Networks</a>, Dec. 2016.</li>
+<li><p><a href="https://arxiv.org/pdf/1605.07571.pdf">Sequential Neural Models with Stochastic Layers</a>, May 2016.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.00188.pdf">Aspect-augmented Adversarial Networks for Domain Adaptation</a>, TACL 2017.</p></li>
+<li><p><a href="https://homes.cs.washington.edu/~galen/files/nips2013.pdf">Backpropagation in Sequential Deep Neural Networks</a>, Deep Learning Workshop, NIPS 2013.</p></li>
+</ul>
+
+<p><strong>Generative Recurrent Neural Networks</strong></p>
+
+<ul>
+<li><a href="https://openreview.net/pdf?id=BkLhzHtlg">Learning Recurrent Representations for Hierarchical Behavior Modeling</a> <br>
+<ul><li>The Network has a <strong>discriminative part</strong> (classifying actions) and a <strong>generative part</strong> (predicting motion), allowing high-level of the network represent high level behavioral phenomenon.</li>
+<li>Their model learns a <strong>hierarchical</strong> embedding of behavior, can be trained <strong>semi-supervised</strong> to learn specific behaviors of interest, and the sensory-motor representation enables the model to learn <strong>interactive</strong> behavior of an agent with other agents and with its environment.</li></ul></li>
+</ul>
+
+
+
+<h3 id="new-taste-of-reinforce-and-adaptive-learning">New Taste of Reinforce and Adaptive Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/abs/1602.02181">Active Information Acquisition</a>, He He, Feb. 2016.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.01302.pdf">Towards negotiable reinforcement learning: shifting priorities in Pareto optimal sequential decision-making</a>, UC Berkeley.</p>
+
+<ul><li>Where the policy (one policy) should negotiate with more than one MDPs which could not be merged.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1609.00150v2.pdf">Reward Augmented Maximum Likelihood for Neural Structured Prediction</a>, <strong>MUST READ</strong>, new taste of NLP research.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.08810.pdf">The Predictron: End-to-End Learning and Planning</a>, David Silver ICLR 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.09465.pdf">Adaptive <script type="math/tex" id="MathJax-Element-137">\lambda</script> Least Squares Temporal Difference Learning</a></p>
+
+<ul><li>Provide a solution to the <script type="math/tex" id="MathJax-Element-138">\lambda</script> selection problem in TD(<script type="math/tex" id="MathJax-Element-139">\lambda</script>).</li></ul></li>
+</ul>
+
+
+
+<h3 id="attention-in-language-modeling">Attention in Language Modeling</h3>
+
+<ul>
+<li><a href="https://openreview.net/pdf?id=ByIAPUcee">Frustratingly Short Attention Spans in Neural Language Modeling</a>, ICLR 2017.</li>
+<li><p><a href="https://arxiv.org/pdf/1604.00077v1.pdf">Neural Attention Models for Sequence Classification - Application to Key Term Extraction and Dialogue Act Detection</a></p></li>
+<li><p><a href="http://www.aclweb.org/anthology/C/C16/C16-1030.pdf">Attending to Characters in Neural Sequence Labeling Models</a>, COLING 2016.</p></li>
+</ul>
+
+
+
+<h3 id="efficient-recurrent-neural-networks">Efficient Recurrent Neural Networks</h3>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1611.01576">Quasi-Recurrent Neural Networks</a>, ICLR 2017.</li>
+<li><a href="https://arxiv.org/abs/1610.09893">LightRNN: Memory and Computation-Efficient RNN</a>, NIPS 2016.</li>
+</ul>
+
+
+
+<h3 id="neural-memory">Neural Memory</h3>
+
+<ul>
+<li><p><strong>MUST READ</strong> <a href="http://jmlr.org/proceedings/papers/v48/lie16.pdf">Learning to Generate with Memory</a>, Jun Zhu’s group at Tsinghua Univ. ICML 2016.</p>
+
+<ul><li>Deep generative models with <strong>external memory</strong> which is rarely explored.</li>
+<li>Variational bound, smooth attention, VAEs, asymmetric recognition network learned jointly.</li></ul></li>
+<li><p>Plus the printed paper on <strong>learning rare events</strong> at this year’s ICLR 2017.</p></li>
+</ul>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><a href="https://aclweb.org/anthology/D/D16/D16-1233.pdf">Conditional Generation and Snapshot Learning in Neural Dialogue Systems</a>, EMNLP 2016.</li>
+</ul>
+
+
+
+<h3 id="human-in-the-loop">Human-in-the-loop</h3>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1611.09823">Dialogue Learning with Human-in-the-loop</a></li>
+</ul>
+
+
+
+<h3 id="self-taught-text-representation">Self-taught Text Representation</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.00185.pdf">Self-taught Convolutional Neural Networks for Short Text Clustering</a>, Jun Zhao’s group.</li>
+</ul>
+
+<p>They propose a method for using <strong>dimension reduced dense vector</strong> as <strong>substitute</strong> for document representation to <em>taught</em> the convolutional neural network based <strong>embedding feature</strong>, then use the trained CNN to get embeddings of documents and then use k-means for clustering. <strong>I wonder why these approach works better than pure dimension reduction for clustering?</strong></p>
+
+<p>The <strong>Dimension Reduction</strong> methods they use are: (<strong>I should get familiar with them linear algebraically.</strong>)</p>
+
+<ul>
+<li>Latent Semantic Analysis</li>
+<li>Laplacian Eigenmaps</li>
+<li>Locality Preserving Indexing</li>
+</ul>
+
+
+
+<h3 id="compositionality">Compositionality</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1306.3584v1.pdf">Recurrent Convolutional Neural Networks for Discourse Compositionality</a>, arXiv 2013 by Nal Kalchbrenner.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.05054.pdf">Graphical RNN Models</a>, very interesting, read to find out how they define RNNs over a graph structure.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.01126.pdf">Textual Entailment with Structured Attentions and Composition</a>, Fudan, arXiv 2017.</p></li>
+</ul>
+
+
+
+<h3 id="nlp-tasks-and-task-specific-priorsinductive-bias">NLP Tasks and Task-Specific Priors/Inductive Bias</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.06027.pdf">Neural Multi-Source Morphological Reinflection</a>, arXiv 2016. <br>
+<ul><li>The topic is about morphology, and reflection of course.</li>
+<li>The gains are to understand the <strong>Motivation</strong> of doing multi-source instead of single-source, and try to understand <strong>How the author formulate the NEW problem</strong>.</li></ul></li>
+</ul>
+
+
+
+<h3 id="natural-language-generation-summarizer">Natural Language Generation &amp; Summarizer</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.03205.pdf">Evaluating Creative Language Generation: The case of rap lyric ghostwriting</a>, arXiv 2016.</p></li>
+<li><p><a href="https://www.cl.cam.ac.uk/~yf261/papers/fz2016.pdf">A Proposition-Based Abstractive Summariser</a>, COLING 2016. This is not a neurl based model but purely symbolic one. It act as a encode-decode process, where the author mainly focuses on the encoding end, and use a NLG sentence generator to decode the encoded core meaning.</p></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="https://www.cl.cam.ac.uk/~yf261/">Yimai Fang</a></p>
+
+<ul><li>”I am a final year PhD (<strong>PhD in UK usually takes 3 years</strong>) student in the Natural Language and Information Processing (NLIP) group at the University of Cambridge Computer Laboratory. My work on <strong>automatic summarisation</strong> involves <strong>modelling many phenomena central to human’s text comprehension process</strong>, such as the <strong>overlap of participating concepts</strong>, and the <strong>addition</strong>, the <strong>representation</strong>, and the <strong>selection of knowledge in memory</strong>. The summarisation project serves as a testbed for a <strong>recurrent model</strong> of document understanding, which at this stage is <strong>best simulated symbolically</strong>, but has potential application in other tasks as well. My supervisor is Dr. Simone Teufel.”</li>
+<li>“I received my bachelor’s degree in computer science at The University of Hong Kong, with first class honours. Before starting the PhD, I completed the MPhil in Advanced Computer Science here at Cambridge. My work on summarisation stems from my MPhil project, and it leads me towards many NLP problems that are fundamental to an explanatory summarisation model.”</li>
+<li>His works should be taken careful look at, which are very interesting to me. <br>
+<ul><li><a href="https://www.cl.cam.ac.uk/~yf261/papers/fz2016.pdf">A proposition-based abstractive summariser</a>, COLING 2016.</li>
+<li><a href="https://www.cl.cam.ac.uk/~yf261/papers/ft2016-new.pdf">Improving Argument Overlap for Proposition-based Summarisation</a>, ACL 2016.</li>
+<li><a href="https://www.cl.cam.ac.uk/~yf261/papers/ft2014.pdf">A Summariser based on Human Memory Limitations and Lexical Competition</a>, EACL 2014.</li></ul></li></ul></li>
+<li><p><a href="http://dustintran.com/blog/">Dustin Tran</a></p>
+
+<ul><li>The above url is Dustin’s blog, which is a wonderful place to find generative and Bayesian insights. He has posted several posts on discussion for VAEs, GANs and the parameterization/reparameterization trikcs on VAEs in special.</li>
+<li>He said he also gets interested in Reinforcement Learning, and he wrote a lecture notes based on <a href="http://finale.seas.harvard.edu/classes">this</a> course at Harvard by Finale Doshi-Velez. However it is not available to students outside Harvard. Anyway, Dustin’s lecture notes are <a href="http://dustintran.com/blog/assets/cs282r.pdf">here</a>.</li></ul></li>
+<li><p><a href="http://gdm.fudan.edu.cn/GDMWiki/Wiki.jsp?page=Wanyun%20Cui%20%E5%B4%94%E4%B8%87%E4%BA%91">Wanyun Cui</a></p>
+
+<ul><li>PhD student at Fudan University. Many great work on KB-based QA.</li></ul></li>
+<li><p><a href="https://paulfchristiano.com/">Paul Christiano</a></p>
+
+<ul><li>Used to be a PhD student at UCB theory of computing group.</li>
+<li>His self-media at medium is very worth following, <a href="https://medium.com/ai-control">AI Control</a> (many thoughtful insights on current trends of reinforcement learning.)</li></ul></li>
+<li><p><a href="https://sites.google.com/site/dbalduzzi/">David Balduzzi</a></p>
+
+<ul><li>Senior Lecturer at <u>Victoria University of Wellington</u> in New Zealand. He graduated from University of Chicago, worked at MPI for Intelligent Systems, ETH etc.</li>
+<li>The question underlying his research is: <strong><em>How algorithms learn to cooperate with each other?</em></strong></li></ul></li>
+<li><p><a href="https://www.lri.fr/~sebag/">Michele Sebag</a></p>
+
+<ul><li>Deputy director of Laboratoire de Recherche en Informatique. Co-head of Équipe-Projet TAO - INRIA Saclay - Île-de-France.</li>
+<li>etc.</li></ul></li>
+<li><p><a href="https://www.cs.umd.edu/users/angli/">Ang Li</a></p>
+
+<ul><li>PhD student at University of Maryland. Works on visual representation and matching relating to natural language, with applications in object tracking, image segmentation, image-based geolocation, face verification, text-based image retrieval and image-based phrase prediction.</li>
+<li>Read his following paper: <br>
+<ul><li><a href="https://arxiv.org/pdf/1612.09161v1.pdf">Learning Visual N-Grams from Web Data</a></li>
+<li><a href="https://arxiv.org/pdf/1611.09392v1.pdf">Generating Holistic 3D Scene Abstractions for Text-based Image Retrieval</a></li></ul></li></ul></li>
+<li><p><a href="https://people.cs.umass.edu/~bsilva/">Bruno Castro da Silva</a></p>
+
+<ul><li>He has mastered in the intersection of Reinforcement Learning and Automatic Planning, his work on parametric behavior (<strong>parameterized  skills</strong> or <strong>abstraction</strong>) model in RL is representative and should for me to take seriously.</li>
+<li>He claims that, <em>I am interested in methods for automatically discovering reusable motor skills in robots. I have recently introduced techniques for solving entire distributions of optimal decision-making problems from very few samples. I am also interested in algorithms for efficiently exploring large state spaces.</em></li>
+<li>Read this <a href="https://people.cs.umass.edu/~bsilva/paramSkill_icml2012.pdf">paper</a> and see how he define parameterised skills carefully.</li></ul></li>
+<li><p><a href="http://www.coli.uni-saarland.de/~koller/">Alexander Koller</a></p>
+
+<ul><li>Prof. at Saarland University in Germany. He has distinguished works in Natural Language Generation. (I have printed out one of his old paper on NLG and sentence level planning with pragmatic consideration, which is worth reading.)</li>
+<li>Recently he is contributing to graph parsing problems such as AMR parsing, see <a href="http://www.coli.uni-saarland.de/~koller/papers/sgraph-parsing-15.pdf">this</a> paper for an instance.</li></ul></li>
+<li><p><a href="http://www.nowozin.net/sebastian/">Dr. Sebastian Nowozin</a></p>
+
+<ul><li>Research Scientist at MSR, Cambridge, UK. His current research is in: <br>
+<ul><li>Probabilistic deep learning methods for unsupervised learning and semi-supervised structured prediction.</li>
+<li>The consequence of model misspecification on estimation and on decision problems.</li>
+<li>Understanding agent complexity in order to improve learning efficiency.</li>
+<li>Designing model for reasoning and planning.</li></ul></li>
+<li>In terms of methodology, he is interested in: <br>
+<ul><li>structured prediction</li>
+<li>deep learning</li>
+<li>monte carlo methods</li>
+<li>decision theory</li></ul></li>
+<li>He is the author of <script type="math/tex" id="MathJax-Element-140">f</script>-GANs, a must read theoretical paper related GANs. He also has the following papers which may catch my interests: <br>
+<ul><li><a href="http://www.nowozin.net/sebastian/papers/daniel2016stepsizecontrol.pdf">Learning Rate Size Controllers for Robust Neural Network Training</a>, AAAI 2016. <br>
+<ul><li>This paper is about adaptively control the learning rate with some possible <strong>information</strong> or <strong>informative features</strong> of the learning process. So <em>WHAT is the so called informative features?</em></li>
+<li><strong>Following</strong> are some quotes from the paper. Surprisingly, this paper use techniques from Rinforcement Learning, i.e. a policy search algorithm <em>Relative Entropy Policy Search</em>. REPS is an invention from robot control and “has been shown to work well in high dimensional control tasks and works well in combination with parameterized controllers”.</li>
+<li><em>“The goal of this paper, thus, is to learn a policy <script type="math/tex" id="MathJax-Element-141">\pi(\xi|\phi)</script> which can adapt the open parameters of the optimization operator <script type="math/tex" id="MathJax-Element-142">T(\cdot)</script> based on feature <script type="math/tex" id="MathJax-Element-143">\phi</script>.”</em></li></ul></li>
+<li><a href="http://www.nowozin.net/sebastian/papers/bouchacourt2015latentstructpred.pdf">Entropy-based Latent Structured Output Prediction</a>, ICCV 2015.  <br>
+<ul><li>Through this paper, to know and learn about <strong>latent structural SVM</strong>, which is a method for weakly supervised learning and structured prediction problems with latent structural variables.</li></ul></li></ul></li>
+<li>His blog <a href="http://www.nowozin.net/sebastian/blog/">here</a> is worth reading since he has written some tips for <em>How to write research paper?</em></li></ul></li>
+<li><p><a href="http://www.princeton.edu/~mengdiw/">Mengdi Wang</a></p>
+
+<ul><li>Mengdi Wang is interested in data-driven stochastic optimization and applications in machine and reinforcement learning.</li></ul></li>
+<li><p><a href="https://xianblog.wordpress.com/">Christian Robert</a></p>
+
+<ul><li>This is his blog. He has some comments on Chris Maddison’s 14 NIPS paper A* sampling <a href="https://xianblog.wordpress.com/tag/gumbel-distribution/">here</a>.</li></ul></li>
+</ul>
+
+
+
+<h2 id="code">Code</h2>
+
+<ul>
+<li><p><a href="https://www.facebook.com/yann.lecun/posts/10154070851697143">Facebook AI Open Source for 4 NLP paper on Dialogue and Key-value MemNets</a></p></li>
+<li><p><a href="https://github.com/ambujtewari/stats607a-fall2015/wiki">Statistics and Programming Course with Code</a></p></li>
+<li><p><a href="https://github.com/marekrei/sequence-labeler">Sequence Labeler by Merek Rei</a>, based on Theano, Lasagne, Numpy, and can be used for:</p>
+
+<ul><li>Named Entity Recognition</li>
+<li>POS tagging</li>
+<li>error detection</li>
+<li>chunking</li>
+<li>CCG supertagging, etc.</li></ul></li>
+</ul>
+
+
+
+<h2 id="printed">Printed</h2>
+
+<ul>
+<li><strong>Aspect-augmented Adversarial Training for Domain Adaptation</strong>, TACL 2017.</li>
+<li><strong>Sentence Generation as a Planning Problem</strong>, ACL 2007.</li>
+<li><strong>Span-Based Constituency Parsing with a Structure-Label System and Provably Optimal Dynamic Oracles</strong>, Best Paper, ACL 2016.</li>
+<li><strong>Minimum Error Rate Training in SMT</strong>, Och, ACL 2003.</li>
+<li><strong>Minimum Risk Training for NMT</strong>, Shiqi Shen et al, ACL 2016.</li>
+<li><strong>Semantic, Representations and Grammars for Deep Learning</strong>, arXiv 2015.</li>
+<li><strong>Two RL papers on Dialogue Systems</strong> <br>
+<ul><li>On-line Active Reward Learning for Policy Optimisation in Spoken Dialogue Systems, ACL 2016 Best Student Paper from Cambridge Speech Processing Group.</li>
+<li>Deep Reinforcement Learning for Dialogue Generation, Jiwei Li with Microsoft Research Redmond, EMNLP 2016</li></ul></li>
+<li><strong>Joint Semantic Synthesis and Morphological Analysis of the Derived Word</strong>, TACL 2017.</li>
+<li><strong>Learning to Remember Rare Events</strong>, ICLR 2017.</li>
+</ul></div></body>
+</html>
