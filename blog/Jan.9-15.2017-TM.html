@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan.9-15.2017 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="jan9-152017-trivial-matters">Jan.9-15.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#jan9-152017-trivial-matters">Jan.9-15.2017 - Trivial Matters</a><ul>
+<li><a href="#three-daily-practice-to-stay-young">Three Daily Practice to Stay Young</a></li>
+<li><a href="#score-statistics">Score (Statistics)</a><ul>
+<li><a href="#properties-characteristics">Properties (Characteristics)</a></li>
+</ul>
+</li>
+<li><a href="#algorithm-and-random-algorithm">Algorithm and Random Algorithm</a></li>
+<li><a href="#machine-translation-reading-group-at-edinburgh">Machine Translation Reading Group at Edinburgh</a></li>
+<li><a href="#monte-carlo-theory-methods-and-examples">Monte Carlo Theory - Methods and Examples</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#interpretable-deep-learning">Interpretable Deep Learning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#adversarial-generative-models">Adversarial Generative Models</a></li>
+<li><a href="#structured-prediction-aka-decoding">Structured Prediction aka. Decoding</a></li>
+<li><a href="#parsing">Parsing</a></li>
+<li><a href="#attention-over-structure">Attention over Structure</a></li>
+<li><a href="#dynamic-computation-graph-neural-architectures">Dynamic Computation Graph &amp; Neural Architectures</a></li>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#knowledge-base">Knowledge Base</a></li>
+<li><a href="#word-embedding">Word Embedding</a></li>
+<li><a href="#attention-in-cv-captioning">Attention in CV &amp; Captioning</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+<li><a href="#printed">Printed</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="three-daily-practice-to-stay-young">Three Daily Practice to Stay Young</h2>
+
+<p>I read <a href="http://findfocus.net/3-daily-practices-stay-young/">this post</a> just following a Quora answer. It is succinct and well-written for the insights and practical tips it gives. The most thing I found interesting and motivating is his realization of <strong>‘We tend to underestimate what we already know’</strong>, and <strong>‘We humans are conditioned to always crave for new things.’</strong> But make a difference,</p>
+
+<ul>
+<li>Try to really think hard on my own <strong>so-called RESEARCH IDEAs</strong> and begin to develop it to become mature enough for publishing (the tiny step towards <strong>unknowns</strong> of the whole human knowledge). </li>
+<li>Forget about what others believe or do, use my own already well-organized knowledge to <strong>create new insights</strong>.</li>
+</ul>
+
+<p>On the other hand, <strong>input</strong> should be taken another view. That is, gold in silver out instead of rubbish in nothing out. Gold means the crucial or essential part of others idea, the dots others’ work connected and the whole bunch of insights after you read, reread, derive, reason, and recreate/re-implement their idea/work.</p>
+
+<p>Bertrand Russel says that, he insists everyday read for about 4 hours and write for about 4 hours. As a student who know a little about linguistics, I know that it is only writing that start from re-organizing/absorbing knowledge to creating new interpretations. To this end, I think now I am doing the right job.</p>
+
+<p>In the end, what is the <strong>three daily practice to stay young</strong> as the title indicates?</p>
+
+<ol>
+<li>Start everyday with a glass of water and a few minute of meditation and stretching.</li>
+<li>Avoid junk food at least 5 days per week.</li>
+<li>Try not to take things too seriously.</li>
+</ol>
+
+
+
+<h2 id="score-statistics">Score (Statistics)</h2>
+
+<p>Score is a concept in statistics. It is defined as the gradient of log-likelihood function w.r.t. the parameter of the model. Thus, it is the sensitivity of the likelihood value w.r.t. parameter (its derivative normalized by its value).</p>
+
+<p>Follow Wikipedia, score plays an important role in several aspects of inference: such as:</p>
+
+<blockquote>
+  <p>in formulating a test statistic for a locally most powerful test; <br>
+  in approximating the error in a maximum likelihood estimate; <br>
+  in demonstrating the asymptotic sufficiency of a maximum likelihood estimate; <br>
+  in the formulation of confidence intervals; <br>
+  in demonstrations of the Cramér–Rao inequality.</p>
+</blockquote>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-1"> V \equiv V(\theta, X) = \frac{\partial}{\partial \theta} log L(\theta; X) = \frac{1}{L(\theta; X)} \frac{\partial}{\partial \theta} L(\theta; X)</script></p>
+
+
+
+<h3 id="properties-characteristics">Properties (Characteristics)</h3>
+
+<p>Why score has mean and variance (or co-variance when in <script type="math/tex" id="MathJax-Element-2"> x </script> is in high dimensional space)? <strong>Because</strong> the functional form of score contains r.v. <script type="math/tex" id="MathJax-Element-3"> x </script>, although for one observed sample, <script type="math/tex" id="MathJax-Element-4"> x </script> is constant. To get a general form of <script type="math/tex" id="MathJax-Element-5"> V </script>, we need to assume <script type="math/tex" id="MathJax-Element-6"> X </script> as the random sample (the pre-realization of observations).</p>
+
+<p>According to the definition, <script type="math/tex" id="MathJax-Element-7"> V </script> is a function of unknown constant <script type="math/tex" id="MathJax-Element-8"> \theta </script> and random factor <script type="math/tex" id="MathJax-Element-9"> X </script>, so we can compute the expectation w.r.t. <script type="math/tex" id="MathJax-Element-10"> X </script> to integrate it out. Finally we should get a deterministic (opposed to stochastic) function of <script type="math/tex" id="MathJax-Element-11"> \theta </script>.</p>
+
+<p>Variance can as well be probed in terms of our explanation above. So variance of score is also a function of <script type="math/tex" id="MathJax-Element-12"> \theta </script>.</p>
+
+<p><strong>Mean</strong> <br>
+We prove that under certain regularity, the mean of score is zero. Suppose the random sample is <script type="math/tex" id="MathJax-Element-13"> X </script>, every <script type="math/tex" id="MathJax-Element-14"> X_i \in X </script> is i.i.d. sampled from the population with density <script type="math/tex" id="MathJax-Element-15"> p(x;\theta) </script>. The density of the random sample <script type="math/tex" id="MathJax-Element-16"> X </script> is the multiplication of the density of each <script type="math/tex" id="MathJax-Element-17"> X_i </script>, i.e. <script type="math/tex" id="MathJax-Element-18"> f(x;\theta) = \Pi_i p(x_i;\theta) </script>. So the log-likelihood of <script type="math/tex" id="MathJax-Element-19"> X </script> is the log of this composed density, i.e. <script type="math/tex" id="MathJax-Element-20"> L(\theta;X=x) = f(x;\theta) </script>.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-21">
+\begin{align}
+\mathbb{E}_{X \thicksim f(X;\theta)} (V) &= \int f(x;\theta) V(\theta;x) dx \\
+&=  \int f(x;\theta) \frac{\partial log L(\theta;x)}{\partial \theta} dx \\
+&= \int f(x;\theta) \cdot \frac{1}{f(x;\theta)} \frac{\partial f(x;\theta)}{\partial \theta} dx \\
+&= \int \frac{\partial f(x;\theta)}{\partial \theta} && \text{(under Leibniz integral rule)} \\
+&= \frac{\partial}{\partial \theta} \int f(x;\theta) dx && \text{(since it is a density function, integral equals 1)} \\
+&= \frac{\partial 1}{\partial \theta} \\
+&= 0
+\end{align}
+</script></p>
+
+<p><strong>Variance</strong> <br>
+The variance of the score is known as the <strong>Fisher Information</strong> and is written as <script type="math/tex" id="MathJax-Element-22"> \mathcal{I}(\theta) </script>. According to the definition of variance, we can derive its expression below.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-23">
+\begin{align}
+\mathbb{E}_{X \thicksim f(x;\theta)} [( V - \mathbb{E}(V))^2] &= \mathbb{E}_{X \thicksim f(x;\theta)} [( V - 0)^2] \\
+&= \mathbb{E} [\frac{\partial log L(\theta;x)}{\partial \theta}]^2
+\end{align}
+</script></p>
+
+<p>This is the definition and computation of Fisher Information.</p>
+
+
+
+<h2 id="algorithm-and-random-algorithm">Algorithm and Random Algorithm</h2>
+
+<p><strong>Firstly</strong>, <a href="http://web.stanford.edu/class/archive/cs/cs161/cs161.1168/">here</a> is a succinct course based on Cormen’s Introduction to Algorithms by Jessica at Stanford. Her notes are very brief and a quick look followed by massive thinking is good! To list some contents of interests:</p>
+
+<ul>
+<li>Hashing, Recurrence relations, Strongly connected components, Minimum spanning tree, amortized analysis etc.</li>
+</ul>
+
+<p><strong>Secondly</strong>, the great course on <a href="http://www.cs.cmu.edu/~haeupler/15859F15/">Algorithm with randomization</a> by Bernhard Haeupler at CMU. It is all about <strong>probabilistic taste</strong> of algorithm design. The course notes are great.</p>
+
+
+
+<h2 id="machine-translation-reading-group-at-edinburgh">Machine Translation Reading Group at Edinburgh</h2>
+
+<p>Here is the <a href="http://www.statmt.org/ued/?n=Public.WeeklyMeeting">main page</a> of Edinburgh MT Reading Group. Notice what they notice.</p>
+
+
+
+<h2 id="monte-carlo-theory-methods-and-examples">Monte Carlo Theory - Methods and Examples</h2>
+
+<p>An ongoing book on Monte Carlo Theory, <a href="">here</a> is the main page of this book, with 10 Chapters written already.</p>
+
+<p>And a course on Computational Monte Carlo methods, <a href="http://www.cs.ubc.ca/~arnaud/CS535D_2007.html">here</a>.</p>
+
+<p>And Larry Wasserman’s Probability and Statistics course notes, <a href="http://lib.stat.cmu.edu/~larry/=stat325.01/">here</a>.</p>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="interpretable-deep-learning">Interpretable Deep Learning</h3>
+
+<ul>
+<li><p><a href="https://openreview.net/pdf?id=Sy8gdB9xx">Understanding Deep Learning Requires Rethinking Generalization</a>, ICLR 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.07843.pdf">What is relevant in a Text Document? An Interpretable Machine Learning Approach</a></p></li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://openreview.net/forum?id=r1Ue8Hcxg">Neural Architecture Search with Reinforcement Learning</a>, ICLR 2017.</p></li>
+<li><p><a href="http://www.cc.gatech.edu/~isbell/papers/policy-nips2013.pdf">Policy Shaping: Integrating Human Feedback with Reinforcement Learning</a>, NIPS 2013.</p></li>
+<li><p><a href="http://web.mit.edu/jnt/www/Papers/C-99-konda-NIPS.pdf">Actor-Critic Algorithm</a></p>
+
+<ul><li>The classic work of RL.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1612.04868.pdf">Reinforcement Learning via Recurrent Convolutional Neural Networks</a></p>
+
+<ul><li>Very similar to the best paper work of NIPS 2016.</li></ul></li>
+</ul>
+
+
+
+<h3 id="adversarial-generative-models">Adversarial Generative Models</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.00405.pdf">Adversarial Tuned Scene Generation</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02676.pdf">Unsupervised Image-to-Image Translation with Generative Adversarial Networks</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1611.02163v1">Unrolled Generative Adversarial Networks</a></p>
+
+<ul><li>Stabilize training by plug in an flexible un-convergent version of Discriminator to the training process of Generator. They show this technique can solve the common problem of <strong>mode collapse</strong>.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02386.pdf">AdaGAN: Boosting Generative Models</a></p>
+
+<ul><li>Also a way to solve the <strong>missing mode/mode collapse</strong> problem.</li>
+<li>“We propose a iterative procedure, called AdaGAN, where at every step we add a new component into a mixture model by running a GAN algorithm on a reweighted sample.” “Boosting via additive mixtures”.</li></ul></li>
+</ul>
+
+<p>There is another paper which use boosting for variational inference.</p>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1611.05559v1">Boosting Variational Inference</a>, arXiv Nov. 2016. This paper originated from Xiangyu Wang’s master’s dissertation <a href="http://www2.stat.duke.edu/~xw56/dissertation.pdf">here</a>.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02815.pdf">Stochastic Generative Hashing</a>, from Le Song’s group.</p>
+
+<ul><li>Learning to Hash, L2 approximate nearest neighbor search, maximum inner product search.</li></ul></li>
+</ul>
+
+
+
+<h3 id="structured-prediction-aka-decoding">Structured Prediction aka. Decoding</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.03038.pdf">Decoding with Finite-State Transducers on GPUs</a>, David Chiang’s group.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02854.pdf">Decoding as Continuous Optimization in NMT</a>, Trever Cohn’s group.</p>
+
+<ul><li>Convert discrete decoding problem to a continuous optimization problem, which is akin to linear programming approaches for approximate inference in graphical models with discrete random variables.</li>
+<li>“They relax the integrality constraints of the inference problem to formulate as a continuous optimization problem”, which can be optimized using SGD.</li></ul></li>
+</ul>
+
+
+
+<h3 id="parsing">Parsing</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.03163">Parsing Universal Dependencies withou Training</a></li>
+</ul>
+
+
+
+<h3 id="attention-over-structure">Attention over Structure</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.01811.pdf">Structural Attention Neural Networks for Improved Sentiment Analysis</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02149.pdf">Task-Specific Attentive Pooling of Phrase Alignments Contributes to Sentence Matching</a></p>
+
+<ul><li>This paper has the same linguistic motivation, <strong>correspondence, alignment, matching</strong> etc., see <a href="https://arxiv.org/pdf/1612.04868.pdf">this</a> paper titled “Why do you say they are similar? Interpretable Semantic Textural Similarity”.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02593.pdf">A Simple and Accurate Syntax-Agnostic Neural Model for Dependency-based Semantic Role Labeling</a></p></li>
+</ul>
+
+
+
+<h3 id="dynamic-computation-graph-neural-architectures">Dynamic Computation Graph &amp; Neural Architectures</h3>
+
+<ul>
+<li><p><a href="https://openreview.net/pdf?id=ryrGawqex">Deep Learning with Dynamic Computation Graphs</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1605.05775v1.pdf">Supervised Learning With Quantum-Inspired Tensor Networks</a></p></li>
+</ul>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.02073.pdf">Neural Personalized Response Generation as Domain Adaptation</a> </p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.03185">Generating Long and Diverse Responses with Neural Conversation Models</a>, ICLR 2017.</p></li>
+</ul>
+
+
+
+<h3 id="knowledge-base">Knowledge Base</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.02025.pdf">Multi-level Representations for Fine-Grained Typing of Knowledge Base Entities</a></li>
+</ul>
+
+
+
+<h3 id="word-embedding">Word Embedding</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.02481.pdf">Implicitly Incorporating Morphological Information into Word Embedding</a></li>
+</ul>
+
+
+
+<h3 id="attention-in-cv-captioning">Attention in CV &amp; Captioning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1612.06704.pdf">Action-Driven Object Detection with Top-Down Visual Attentions</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.03126.pdf">Attention-Based Multimodal Fusion for Video Description</a></p>
+
+<ul><li>Attend not just to spatial/temporal element in video, but also multi modality ingredients in video, image features, motion features, and audio features.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.03439.pdf">Comprehension-guided Referring Expressions</a></p>
+
+<ul><li>The use of GANs, modified scheduled sampling.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.02870.pdf">Context-aware Captions from Context-Agnostic Supervision</a></p></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://www.cs.ucr.edu/~zhijia/">Zhijia Zhao</a></p>
+
+<ul><li>Assistant Professor at University of California Riverside. His research interests are <strong>program optimization, parallelization, reliability analysis</strong> especially for <strong>automata-based applications</strong>(searching, parsing, querying, decoding etc.) and applications with <strong>irregular or nested data structures</strong>(tree, graph, or HTML/XML/JSON).</li>
+<li>His paper on <strong>Program behavior prediction</strong> is my <strong>MUST READ</strong>: <br>
+<ul><li><a href="http://www.cs.ucr.edu/~zhijia/papers/oopsla14.pdf">Call Sequence Prediction through Probabilistic Calling Automata</a>, 2014.</li></ul></li></ul></li>
+<li><p><a href="http://www.stats.ox.ac.uk/~cholmes/">Chris Holmes</a></p>
+
+<ul><li><strong>Statistician</strong>. “My statistical research interests surround the theory, methods and applications of probabalistic data modelling and the use of subjective probability theory as a unified framework for coherent inference. This has lead me to investigate Bayesian methods, particuarly for nonlinear systems.”</li>
+<li>His recent works on <strong>machine learning</strong> and <strong>sampling</strong> are worth taking a look.</li>
+<li><strong>MY Comment</strong> <br>
+<ul><li>My insights on program behavior analysis is very similar (as an analogy) to <strong>trajectory mining</strong> in Reinforcement Learning. Or learning models as agents in virtual environment (which scientists build for them) has behavior during its running lifetime, like a program running on CPU taking input data and produce output. The output and the change of environment are modeled as MDPs in Reinforcement Learning. How to track the trajectory an agent create (maybe using stack? Heap? Differentiable as NNs)? How to analyze its behavior (as short-term policy)? Those are thought experiments (radical analogies) made by myself. However, take a look at Prof. <a href="http://www.cs.ubc.ca/~kevinlb/index.html">Kevin Leyton-Brown</a>’s works from UBC.</li></ul></li></ul></li>
+<li><p><a href="http://www.cc.gatech.edu/~jscholz6/index.php">Jonathan Scholtz</a></p>
+
+<ul><li>He has written some notes on Hierarchical Dirichlet Processes, etc. which is worth reading.</li>
+<li>He is mainly interested in Reinforcement learning in physical world. I have downloaded his PhD thesis, take a look for a while to see what kind of problem he is tackling.</li>
+<li><a href="http://www.jmlr.org/proceedings/papers/v32/scholz14.pdf">A Physics-Based Model Prior for Object-Oriented MDPs</a>, a paper at ICML 2014.</li></ul></li>
+<li><p><a href="http://www.carldoersch.com/">Carl Doersch</a></p>
+
+<ul><li>CMU PhD student. Now at Google DeepMind. His primary interests are in Computer Vision and Machine Learning which can leverage <strong>Context Information</strong> for weak supervision (e.g. GPS, web text, or even raw image context). Read his PhD works for detailed outline of his thoughts <a href="http://www.carldoersch.com/docs/thesis.pdf">here</a>, titled</li>
+<li><strong>I am particularly interested in his following works</strong>: <br>
+<ul><li><a href="http://www.carldoersch.com/projects.html">Mid-Level Visual Element Discovery as Discriminative Mode Seeking</a>, NIPS 2013.</li>
+<li><a href="http://graphics.cs.cmu.edu/projects/contextPrediction/">Context as Supervisory Signal: Discovering Objects with Predictable Context</a>, ECCV 2014.</li>
+<li><a href="http://www.cs.cmu.edu/~jcwalker/DTP/DTP.html">An Uncertain Future: Forecasting from Static Images Using Variational Autoencoders</a>, ECCV 2016.</li></ul></li>
+<li>And he has a very nice tutorial on <strong>Variational Auto Encoders</strong> <a href="https://arxiv.org/pdf/1606.05908v2.pdf">here</a>, about 23 page-length,  which is <strong>Dustin Tran</strong>’s recommendation. </li></ul></li>
+<li><p><a href="http://www.cs.toronto.edu/~norouzi/">Mohammad Norouzi</a></p>
+
+<ul><li>Graduate at Toronto University. Now at Google Brain team at Google in Mount View.</li>
+<li>“My research lies at the intersection of machine learning, computer vision, and natural language processing with an emphasis on neural networks and reinforcement learning. My current research focuses on 1) learning better neural network models of structured outputs and sequences. 2) developing better reinforcement learning algorithms.” His <strong>thesis</strong> is a good resource of <strong>Hashing-based</strong> methods and <strong>Fast Nearest Neighbor Search</strong>.</li>
+<li>Recent <strong>RL</strong> papers are: <br>
+<ul><li><a href="https://arxiv.org/pdf/1611.09321">Improving Policy Gradient by Exploring Under Appreciated Reward</a>, arXiv Nov. 2016.</li>
+<li><a href="https://arxiv.org/pdf/1611.09940">Neural Combinatorial Optimization with Reinforcement Learning</a>, arXiv Nov. 2016.</li></ul></li></ul></li>
+<li><p><a href="https://chloebt.github.io/">Chloe Braud</a></p>
+
+<ul><li>PostDoc in NLP, interested in discourse parsing, machine learning, domain adaption, cross-lingual cross-domain learning.</li></ul></li>
+<li><p><a href="https://www.cl.cam.ac.uk/~sht25/">Simone Teufel</a></p>
+
+<ul><li>Reader in Information and Language at the NLIP group at the Computer Laboratory of the University of Cambridge. </li>
+<li>“My area of research is text understanding. In particular, I develop models of discourse structure and argumentation in scientific text. Several applications could profit from an analysis of a text’s logical structure – for instance text summarization, scientific search engines, improved bibliometrics, detection of “hot ideas” in a scientific field, and tools for better academic writing. The discourse analysis I propose (called Argumentative Zoning or AZ) is based on the recognition of the following phenomena: sentiment expressed towards cited work, ownership of ideas, and speech acts which express rhetorical statements typical for scientific argumentation. Co-reference between entities mentioned in text, and coherence of text pieces also plays an important role in my model. I am also interested in cognitive experiments to prove the use of this type of robust processing in a real user environment, particularly in task-based evaluations.”</li></ul></li>
+</ul>
+
+
+
+<h2 id="printed">Printed</h2>
+
+<ul>
+<li><strong>Reward Augmented Maximum Likelihood for Neural Structured Prediction</strong>, NIPS 2016.</li>
+<li><strong>LightRNN: Memory and Computation Efficient Recurrent Neural Networks</strong>, MSRA, NIPS 2016.</li>
+<li><strong>A Latent Factor Model for Highly Multi-Relational Data</strong>, NIPS 2012.</li>
+<li><strong>Learning to Generate with Memory</strong>, ICML 2016, Jun Zhu’s group.</li>
+<li><strong>Deep Learning of Representations: Looking Forward</strong>,  Yoshua Bengio, 2013.</li>
+<li><strong>How Auto-Encoders Could Provide Credit Assignment in Deep Networks via Target Propagation</strong>, Bengio 2014.</li>
+<li><strong>Reinforced Variational Inference</strong> NIPS Workshop 2015.</li>
+<li><strong>Variational methods for Reinforcement Learning</strong> ICML 2010.</li>
+<li><strong>Variational Information Maximisation for Intrinsically Motivated Reinforcement Learning</strong> arXiv 2016.</li>
+</ul></div></body>
+</html>
