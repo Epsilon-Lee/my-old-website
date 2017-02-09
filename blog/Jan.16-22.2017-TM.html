@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan.16-22.2017 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="jan16-222017-trivial-matters">Jan.16-22.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#jan16-222017-trivial-matters">Jan.16-22.2017 - Trivial Matters</a><ul>
+<li><a href="#introduction-to-ann-and-deep-learning">Introduction to ANN and Deep Learning</a></li>
+<li><a href="#batch-normalization-and-recurrent-bn">Batch Normalization and Recurrent BN</a></li>
+<li><a href="#machine-learning-and-math">Machine Learning and Math</a></li>
+<li><a href="#separating-style-and-content">Separating Style and Content</a></li>
+<li><a href="#bayesian-methods">Bayesian Methods</a></li>
+<li><a href="#weekly-classics-leo-breiman-the-two-cultures">Weekly Classics - Leo Breiman - The Two Cultures</a></li>
+<li><a href="#temporal-difference-learning">Temporal Difference Learning</a></li>
+<li><a href="#hugo-larochelles-paper-review">Hugo Larochelle’s Paper Review</a></li>
+<li><a href="#richard-sochers-highlight">Richard Socher’s Highlight</a></li>
+<li><a href="#programming-tips">Programming Tips</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#sum-product-network">Sum-Product Network</a></li>
+<li><a href="#variational-inference">Variational Inference</a></li>
+<li><a href="#adversarial-generative-model">Adversarial Generative Model</a></li>
+<li><a href="#discourse-relations">Discourse Relations</a></li>
+<li><a href="#vqa-and-captioning">VQA and Captioning</a></li>
+<li><a href="#monte-carlo-based-probabilistic-inference">Monte Carlo Based Probabilistic Inference</a></li>
+<li><a href="#memory">Memory</a></li>
+<li><a href="#active-learning">Active Learning</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#neural-structured-prediction">Neural Structured Prediction</a></li>
+<li><a href="#dialogue-and-discourse">Dialogue and Discourse</a></li>
+<li><a href="#deep-learning-library">Deep Learning Library</a></li>
+</ul>
+</li>
+<li><a href="#blog-view">Blog View</a></li>
+<li><a href="#people">People</a></li>
+<li><a href="#printed">Printed</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="introduction-to-ann-and-deep-learning">Introduction to ANN and Deep Learning</h2>
+
+<p>Sebastian Raschka’s new book and code repository <a href="https://github.com/rasbt/deep-learning-book">here</a> on github.</p>
+
+<p>And <a href="http://course.fast.ai/">here</a> is a free course on DL with theano.</p>
+
+
+
+<h2 id="batch-normalization-and-recurrent-bn">Batch Normalization and Recurrent BN</h2>
+
+<p><em>Covariate shift</em> is a phenomenon in machine learning where the features presented to a model change in distribution. BN is proposed to solve covariate shift, so the question is:</p>
+
+<ul>
+<li>what is the formal definition of covariate shift?</li>
+<li>what problem it raises in ML?</li>
+</ul>
+
+<p><strong>Intuition of Multilayer NN learning</strong> <br>
+In order for learning to succeed in the presence of covariate shift, the model’s parameters must be adjusted not just to learn the concept at hand but also <strong>adapt to the changing distribution of the inputs</strong>.</p>
+
+<p><strong>Batch Normalization</strong> <br>
+A network <em>reparameterization</em> that aims to reduce internal covariate shift.</p>
+
+
+
+<h2 id="machine-learning-and-math">Machine Learning and Math</h2>
+
+<p>See <a href="http://pages.cs.wisc.edu/~andrzeje/lmml.html">this</a> link for math foundations for ML.</p>
+
+
+
+<h2 id="separating-style-and-content">Separating Style and Content</h2>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/1290-separating-style-and-content.pdf">Separating Style and Content</a>, NIPS 2000.</li>
+<li><a href="http://web.mit.edu/cocosci/Papers/NC120601.pdf">Separating Style and Content with Bilinear Models</a>, Journal Version.</li>
+<li>This paper is by Joshua Tenenbaum and William Freeman. Tenenbaum’s work is at the intersection between Cognitive Science and Machine Learning. His work is full of intuitions. </li>
+<li>Like this one, their observations are phenomenon is felt as the realization of two factors, i.e. <strong>content</strong>, which is the semantics of the phenomenon (in CV, it is like the label of the object), and  <strong>style</strong>, which is the variance or surface representation of the content. Two explicitly considering those two factors, they try to </li>
+</ul>
+
+
+
+<h2 id="bayesian-methods">Bayesian Methods</h2>
+
+<ul>
+<li><a href="http://www.cs.utoronto.ca/~radford/csc2541.S11/">Redford Bayesian methods for machine learning course</a></li>
+</ul>
+
+<p>Week 1: Course info, Introduction, Conjugate priors <br>
+Week 2: Monte Carlo, Importance sampling, MCMC, Metropolis Algorithm <br>
+Week 3: Gibbs sampling, slice sampling, MCMC accuracy, multiple chains <br>
+Week 4: Bayesian mixture models, MCMC for mixtures, infinite mixtures. <br>
+Week 5: Linear basis function models, regularization. <br>
+Week 6: Inference using marginal likelihood, inference in terms of observed data, infinite basis function models. <br>
+Week 7: Gaussian process regression models. <br>
+Week 8: Gaussian process classification, hierarchical Bayesian models. <br>
+Week 9: Latent feature models, Indian Buffet Process. <br>
+Week 10: Gaussian/Laplace approximations, variational approximations.</p>
+
+
+
+<h2 id="weekly-classics-leo-breiman-the-two-cultures">Weekly Classics - Leo Breiman - The Two Cultures</h2>
+
+<p>See <a href="http://www.stat.uchicago.edu/~lekheng/courses/191f09/breiman.pdf">here</a> the link of this paper titled “Statistical Modeling: The Two Cultures”.</p>
+
+<ul>
+<li><strong>Publish Date</strong>: 2001</li>
+<li><strong>Journal</strong>: Statistical Science</li>
+</ul>
+
+
+
+<h2 id="temporal-difference-learning">Temporal Difference Learning</h2>
+
+<p>A classic tutorial on TD learning in RL <a href="http://www.bkgm.com/articles/tesauro/tdl.html#h1:temporal_difference_learning">here</a>. It is the first time to use RL in TD-Gammon game playing.</p>
+
+
+
+<h2 id="hugo-larochelles-paper-review">Hugo Larochelle’s Paper Review</h2>
+
+<p>Shortscience.org <a href="http://www.shortscience.org/user?name=hlarochelle">Hugo Larochelle</a>.</p>
+
+
+
+<h2 id="richard-sochers-highlight">Richard Socher’s Highlight</h2>
+
+<p>See <a href="https://theneuralperspective.com/2016/12/20/highlights-and-tutorials-for-concepts-discussed-in-richard-socher-on-the-future-of-deep-learning/">here</a>.</p>
+
+<p>And <a href="https://medium.com/@salesforce/salesforce-research-deep-learning-breakthroughs-d83c8b2ac4c3#.2zsv8r4ll">here</a>.</p>
+
+
+
+<h2 id="programming-tips">Programming Tips</h2>
+
+<ul>
+<li><a href="https://blog.eduardovalle.com/2015/10/15/installing-software-without-root/">How to install softwares under Home directory in Linux</a></li>
+</ul>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1603.01250.pdf">Decision Forests, Convolutional Networks and the Models in-Between</a></li>
+</ul>
+
+
+
+<h3 id="sum-product-network">Sum-Product Network</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.05265.pdf">Online Structure Learning for Sum-Product Networks with Gaussian Leaves</a>, arXiv Jan. 2017.</li>
+</ul>
+
+
+
+<h3 id="variational-inference">Variational Inference</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.05369.pdf">Variational Dropout Sparsifies Deep Neural Networks</a>, arXiv Jan. 2017.</p>
+
+<ul><li>local reparameterization trick, and additive noise reparameterization trick.</li>
+<li>Relevance vector machine (RVM)</li>
+<li>“Adding Gaussian noise to the input is equivalent to add Gaussian noise to the weights.” WHY?</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1611.04488.pdf">Generative Models and Model Criticism via Optimized Maximum Mean Discrepancy</a>, ICLR 2017.</p></li>
+<li><p><a href="http://bayesiandeeplearning.org/papers/BDL_26.pdf">Variational Inference on Deep Exponential Family by Using VI on Conjugate Models</a>, arXiv Dec. 2016.</p></li>
+</ul>
+
+
+
+<h3 id="adversarial-generative-model">Adversarial Generative Model</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.04222.pdf">Achieving Privacy in the Adversarial Multi-Armed Bandit</a>, AAAI 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.04568.pdf">Image Generation and Editing with Variational Info Generative Adversarial Networks</a>, ICML 2017 early version.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.00606v1.pdf">SyncSpecCNN: Synchronized Spectral CNN for 3D Shape Segmentation</a>, arXiv Jan. 2017.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.05524.pdf">Synthetic to Real Adaptation with Deep Generative Correlation Alignment Networks</a>, Jan. arXiv 2017.</p>
+
+<ul><li>Links synthetic training image generation to domain adaption. DGCAN proposes to use <script type="math/tex" id="MathJax-Element-301">l_2</script> and the correlation alignment losses to minimize the domain discrepancy between generated and real images in deep feature space.</li></ul></li>
+<li><p><a href="https://arxiv.org/abs/1612.02780">Improved Generator Objectives for GANs</a>, arXiv Dec. 2016.</p></li>
+</ul>
+
+
+
+<h3 id="discourse-relations">Discourse Relations</h3>
+
+<ul>
+<li><a href="http://www.derczynski.com/sheffield/papers/temp-reltype-repr.pdf">Representation and Learning of Temporal Relations</a>, COLING 2016.</li>
+</ul>
+
+
+
+<h3 id="vqa-and-captioning">VQA and Captioning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1511.02274.pdf">Stacked Attention Networks for Image Question Answering</a>, CVPR 2015.</p></li>
+<li><p><a href="https://arxiv.org/abs/1612.01887">Know When to Look: Adaptive Attention via a Visual Sentinel For Image Captioning</a>, arXiv Dec. 2016.</p></li>
+<li><p><a href="https://arxiv.org/abs/1611.01646">Boosting Image Captioning with Attributes</a>, arXiv Nov. 2016.</p></li>
+<li><p><a href="https://arxiv.org/abs/1612.05386">The VQA-Machine: Learning How to Use Existing Vision Algorithms to Answer New Questions</a></p></li>
+<li><p><a href="https://arxiv.org/abs/1612.01669">MarioQA: Answering Questions by Watching Gameplay Videos</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.00563v1.pdf">Self-critical Sequence Training for Image Captioning</a></p></li>
+<li><p><a href="http://people.ee.duke.edu/~lcarin/LiSocherFei-Fei_CVPR2009.pdf">Towards Total Scene Understanding: Classification, Annotation, and Segmentation in an Automatic Framework</a>, CVPR 2009. Fei-Fei Li’s group.</p></li>
+</ul>
+
+
+
+<h3 id="monte-carlo-based-probabilistic-inference">Monte Carlo Based Probabilistic Inference</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1701.02434v1.pdf">A Conceptual Introduction to Hamiltionian Monte Carlo</a>, arXiv Jan 2017.</li>
+</ul>
+
+
+
+<h3 id="memory">Memory</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.04189.pdf">Deep Memory Networks for Attitude Identification</a></p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.03866.pdf">Long Timescale Credit Assignment in Neural Networks with External Memory</a>, Workshop NIPS 2016.</p>
+
+<ul><li>Synthetic gradient? To know more about this technique for credit assignment, I should read this paper: <br>
+<ul><li><a href="https://arxiv.org/abs/1608.05343">Decoupled neural interfaces using synthetic gradients</a>, and the lua implementation <a href="https://github.com/CosmosShadow/DNI_Torch">here</a></li></ul></li>
+<li>etc.</li></ul></li>
+</ul>
+
+
+
+<h3 id="active-learning">Active Learning</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1612.03226.pdf">Active Learning for Speech Recognition: the Power of Gradients</a>, arXiv Dec. 2016.</li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.04079.pdf">Agent-Agnostic Human-in-the-loop Reinforcement Learning</a>, NIPS 2016, Future of Interactive Learning Machines Workshop.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.04113.pdf">Near Optimal Behavior via Approximate State Abstraction</a>, arXiv Jan. 2017. Code can find <a href="https://github.com/david-abel">here</a> on David’s github.</p></li>
+<li><p><a href="http://www.filmnips.com/wp-content/uploads/2016/12/FILM-NIPS2016_paper_35.pdf">Efficient Exploration in Monte Carlo Tree Search using Human Action Abstractions</a>, NIPS 2016 Workshop.</p></li>
+<li><p><a href="http://people.csail.mit.edu//karthikn/assets/pdf/hdqn16.pdf">Hierarchical Deep Reinforcement Learning: Integrating Temporal Abstraction and Intrinsic Motivation</a>, NIPS 2016.</p></li>
+</ul>
+
+
+
+<h3 id="neural-structured-prediction">Neural Structured Prediction</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.04027.pdf">Neural Model for Sequence Chunking</a>, arXiv Jan 2017.</p>
+
+<ul><li>This work is from IBM. They solve the shallow parsing (i.e. text chunking) and semantic slot filling not as a sequence labeling task, but chunk labeling. So their neural network should first recognize chunks and then label each chunk dependently.</li></ul></li>
+<li><p><a href="https://openreview.net/forum?id=BkjLkSqxg">LipNet: End-to-End Sentence-level Lipreading</a>, ICLR 2017.</p>
+
+<ul><li>On openreview. </li></ul></li>
+</ul>
+
+
+
+<h3 id="dialogue-and-discourse">Dialogue and Discourse</h3>
+
+<ul>
+<li><p>Maluuba Research, <a href="https://static1.squarespace.com/static/58177ecc1b631bded320b56e/t/585ab3b0e3df288638cbd331/1482339250251/Maluuba+Frames+Paper.pdf">FRAMES: A Corpus for Adding Memory to Goal-Oriented Dialogue Systems</a>, 2016</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.04056.pdf">Dialogue Context Language Modeling with Recurrent Neural Networks</a>, arXiv Jan 2017.</p>
+
+<ul><li>This work is focusing on generic dialogue modeling via a language model. It use RNNLM to model the interaction of dialogue turns and the dataset is Switchboard Dialogue Act Corpus. (<strong>This corpus is available for download.</strong>)</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.05343.pdf">A Joint Framework for Argumentative Text Analysis Incorporating Domain Knowledge</a>, arXiv Jan. 2017.</p></li>
+<li><p><a href="https://aclweb.org/anthology/D/D16/D16-1149.pdf">The Teams Corpus and Entrainment in Multi-party Spoken Dialogues</a>, EMNLP 2016. And <a href="https://sites.google.com/site/teamentrainmentstudy/home">here</a> is the data set.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1701.04024.pdf">A Copy-Augmented Sequence-to-Sequence Architecture Gives Good Performance on Task-Oriented Dialogue</a>, arXiv Jan 2017.</p>
+
+<ul><li>Work from Stanford, Chris’ group. Task-oriented dialogue focus on conversational agents that participate in user-initiated dialogues on domain-specific topics. Existing task-oriented agents <strong>explicitly</strong>  model <strong>user intent</strong> and <strong>belief states</strong>. </li>
+<li>They frame dialogue as a sequence-to-sequence learning problem.</li>
+<li>“We augment the attention encoder-decoder model with an attention-based copy mechanism in the style of <a href="http://stanford.edu/~robinjia/pdf/jia2016recombination.pdf">(Jia and Liang, 2016)</a>.”</li></ul></li>
+</ul>
+
+
+
+<h3 id="deep-learning-library">Deep Learning Library</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1701.03757.pdf">Deep Probabilistic Programming</a>, arXiv Jan 2017.</p>
+
+<ul><li>This work introduces <strong>Edward</strong> a probabilistic programming library which combined with TensorFlow and Keras to take advantage of their neural network based fast prototype.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1701.03980.pdf">DyNet: The Dynamic Neural Network Toolkit</a>, arXiv Jan 2017.</p></li>
+</ul>
+
+
+
+<h2 id="blog-view">Blog View</h2>
+
+<ul>
+<li><a href="http://www.machinedlearnings.com/">Machined Learning</a></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://www.derczynski.com/sheffield/">Leon Derczynski</a></p>
+
+<ul><li>Staff at University of Sheffield UK. Research interests are social media processing, spatio-temporal information extraction, information retrieval.</li></ul></li>
+<li><p><a href="http://people.ee.duke.edu/~lcarin/">Lawrence Carin</a></p>
+
+<ul><li>His group has close cooperation with Tsinghua University. Their current works are on generative deep models and GANs (they published a paper on NL generation via GAN). Their focus and works on <strong>Variational Inference</strong> is representative, see the reading group page <a href="http://people.ee.duke.edu/~lcarin/ReadingGroup.html">here</a> for a great resource.</li></ul></li>
+<li><p><a href="http://aritter.github.io/">Alan Ritter</a></p>
+
+<ul><li>Assistant Professor at Ohio State University. Recently he has done some work on <strong>Conversational Interface</strong> with Microsoft and Jiwei Li.</li></ul></li>
+<li><p><a href="http://www.phontron.com/">Graham Neubig</a></p>
+
+<ul><li>AP at CMU. Developer of DyNet and Distinguished researcher in Machine Translation.</li></ul></li>
+<li><p><a href="http://web.stanford.edu/~dco/index.html">Desmond C. Ong</a></p>
+
+<ul><li>Ph.D. Candidate at Noah Goodman’s CoCoLab. Focus on computational affective cognition.</li></ul></li>
+<li><p>[Jiaming Song]</p></li>
+</ul>
+
+
+
+<h2 id="printed">Printed</h2></div></body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Introduction to Variational Inference</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="an-introduction-to-variational-inference-a-draft">An Introduction to Variational Inference (A Draft)</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#an-introduction-to-variational-inference-a-draft">An Introduction to Variational Inference (A Draft)</a><ul>
+<li><a href="#the-basics">The Basics</a><ul>
+<li><ul>
+<li><a href="#introductory">Introductory</a></li>
+<li><a href="#expectation-maximization">Expectation Maximization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#motivation-collection">Motivation Collection</a><ul>
+<li><a href="#paper-collection">Paper Collection</a><ul>
+<li><a href="#variational-inference-classics">Variational Inference Classics</a></li>
+<li><a href="#variational-inference-theory-development">Variational Inference Theory Development</a></li>
+<li><a href="#variational-inference-applications">Variational Inference Applications</a></li>
+</ul>
+</li>
+<li><a href="#objective-function-of-vi">Objective Function of VI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="the-basics">The Basics</h2>
+
+
+
+<h4 id="introductory">Introductory</h4>
+
+<p>The philosophy of learning a new method or approach is to start from the conceptually simplest part of its knowledge architecture or practically algorithmic application to real world settings. In this section titled <strong>The Basics</strong>, I try to understand the core and practical part of <strong>Variational Inference (VI)</strong>, and to apply the simplest form of itself to a synthetic problem, and to a real world problem in NLP, i.e. Discourse Relation Recognition (DRR).</p>
+
+<p><strong>Short review of purpose PGM</strong> <br>
+Given a probabilistic (graphical) model on a set of r.v.s <script type="math/tex" id="MathJax-Element-1"> V </script>, we are trying to compute the following quantities of interests: </p>
+
+<ul>
+<li>Likelihood of the given data point (set).</li>
+<li>Marginal of subset of r.v.s of interests <script type="math/tex" id="MathJax-Element-2"> x_A \in V</script>, <script type="math/tex" id="MathJax-Element-3"> P(x_A) </script> under the model.</li>
+<li>Conditional of two disjoint subsets <script type="math/tex" id="MathJax-Element-4"> x_A, x_B \in V</script>, <script type="math/tex" id="MathJax-Element-5"> P(x_A|x_B) </script> under the model.</li>
+<li>Mode seeking: <script type="math/tex" id="MathJax-Element-6"> argmax_x P(x) </script>.</li>
+</ul>
+
+<blockquote>
+  <p>Remark. The above key questions are related to Eric Xing’s notes <a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/notes/10708_scribe_lecture12.pdf">here</a>.</p>
+</blockquote>
+
+<p><strong>Latent variables</strong> <br>
+And always, the r.v.s of interests is about some <strong>latent</strong> or <strong>hidden</strong> semantics or factors that is possibly explainable w.r.t. human intuition. When conceiving the semantics of the probabilistic model in terms of a specific question, we will jointly model observed and latent variables within a holistic density, say <script type="math/tex" id="MathJax-Element-7"> P(x,z) </script>. </p>
+
+<p>As I mention before, we are interested in the value of <script type="math/tex" id="MathJax-Element-8"> z </script> given possible observed value <script type="math/tex" id="MathJax-Element-9"> x </script>. In NLP, <script type="math/tex" id="MathJax-Element-10"> (x,z) </script> pairs can be:</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th><script type="math/tex" id="MathJax-Element-11"> x </script></th>
+  <th><script type="math/tex" id="MathJax-Element-12"> z </script></th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>sentence level</td>
+  <td>sentence</td>
+  <td>class label, sequence tags (NERs, POS, semantic role/slot)</td>
+</tr>
+<tr>
+  <td>sentence level</td>
+  <td>sentence</td>
+  <td>class label, semantic representation (AMR, Logical, DRS)</td>
+</tr>
+<tr>
+  <td>discourse level</td>
+  <td>discourse/text/dialogue</td>
+  <td>discourse/dialogue tree/graph</td>
+</tr>
+</tbody></table>
+
+
+<p>These are traditional NLP tasks and more <script type="math/tex" id="MathJax-Element-13"> (x,z) </script> pairs could be made analogically.</p>
+
+<p>As illustrated above, the variable of interests is variable that is latent/hidden. We should make an prediction on those latent variables by inference about the posterior <script type="math/tex" id="MathJax-Element-14"> P(z|x) </script>, the density of <script type="math/tex" id="MathJax-Element-15"> z </script> given <script type="math/tex" id="MathJax-Element-16"> x </script>. We can mathematically write out the formula of <script type="math/tex" id="MathJax-Element-17"> P(z|x) </script> according to the joint density <script type="math/tex" id="MathJax-Element-18"> P(x,z) </script> of the model.</p>
+
+
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-19"> P(z|x) = \frac{P(x,z)}{P(x)} = \frac{P(x,z)}{\int_z P(x,z)} </script></p>
+
+<p><strong>Direct motivation of using VI</strong> <br>
+Sometimes, calculation of the above equation is intractable. This is the motivation of using VI, which uses a tractable posterior <script type="math/tex" id="MathJax-Element-20"> q(z|x) </script> to approximate real <script type="math/tex" id="MathJax-Element-21"> P(z|x) </script>. More generally, when <strong>exact inference</strong> become impossible, we will resort to <strong>methods of approximate inference</strong> as a way out. VI is one popular approach in approximate inference.</p>
+
+<blockquote>
+  <p>Remark. I will exemplify this <strong>intractability</strong> via Bayesian mixture of Gaussian as Blei does <a href="https://www.cs.princeton.edu/courses/archive/fall11/cos597C/lectures/variational-inference-i.pdf">here</a> and <a href="https://arxiv.org/pdf/1601.00670v4.pdf">here</a>.</p>
+</blockquote>
+
+
+
+<h4 id="expectation-maximization">Expectation Maximization</h4>
+
+<p>Expectation Maximization or EM is used to learn (inference) the parameters of the model <script type="math/tex" id="MathJax-Element-22"> P(x,z) </script> by integrating out latent variables. So the likelilhood is <script type="math/tex" id="MathJax-Element-23"> \mathcal{L}(x) = \int_z P(x,z) </script>, given a data set <script type="math/tex" id="MathJax-Element-24"> \mathcal{D} = \{x^{i} \}_{i=1}^n </script>. The data set likelihood is <script type="math/tex" id="MathJax-Element-25"> \mathcal{L} (\mathcal{D}) = \Pi_i \int_z P(x,z) </script>.</p>
+
+
+
+<h2 id="motivation-collection">Motivation Collection</h2>
+
+
+
+<h3 id="paper-collection">Paper Collection</h3>
+
+
+
+<h4 id="variational-inference-classics">Variational Inference Classics</h4>
+
+<ul>
+<li><a href="https://people.eecs.berkeley.edu/~jordan/papers/variational-intro.pdf"><strong>An Introduction to Variational Methods for Graphical Models, ML 1999.</strong></a></li>
+</ul>
+
+<p>This paper is an original survey on VI, it is partialy derived from Tommi S. Jaakkola’s PhD work about <a href="http://www.yaroslavvb.com/papers/jaakkola-variational.pdf">Variational Methods for Inference and Estimation in Graphical Models</a>.</p>
+
+<hr>
+
+<ul>
+<li><a href="http://www.goldenmetallic.com/research/nips99vb.pdf"><strong>A Variational Bayesian Framework for Graphical Models, NIPS 1999</strong></a></li>
+</ul>
+
+<hr>
+
+<ul>
+<li><a href="http://www.jmlr.org/papers/volume6/winn05a/winn05a.pdf"><strong>Variational Message Passing, JMLR 2005.</strong></a></li>
+</ul>
+
+<hr>
+
+<ul>
+<li><a href="http://www.cs.princeton.edu/courses/archive/fall11/cos597C/reading/BleiJordan2005.pdf"><strong>Variational Inference for Dirichlet Process Mixtures, Bayesian Analysis 2004.</strong></a></li>
+</ul>
+
+
+
+<h4 id="variational-inference-theory-development">Variational Inference Theory Development</h4>
+
+<ul>
+<li><a href="http://people.ee.duke.edu/~lcarin/687.pdf"><strong>Variational Bayesian Inference with Stochastic Search, ICML 2012</strong></a></li>
+</ul>
+
+<hr>
+
+<ul>
+<li><a href="http://jmlr.org/papers/volume14/hoffman13a/hoffman13a.pdf"><strong>Stochastic Variational Inference, JMLR 2013.</strong></a></li>
+</ul>
+
+<p>This paper propose generic methods for variational inference on massive data.</p>
+
+<hr>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1602.06725.pdf"><strong>Variational Inference for Monte Carlo Objectives</strong></a>, Andriy Minh, Danilo J. Rezende, ICML 2016.</li>
+</ul>
+
+<p>This paper proposed a multi-sample importance sampling estimate of the likelihood, which the author claims will achieve better capacity of the approximated posterior and tighter lower bound of the likelihood.</p>
+
+<hr>
+
+<ul>
+<li><a href="http://cs.stanford.edu/~ermon/papers/variational_nips2016.pdf"><strong>Variational Bayes on Monte Carlo Steroids, NIPS 2016</strong></a>.</li>
+</ul>
+
+<p>This work is from Stanford University, in Stefano Ermon’s group.</p>
+
+<blockquote>
+  <p>Abstract abstract: <br>
+  1. Variational approaches are often used to approximate <strong>intractable posteriors</strong> or <strong>normalization constants</strong> in hierarchical latent variable models. <br>
+  2. It is known that the <strong>approximation error</strong> can be arbitrarily large. <br>
+  3. They proposed a <strong>new class of bounds</strong> on directed latent variable models’ marginal log-likelihood. <br>
+  4. They use <strong>random projection</strong> to simplify the the posterior. And their bounds are proved to be tight with high probability.</p>
+</blockquote>
+
+<p>Some excerpts and silly questions:</p>
+
+<ol>
+<li>“Variational approximations are particularly suitable for <strong>directed models</strong>, because they directly provide tractable lower bounds on the marginal log-likelihood.” So, how about <strong>undirected models</strong> and the form of its variational approximation? <br>
+<ul><li>A Boltzmann machine like undirected model, two random vectors with one vector as observation, say <script type="math/tex" id="MathJax-Element-297"> y </script>. <script type="math/tex" id="MathJax-Element-298"> P(x, y)=\psi(x, y) </script>, and posterior of <script type="math/tex" id="MathJax-Element-299"> x </script> is <script type="math/tex" id="MathJax-Element-300"> P(x|y) = \frac{P(x, y)}{P(y)} = \frac{\psi(x, y)}{\sum_x \psi(x, y)} </script></li></ul></li>
+<li>etc. </li>
+</ol>
+
+<h4 id="variational-inference-applications">Variational Inference Applications</h4>
+
+<ul>
+<li><a href="http://www.cs.dartmouth.edu/~qliu/PDF/crowdsrc_nips12.pdf"><strong>Variational Inference for Crowdsourcing, NIPS 2012.</strong></a></li>
+</ul>
+
+<p>As we know, Crowdsourcing is a way of leverage</p>
+
+<hr>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1604.08772.pdf"><strong>Towards Conceptual Compression, ICML 2016.</strong></a></li>
+</ul>
+
+<p>A simple <strong>recurrent variational autoencoder</strong> for image modeling.</p>
+
+<hr>
+
+<ul>
+<li><a href="https://papers.nips.cc/paper/5861-learning-wake-sleep-recurrent-attention-models.pdf"><strong>Learning Wake-Sleep Recurrent Attention Models, NIPS 2016</strong></a>.</li>
+</ul>
+
+<p>This paper mainly discusses <strong>Hard Attention</strong>. a). How to learn better (low variance) hard attention? b). What is the advantage and disadvantage of hard attention? c). How variational inference helps learn hard attention?</p>
+
+<hr>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1605.07571.pdf"><strong>Sequential Neural Models with Stochastic Layers, Nov. arXiv 2016</strong></a></li>
+</ul>
+
+<p>This paper makes a synergy between deterministic <strong>Recurrent Neural Networks</strong> and stochastic <strong>State Space Model</strong>. Because of the clear separation between deterministic and stochastic layers, a structured inference network is allowed to track factorization of posterior.</p>
+
+
+
+<h3 id="objective-function-of-vi">Objective Function of VI</h3>
+
+<p>In paper <em>“Reinforced Variational Inference”</em>, the author review basics of VI.</p>
+
+<ul>
+<li><strong>Objective function</strong>: <script type="math/tex" id="MathJax-Element-26"> \mathcal{L}(q) = \int q(z|x) log \frac{p(x|z) p(z)}{q(z|x)} dz</script>, known as <strong>negative free energy</strong> (i.e. since usually in energy methods we try to minimize the energy function, and here we maximize <script type="math/tex" id="MathJax-Element-27"> \mathcal{L}(q) </script>). Two explanations (intuitions) are given. <strong>a)</strong>. <script type="math/tex" id="MathJax-Element-28"> \mathcal{L} </script> is the lower bound of likelihood <script type="math/tex" id="MathJax-Element-29"> p(x) </script>, so maximizing it means restraining likelihood to be more than some value (somehow maximize the likehood, thus a kind of MLE). <strong>b)</strong>. maximizing <script type="math/tex" id="MathJax-Element-30"> L </script> is equivalent to minimizing KL-divergence between the approximate posterior <script type="math/tex" id="MathJax-Element-31"> q(z|x) </script> and the true posterior <script type="math/tex" id="MathJax-Element-32"> p(z|x) </script>.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Remark.</strong> Both <strong>a)</strong> and <strong>b)</strong> should be proved mathematically, as follows. <br>
+  [TO-DO]</p>
+</blockquote></div></body>
+</html>
