@@ -48,17 +48,25 @@
 	</ul>
       </nav>
       <section>
-        <h2><a id="welcome-to-my-github-pages" class="anchor" href="#welcome-to-my-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variational Posterior Estimation via GANs: Bayesian Logistic Regression As Showcase</h2>
-	<!-- <img src="../../images/the-starry-night-1889.jpg"/> -->
-	<h4># Intro Words</h4>
+        <h1><a id="welcome-to-my-github-pages" class="anchor" href="#welcome-to-my-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variational Posterior Estimation via GANs: Bayesian Logistic Regression As Showcase</h1>
+	<hr>
+  <!-- <img src="../../images/the-starry-night-1889.jpg"/> -->
+	<h2># Intro Words</h2>
   <p>
-	  I will start concise presentation of works done by others through exploratory, experimentary practice. This blog is a start of Ferenc Huszar's series <a href="http://www.inference.vc/variational-inference-with-implicit-probabilistic-models-part-1-2/">blogs</a>. His blogs continually demonstrates the use of GANs as a learning mechanism for implicit generative models, such as a variational distribution defined implicitly by a neural network for easy sampling and posterior inference.
+	  I will start concise presentations of works done by others through exploratory, experimentary practice. This blog is a start of Ferenc Huszar's series <a href="http://www.inference.vc/variational-inference-with-implicit-probabilistic-models-part-1-2/">blogs</a>. His blogs continually demonstrates the use of GANs as a learning mechanism for implicit generative models, such as a variational distribution defined implicitly by a neural network for easy sampling and posterior inference.
 	</p>
-  <h4># Exploratory Problem</h4>
+  <p>
+    Personally, I want to thank Ferenc a lot, since his blogs is my resource of intuitions on the way to learn and interpret probabilistic generitive modelling, variational methods and GANs. I wish to see his continual updates of his Blog.
+  </p>
+  <h2># Exploratory Problem</h2>
   <p>
     The problem is kept simple and concise for exploration as a beginner. It is <b>Bayesian Logistic Regression (BLR)</b>, the traditional logistic regression formulation augmented with prior on weight $ w $.
   </p>
-  <img src="./image/Global-random-variable.png"></img>
+  <center>
+    <figure>
+      <img src="./image/Global-random-variable.png"></img>
+    </figure>
+  </center>
 	<p>
 	  So let us first restate the Bayesian formulation of logistic regression. <b>BLR</b> can be depicted as the above graphical model. $x_n $ is the feature vector of a sample point, $ y_n $ is its corresponding label, $ y_n \in {0,1} $. For the convenience of visualization, I will set that $ x_n \in \mathbb{R}^2 $. For every sample point, the probability of its label is defined as:
 
@@ -73,7 +81,7 @@
   </blockquote>
   <br>
   <p>
-    The so-called Bayesian is that we put prior knowledge on the value of $ \mathbb{w} $, that is we assume a Bivariate Gaussian distribution:
+    The so-called Bayesian is that we put prior knowledge on the value of $ \mathbb{w} $. Specifically, we assume a Bivariate Gaussian distribution:
 
     $$ P(w) = \mathcal{N}(0, \sigma^2 \mathbb{I}_2) = \frac{1}{2\pi} \frac{1}{\sigma} exp\{ -\frac{||x||^2}{2\sigma^2} \} $$
 
@@ -88,18 +96,139 @@
 
     $$ P(\mathbb{w} | \mathcal{D}) = \frac{ P(\mathcal{D} | w) P(w)}{ P(\mathcal{D}) } = \frac{ P(\mathcal{D} | w) P(w)}{ \int_{\mathbb{w}} d\mathbb{w} P(\mathcal{D} | w) P(w) } $$
 
-    Very different from Maximum Likelihood Estimation (MLE), to which the computational issue is optimization (maximazing log-likelohood function of data), Bayesian inference or posterior estimation is solving an intractable intergal. Traditional ways of preventing intractability is to restrict prior and posterior to be conjugated, preserve exactability whereas introduce limitations. In this blog, we resort to one popular approximation method - Variational Inference which uses a tractable (easy to sample from), parameterized distribution to approximate the real one by minimizing their KL divergence:
+    Very different from Maximum Likelihood Estimation (MLE), to which the computational issue is optimization (maximazing log-likelihood function of data), Bayesian inference or posterior estimation is solving an intractable intergal. Traditional ways of preventing intractability is to restrict prior and posterior to be conjugated, preserve exactability whereas introduce limitations of expressibility. In this blog, we resort to one popular approximation method - Variational Inference which uses a tractable (easy to sample from), parameterized distribution to approximate the real one by minimizing their KL divergence:
 
     $$ KL(Q || P) = \int_{\mathbb{w}} Q log \frac{Q}{P} $$
 
-    where $ P $ stands for  $ P(\mathcal{D} | w) $. In next section, I will derive a form of this KL divergence and show how to parameterize $ Q $ so we can simultaneously minimize KL and preserve expressibility of $ Q $.
+    where $ P $ stands for  $ P(w | \mathcal{D}) $. In next section, I will derive a form of this KL divergence and show how to parameterize $ Q $ so we can simultaneously minimize KL and preserve expressibility of $ Q $.
 
+    Before diving into math, I have confused with another question about this variational inference objective - KL divergence.
+
+    <blockquote>
+      Since we know KL divergence is not symmetric for the two compared distributions, so <b>WHY</b> use KL(Q||P) instead of KL(P||Q)?
+    </blockquote>
 	</p>
-	<h4># Math Derivation</h4>
+	<h2># Math Derivation</h2>
 	<p>
-	  
+	  Let us now do some deduction on the KL divergence formula and see what we could get. And to understand why should we use Q||P instead of P||Q. In variational inference, we usually parameterize distribution Q, here the only assumption is we use parametric method instead of non-parametric to model Q and the parameters of Q are denoted as $ \theta_Q $. So we can make the parameter $ \theta_Q $ explicit in the KL term, i.e. $ KL(Q || P; \theta_Q) $.
 
+    $$ 
+    \begin{align}
+      KL(Q || P; \theta_Q) &= \mathbb{E}_{\mathbb{w} \thicksim Q(\mathbb{w})} log \frac{Q(\mathbb{w})}{P(\mathbb{w} | \mathcal{D})} &&\text{(Expectation form)} \\
+                 &= \int_{\mathbb{w}} Q(\mathbb{w}) log \frac{Q(\mathbb{w})}{P(\mathbb{w} | \mathcal{D})} &&\text{(Integral form)} \\
+                 &= \int_{\mathbb{w}} Q(\mathbb{w}) log \frac{Q(\mathbb{w}) P(\mathcal{D})}{P(\mathbb{w}) P(\mathcal{D}|\mathbb{w})} \\
+                 &= \int_{\mathbb{w}} Q(\mathbb{w}) \{ log \frac{Q(\mathbb{w})}{P(\mathbb{w})} - log P(\mathcal{D}|\mathbb{w}) + log P(\mathcal{D})\} \\
+                 &= KL(Q(\mathbb{w})||P(\mathbb{w})) - \mathbb{E}_{\mathbb{w}} log P(\mathcal{D}|\mathbb{w}) + \int_{\mathbb{w}} Q(\mathbb{w}) log P(\mathcal{D}) \\
+                 &= KL(Q(\mathbb{w})||P(\mathbb{w})) - \mathbb{E}_{\mathbb{w}} log P(\mathcal{D}|\mathbb{w}) + log P(\mathcal{D}) \int_{\mathbb{w}} d\mathbb{w} Q(\mathbb{w}) \\
+                 &= KL(Q(\mathbb{w})||P(\mathbb{w})) - \mathbb{E}_{\mathbb{w}} log P(\mathcal{D}|\mathbb{w}) + log P(\mathcal{D})
+
+    \end{align}
+    $$
+
+    The above derivation exchanges between expectation and intergral form of each term, because the whole integral has distribution Q as one multiplicative component. Since we are trying to minimize the above KL between parameterized Q and posterior P on $ \mathbb{w} $ with repect to $ \theta_Q $, the last term $ log P(\mathcal{D}) $, log of the evidence, can be ignored from our objective:
+
+    $$ 
+    \begin{align}
+      \mathcal{O}(\theta_Q) &= KL(Q(\mathbb{w})||P(\mathbb{w})) - \mathbb{E}_{\mathbb{w}} log P(\mathcal{D}|\mathbb{w}) \\
+                            &= \mathbb{E}_{\mathbb{w} \thicksim Q(\mathbb{w})} log \frac{Q(\mathbb{w})}{P(\mathbb{w})} - \mathbb{E}_{\mathbb{w}} log P(\mathcal{D}|\mathbb{w}) 
+    \end{align}
+    $$
+
+    Now, let us try to interpret the objective function. It has two terms: <b>a).</b> KL divergence between approximation $ Q $ and prior $ P(\mathbb{w}) $, which is a spherical Gaussian. <b>b).</b> The <emp>EXPECTED</emp> negative <u>log-likelihood of the data set</u> w.r.t. to $ \mathbb{w} $ sampled from the approximation distribution. To minimize this $ \mathcal{O}(\theta_Q) $ is to find an approximation distribution Q on $ \mathbb{w} $ which maximize the expected likelihood while does not make Q too far from the prior (our prior knowledge as a regularization).
+  </p>
+
+  <p>
+    So how to solve this optimization problem? Let us use the simple but powerful <b>gradient descent (GD)</b>, unless we can analytically derive the solution by computing the gradient and set it to 0. 
+  </p>
+
+  <p>
+    Traditionally, Q is defined within a tractable family of distribution, e.g. exponential family, mixture of Gaussians etc. (TO-DO: derive and implement a traditional version). The reason for restricting Q is: 1). Easily sample from Q, so we can ease this optimization. That is, we can easily compute approximate gradient by monte carlo methods and do GD. 2). [...]. 
+  </p>
+
+  <blockquote>
+    Here I have a second confusion! Even if we have a easily-sample-from approximation distributioin, we must use statistical simulation methods to get sample from. Or even if the sample generator is a Neural Network as in GANs, we must as well sample from a uniform distribution as latent code (input/initialization) to the Neural Net. 
+    <br>
+    1. Is this statement true?
+    <br>
+    2. If true,how does this simulation methods actually implemented? [TO-DO: understand VI in Bayesian mixture of Gaussian, see Blei's note]
+  </blockquote>
+  <br>
+  <p>
+    As a fact, easing sampling by limiting expressibility of Q can result in poor approximations. Can we preserve both easy sampling and expressibility? Yes, we can use ideas from GANs to learn <a href="https://arxiv.org/abs/1610.03483">implicit generative model</a>! The relaxation from explicit Q to implicit Q is remarkable. The difference between explicit and implicit is whether we can directly plug in one sample and calculate its prob. density. In implicit models, we cannot. 
+  </p>
+
+  <p>
+    In the following sub section, I will present the way to transform  $ \mathcal{O}(\theta_Q) $ to suitable forms for GAN-like training.
 	</p>
+
+  <h2>## Reduction</h2>
+  <p>
+    The motivation all starts from our willing to expressing approximation distribution Q implicitly, here by using a Feed Forword neural network with initialization random samples from a uniform distribution.
+  </p>
+  <p>
+    We denote the implicit generative model $ FFNN(\cdot) $, and weight $ \mathbb{w} $ for the BLR is sampled from this FFNN, i.e. $ \mathbb{w} \thicksim FFNN(z), z \thicksim U(\cdot) $, where $ z $ is sampled from uniform distribution $ U(\cdot) $. Within the framework of GANs, we also call the FFNN as a <b>generator G</b>.
+  </p>
+  <p>
+    Now, we have a random sample generator which is <b>untrained</b>! Sampling from it is as simple as generating uniformly distributed samples. Let us see how this can help compute the objective function $ \mathcal{O} $. (We denote parameters of this FFNN as $ \theta_G \in \theta_Q $) I rewrite the objective below:
+    $$ \mathcal{O(\theta_Q)} = \mathbb{E}_{ \mathbb{w} \thicksim Q(\mathbb{w}) } log \frac{ Q(\mathbb{w}) }{ P(\mathbb{w}) } - \mathbb{E}_{ \mathbb{w} \thicksim Q(\mathbb{w}) } { log P(\mathcal{D} | \mathbb{w}) } $$
+  </p>
+  <p>
+    There are two terms in this objective: 
+    <ol>
+      1. <b>Expectation of log prob. ratio w.r.t. $ \mathbb{w} \thicksim Q $</b>. Since Q is parameterized as FFNN, drawing samples of w is easy. Suppose we draw some samples as $ \{ \mathbb{w}_i \}_{i=1}^{M} $, monte carlo methods can be used as an estimate of this expectation, as well its gradient. For every $ \mathbb{w}_i $, $ P(\mathbb{w_i}) $ is easy to compute, but we do not have explicit prob. value of $ Q(\mathbb{w}) $. <u>So this is a issue to work out!</u>
+    </ol>
+    <ol>
+      2. <b>Expectation of log evidence w.r.t. $ \mathbb{w} \thicksim Q $</b>. As stated in 1, easy to get samples. The term, $ log P(\mathcal{D} | \mathbb{w}) = log \Pi P(y_i | \mathbb{w}; x_i, b) = \Sigma log p_i^{\mathbb{1}[y_i=1]} (1 - p_i)^{\mathbb{1}[y_i=0]} $, is trivial to compute as well (unless number of data points is huge!).
+    </ol>
+    So we should only solve the computation of prob. ratio $ \frac{ Q(\mathbb{w}) }{ P(\mathbb{w}) } $. 
+  </p>
+  <p>
+    It is <b>very creative</b> (from my current viewpoint) to think of the computation of this density ratio of two distributions within the framework of classification. That is, we can unify two densities under one classification problem, i.e. <b>whether the sample x is from Q or P</b>. Now, let us derive the classification approach to density ratio estimation.
+  </p>
+  <p>
+    Assume that $ P(\mathbb{w}, l) $ is a joint probability over $ \mathbb{w} $ and $ l \in \{ -1, 1 \} $, a class label (indicator of which underlying distribution $ \mathbb{w} $ comes from). We can factorize $ P(\mathbb{w}, l) $ in two ways:
+
+    $$ P(\mathbb{w}, l) = P(\mathbb{w} | l) P(l) = P(l | \mathbb{w}) P(\mathbb{w}) $$
+
+    Here, the conditional probability of $ \mathbb{w} $ given label $ l $ means P or Q when $ l $ is 1 or -1. So for each value of $ l $, we can write down two equations:
+
+    $$ P(\mathbb{w} | l=1) P(l = 1) = P(l=1 | \mathbb{w}) P(\mathbb{w}) $$
+    $$ P(\mathbb{w} | l=-1) P(l = -1) = P(l=-1 | \mathbb{w}) P(\mathbb{w})$$
+
+    Since we want to compute Q/P, so we can divide <emp>lhs</emp> and <emp>rhs</emp> of these two equations respectively and get:
+
+    $$ \frac{P(\mathbb{w} | l=1)}{P(\mathbb{w} | l=-1)} \frac{P(l=1)}{P(l=-1)} = \frac{P(l=1 | \mathbb{w})}{P(l=-1 | \mathbb{w})} $$
+
+    We know $ \frac{Q(\mathbb{w})}{P(\mathbb{w})} = \frac{P(\mathbb{w} | l=1)}{P(\mathbb{w} | l=-1)} $, so:
+
+    $$ \frac{Q(\mathbb{w})}{P(\mathbb{w})} = \frac{P(l=-1)}{P(l=1)} \frac{P(l=1 | \mathbb{w})}{P(l=-1 | \mathbb{w})}  $$
+
+    Most of time, we don't know whose sample frequency is larger, so we assume equal frequency of choosing Q and P for $ \mathbb{w} $'s generation. This result in: $ P(l=1) = P(l=-1) = \frac{1}{2} $. And moreover:
+
+    $$ 
+    \begin{align}
+      \frac{Q(\mathbb{w})}{P(\mathbb{w})} &= \frac{P(l=1 | \mathbb{w})}{P(l=-1 | \mathbb{w})} \\
+                                          &= \frac{P(l=1 | \mathbb{w})}{1 - P(l=1 | \mathbb{w})}
+    \end{align}                                  
+    $$
+
+    Then we can use another model to parameterize $ P(l=1 | \mathbb{w}) $, and ensure that it can really discriminate between $ \mathbb{w} $ sampled from Q and P. This leads to our design of a discriminator D parameterized by $ \theta_D \in \theta_Q $ and another objective, with learning which can ensure the approximate accuracy of estimating $ P(l=1 | \mathbb{w}) $. Specifically, we can use another FFNN with parameter $ \theta_D $ to specify the discriminator. That is what we will do in implementation.
+  </p>
+
+  <p>
+    Till now, we have finished parameterizing our learning objective $ \mathcal{O}(\theta_Q) $ by: <b>a).</b> an implicit generative model G to sample $ \mathbb{w} $, <b>b).</b> a discriminator D with an auxiliary objective to help density ratio estimation (we use G to substitute FFNN):
+
+    $$
+    \begin{align}
+      \mathcal{O}(\theta_Q) &= \mathbb{E}_{\mathbb{w} \thicksim G} log \frac{D(\mathbb{w})}{1 - D(\mathbb{w})} + \mathbb{E}_{\mathbb{w} \thicksim G} log P(\mathcal{D} | \mathbb{w}) \\
+                            &= \mathbb{E}_{z \thicksim U(\cdot)} log \frac{D(G(z))}{1 - D(G(z))} + \mathbb{E}_{z \thicksim U(\cdot)} log P(\mathcal{D} | G(z)) \\
+    \end{align}
+    $$
+    
+    $$ \text{Auxiliary}: \mathcal{O}(\theta_D) = \mathbb{E}_{\mathbb{w} \thicksim P(\mathbb{w})} log D(\mathbb{w}) + \mathbb{E}_{z \thicksim U(\cdot)} log (1 - D(G(z))) \ $$
+
+  </p>
+
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
