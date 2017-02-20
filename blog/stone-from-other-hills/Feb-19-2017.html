@@ -65,8 +65,10 @@
   <center>
     <figure>
       <img src="./image/Global-random-variable.png"></img>
+      <figcaption>Fig-1. Courtesy of Ferenc Huszar.</figcaption>
     </figure>
   </center>
+  <br>
 	<p>
 	  So let us first restate the Bayesian formulation of logistic regression. <b>BLR</b> can be depicted as the above graphical model. $x_n $ is the feature vector of a sample point, $ y_n $ is its corresponding label, $ y_n \in {0,1} $. For the convenience of visualization, I will set that $ x_n \in \mathbb{R}^2 $. For every sample point, the probability of its label is defined as:
 
@@ -212,7 +214,10 @@
     \end{align}                                  
     $$
 
-    Then we can use another model to parameterize $ P(l=1 | \mathbb{w}) $, and ensure that it can really discriminate between $ \mathbb{w} $ sampled from Q and P. This leads to our design of a discriminator D parameterized by $ \theta_D \in \theta_Q $ and another objective, with learning which can ensure the approximate accuracy of estimating $ P(l=1 | \mathbb{w}) $. Specifically, we can use another FFNN with parameter $ \theta_D $ to specify the discriminator. That is what we will do in implementation.
+    Then we can use another model to parameterize $ P(l=1 | \mathbb{w}) $, and ensure that it can really discriminate between $ \mathbb{w} $ sampled from Q and P. More specific, when given samples sampled from $ Q $, the discriminator should output a probability close to 1, otherwise the probability should be close to 0.
+  </p>
+  <p>
+    This leads to our design of a discriminator D parameterized by $ \theta_D \in \theta_Q $ and another objective, with learning which can ensure the approximate accuracy of estimating $ P(l=1 | \mathbb{w}) $. Specifically, we can use another FFNN with parameter $ \theta_D $ to specify the discriminator. That is what we will do in implementation.
   </p>
 
   <p>
@@ -225,9 +230,11 @@
     \end{align}
     $$
     
-    $$ \  text{Auxiliary}: \mathcal{O}(\theta_D) = \mathbb{E}_{\mathbb{w} \thicksim P(\mathbb{w})} log D(\mathbb{w}) + \mathbb{E}_{z \thicksim U(\cdot)} log (1 - D(G(z))) \ $$
-
+    $$ \text{Auxiliary}: \mathcal{O}(\theta_D) = \mathbb{E}_{\mathbb{w} \thicksim P(\mathbb{w})} log D(\mathbb{w}) + \mathbb{E}_{z \thicksim U(\cdot)} log (1 - D(G(z))) \ $$
   </p>
+  <blockquote>
+    <b>Comment.</b> I wonder whether my derivation is correct, since it is different from Ferenc's. I took a look into Ferenc's <a href="https://gist.github.com/fhuszar/a597906e994523a345744dc226f48f2d">ipython Notebook implementation</a> and found that the code is according to his definition of the discriminator's loss. I am still working on an explanation.
+  </blockquote>
 
       </section>
       <footer>
