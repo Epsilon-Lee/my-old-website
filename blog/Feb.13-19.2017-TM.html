@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feb.13-19.2017 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="feb13-192017-trivial-matters">Feb.13-19.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#feb13-192017-trivial-matters">Feb.13-19.2017 - Trivial Matters</a><ul>
+<li><a href="#courses-on-structured-prediction">Courses on Structured Prediction</a></li>
+<li><a href="#learning-tree-structured-potential-games-structured-prediction">Learning Tree Structured Potential Games (Structured Prediction)</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#sequence-labeling">Sequence Labeling</a></li>
+<li><a href="#variational-method-based-models">Variational Method-based Models</a></li>
+<li><a href="#sequencestructured-training">Sequence/Structured Training</a></li>
+<li><a href="#attention">Attention</a></li>
+<li><a href="#neural-machine-translation">Neural Machine Translation</a></li>
+<li><a href="#structured-prediction">Structured Prediction</a></li>
+<li><a href="#qa">QA</a></li>
+<li><a href="#syntactic-parsing">Syntactic Parsing</a></li>
+<li><a href="#semantic-parsing">Semantic Parsing</a></li>
+<li><a href="#lexical-representation-learning">Lexical Representation Learning</a></li>
+<li><a href="#vision">Vision</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="courses-on-structured-prediction">Courses on Structured Prediction</h2>
+
+<ul>
+<li><p><a href="http://www.cs.virginia.edu/~kc2wc/teaching/SL17/syllabus.html">Advanced ML: Structured Prediction</a>, 2017 at Virginia Univ. by Ming-Wei Chang.</p></li>
+<li><p>A tutorial at EACL 17 by Andreas Vlachos on <a href="http://andreasvlachos.github.io/assets/lectures_reveal_js/LxMLS22July2016/ImitationLearningTutorial.html#/">Imitation Learning</a>.</p></li>
+<li><p><a href="http://www.phontron.com/class/mtandseq2seq2017/">Machine Translation and Sequence to Sequence Models</a>, by Graham Neubig at CMU now.</p></li>
+</ul>
+
+
+
+<h2 id="learning-tree-structured-potential-games-structured-prediction">Learning Tree Structured Potential Games (Structured Prediction)</h2>
+
+<blockquote>
+  <p><a href="https://people.csail.mit.edu/tommi/papers/Garg_Jaakkola_NIPS2016.pdf">This</a> is a NIPS 2016 paper from MIT. I think this paper is a synergy between Graphical Models and Game Theory. <br>
+  <strong>Dual decomposition</strong> is used to estimate the underlying game and learning the tree structured potential games where equilibria are represented by local maxima of an potential function.</p>
+</blockquote>
+
+<p>In the first paragraph of this paper, an overall description is given for <strong>Structured Prediction</strong> problem. Here I will emphasize some points.</p>
+
+<blockquote>
+  <p><strong>Structured Prediction</strong> methods are widely adopted techniques for learning mappings between context descriptions <script type="math/tex" id="MathJax-Element-1"> x \in \mathcal{X} </script> and configurations <script type="math/tex" id="MathJax-Element-2"> y \in \mathcal{Y} </script>. The variables specifying each configuration <script type="math/tex" id="MathJax-Element-3"> y </script> are typically mutually dependent and it is therefore beneficial to predict them jointly rather than individually.</p>
+  
+  <p>The predicted <script type="math/tex" id="MathJax-Element-4"> y </script> often arises as the highest scoring configuration w.r.t. a parameterized scoring function that decomposes into terms that couple two or more variables together to model their interactions.</p>
+</blockquote>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.03334">Batch Policy Gradients Methods for Improving Neural Conversation Models</a></li>
+</ul>
+
+
+
+<h3 id="sequence-labeling">Sequence Labeling</h3>
+
+<ul>
+<li><p><a href="http://www.aclweb.org/anthology/N16-1030">Neural Architectures for Named Entity Recognition</a>, NAACL 16, Chis Dyer.</p>
+
+<ul><li>Neural recurrent networks with CRF stacked at the top.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1702.04488.pdf">Transfer Learning for Low-Resource <strong>Chinese Word Segmentation</strong> with a Novel Neural Networks</a>, Peking Univ.</p>
+
+<ul><li>Teacher model on high-resource corpora and then use learned knowledge to initialize a student model.</li>
+<li>A weighted data similarity method to train student model on low-resource corpora with the help of high-resource corpora.</li>
+<li>Gating mechanism.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1606.04300.pdf">Neural Word Segmentation Learning for Chinese</a></p>
+
+<ul><li>Problem formulation: <script type="math/tex" id="MathJax-Element-5"> y^* =  arg max_{y \in GEN(x)} (\Sigma_{i=1}^{n} score(y_i | y_1,...,y_{n-1})) </script></li></ul></li>
+</ul>
+
+
+
+<h3 id="variational-method-based-models">Variational Method-based Models</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/abs/1606.02827">Variational Information Maximization for Feature Selection</a>, NIPS 2016.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1605.09674.pdf">VIME: Variational Information Maximizing Exploration</a>, NIPS 2016.</p></li>
+<li><p><a href="http://papers.nips.cc/paper/6528-variational-autoencoder-for-deep-learning-of-images-labels-and-captions.pdf">Variational Autoencoder for Deep Learning of Images, Labels and Captions</a>, NIPS 2016.</p>
+
+<ul><li>Bayesian SVM? Study this as a generative model - pseudo-posterior.</li>
+<li>Another interesting part is how they approach the decoder (generator) and encoder part w.r.t. VAEs, and formulate the learning scenario.</li>
+<li>The learning objective is the traditional VAE’s learning objective with extra training target for labeled data such as captioned/categorized images (both are subjected to MLE principle).</li></ul></li>
+</ul>
+
+
+
+<h3 id="sequencestructured-training">Sequence/Structured Training</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.04770.pdf">Training Language Models Using Target-Propagation</a>, Sam Wiseman. <br>
+<ul><li>Firstly, understand what is <strong>target propagation</strong>!</li></ul></li>
+</ul>
+
+
+
+<h3 id="attention">Attention</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1608.05745.pdf">RETAIN: an interpretable predictive model for healthcare using reverse time attention mechanism</a>, NIPS 2016. <br>
+<ul><li>Healthcare application on EHR (Electronic Healthcare Record)</li>
+<li>I don’t see whether it is more explanable than traditional attention mechanism.</li></ul></li>
+</ul>
+
+
+
+<h3 id="neural-machine-translation">Neural Machine Translation</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.03525.pdf">Learning to Parse and Translate Improves Neural Machine Translation</a>, Feb. 12 arXiv. Kyunghyun Cho’s Intern student at Univ. of Tokyo.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.03856.pdf">Towards speech2text translation without speech recognition</a>, Sharon Goldwater’s group at Edinburgh.</p></li>
+</ul>
+
+
+
+<h3 id="structured-prediction">Structured Prediction</h3>
+
+<ul>
+<li><p><a href="http://www.cs.toronto.edu/~fritz/absps/uai_crbms.pdf">Conditional Restricted Boltzmann Machines for Structured Output Prediction</a>, ICML 2011.</p></li>
+<li><p><a href="http://papers.nips.cc/paper/6594-an-online-sequence-to-sequence-model-using-partial-conditioning.pdf">An Online Sequence-to-sequence Model Using Partial Conditioning</a>, NIPS 2016, Google Brain. <strong>This paper is mainly used for Speech Recognition. There is a concept of alignment (forced alignment)</strong></p>
+
+<ul><li>Incremental Prediction (online mode) is not available from seq2seq models, since conditioning is on the entire source.</li>
+<li>They proposed a <strong>neural transducer</strong> which conditions on partial encoded hidden state. At each time step, the transducer can decide to emit zero to many output symbols. The discrete decision to emit a symbol at every time step makes it difficult to learn with conventional backprop, but a dynamic programming algorithm can be used for training to generate discrete symbols. </li>
+<li>HMM-DNN and CTC models make predictions at <strong>every</strong> input time step. A weakness of these models is that they typically assume conditional independence between the predictions at each output step. (I don’t understand this claim?)</li>
+<li>Conditioning on entire input sequence limits the model from online/realtime speech recognition and translation.</li>
+<li><strong>Moving window attention</strong>. Their formulation requires inferring alignments during training. Neural Transducer can produce chunks of output (possibly of zero length) as blocks of inputs arrive, composing of encoder RNN and transducer RNN.</li>
+<li><strong>Transducer RNN</strong>’s input: the encoder RNN and its own recurrent state.</li>
+<li><strong>During training:</strong> alignment between output / input sequence is unavailable. <strong>One way</strong> is to treat the alignment as latent variables and marginalizing it, <strong>another way</strong> is to generate the alignment from a <strong>different algorithm</strong>. CTC follows the former using dynamic programming for easy marginalization over the unary potentials, but impossible for their model since the nn makes next step prediction conditioned on <strong>a). input, b). alignment and c). targets produced till current step</strong>.</li>
+<li>Block size <script type="math/tex" id="MathJax-Element-6"> W </script> is pre-determined, the periodicity with which the transducer emits output tokens. And <script type="math/tex" id="MathJax-Element-7"> N=\frac{L}{M} </script> be the number of blocks. <script type="math/tex" id="MathJax-Element-8"> M </script> is the maximum output length for every period.</li></ul></li>
+<li><p><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/changb15.pdf">Learning to Search Better than Your Teacher</a>, Kai-Wei Chang’s 15 ICML paper.</p>
+
+<ul><li>The invention of LOLS algorithm which has be used in several structured prediction work such as <strong>learning to prune</strong>.</li></ul></li>
+</ul>
+
+
+
+<h3 id="qa">QA</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.03706.pdf">Multitask Learning with Deep Neural Networks for Community Question Answering</a>, Qatar Computing Research Institute, Italy.</li>
+</ul>
+
+
+
+<h3 id="syntactic-parsing">Syntactic Parsing</h3>
+
+<ul>
+<li><a href="http://www.petrovi.de/data/acl15.pdf">Structured Training for Neural Network Transition-Based Parsing</a>, ACL 2015. David Weiss &amp; Michael Collins.</li>
+</ul>
+
+
+
+<h3 id="semantic-parsing">Semantic Parsing</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.03305.pdf">Universal Dependencies to Logical</a>, Edinburgh Univ.</li>
+</ul>
+
+
+
+<h3 id="lexical-representation-learning">Lexical Representation Learning</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.03859.pdf">Offline Bilingual Word Vectors, Orthogonal Transformation and The Inversed Softmax</a>, babylon health, London UK. <br>
+<ul><li>”Usually, bilingual word vectors are trained online.” Why? Read the article and find it out!</li></ul></li>
+</ul>
+
+
+
+<h3 id="vision">Vision</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.03920.pdf">Cognitive Mapping and Planning for Visual Navigation</a>, UCB &amp; Google.</p>
+
+<ul><li>Dagger is used, is this work related to RL and Imitation?</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1702.03431.pdf">Crossing Nets: Dual Generative Models with a Shared Latent Space for Hand Pose Estimation</a>, ETH Zurich, Chengde Wan.</p></li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.03006.pdf">Multi-step Off-policy Learning Without Importance Sampling Ratios</a>, Rich Sutton’s group.</p>
+
+<ul><li>”most model-free off-policy algorithms rely on importance sampling, where the use of importance sampling ratios often leads to estimates with severe variance.” Why? Must have connection to Monte Carlo theory.</li></ul></li>
+<li><p><a href="https://www.cs.washington.edu/sites/default/files/ai/papers/tmpycQtEO.pdf">Reinforcement Learning for Mapping Instructions to Actions</a>, 2009.</p>
+
+<ul><li>A way close to my definition of learning linguistic behaviors.</li>
+<li>Policy gradient is used on a log-linear action selection model.</li></ul></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://www-scf.usc.edu/~mghazvin/index.html">Marjan Ghazvininejad</a></p>
+
+<ul><li>PhD student at USC working with Kevin Knight. Recently she is doing Machine Translation related work.</li></ul></li>
+<li><p><a href="http://people.csail.mit.edu/branavan/">S.R.K. Branavan</a></p>
+
+<ul><li>PhD graduated from MIT under supervision of Regina Barzilay.</li>
+<li>His PhD thesis is in the intersection between NLP and Reinforcement Learning, a very interesting and novel work. Every paper of her is a <strong>must read</strong> for me.</li></ul></li>
+</ul></div></body>
+</html>

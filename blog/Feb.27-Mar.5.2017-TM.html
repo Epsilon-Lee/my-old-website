@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feb.27-Mar.5.2017 - Trivial Matters</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="feb27-march52017-trivial-matters">Feb.27-March.5.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#feb27-march52017-trivial-matters">Feb.27-March.5.2017 - Trivial Matters</a><ul>
+<li><a href="#michael-j-witbrocks-works">Michael J. Witbrock’s Works</a></li>
+<li><a href="#structured-prediction-cascade">Structured Prediction Cascade</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#adversarial-example">Adversarial Example</a></li>
+<li><a href="#adversarial-inference-and-generative-model">Adversarial Inference and Generative Model</a></li>
+<li><a href="#variational-inference">Variational Inference</a></li>
+<li><a href="#active-learning">Active Learning</a></li>
+<li><a href="#neural-network-architecture">Neural Network Architecture</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="michael-j-witbrocks-works">Michael J. Witbrock’s Works</h2>
+
+<p>He is one of the supporter and developer of the well-known commonsense database Cyc. He has joined IBM and recently has proposed some conceptual directions of Natural Language Understanding.</p>
+
+<p>Here are some of his works that may appeal to me.</p>
+
+<ul>
+<li><a href="http://www.aclweb.org/anthology/P00-1041">Headline Generation Based on Statistical Machine Translation</a>, 2000 ACL.</li>
+<li><a href="http://www.aaai.org/Papers/AAAI/2005/AAAI05-227.pdf">Searching for Common Sense: Populating Cyc from the Web</a>, 2005 AAAI. <br>
+<ul><li>I am wondering the Usage of Google API. And the usage of Reinforcement Learning with human-in-the-loop (interference).</li></ul></li>
+<li><a href="https://www.aaai.org/Papers/FLAIRS/2007/Flairs07-027.pdf">Guiding Inference with Policy Search Reinforcement Learning</a>, 2007 AAAI. <br>
+<ul><li>Symbolic Reasoning.</li>
+<li><strong>Tactic</strong>: a tactic is a single quantum of work that can be performed in the course of producing results for a query, such as: <br>
+<ul><li>Splitting a conjunction into multiple clauses</li>
+<li>Looking up the truth value of a fully-bound clause</li>
+<li>Finding appropriate bindings for a partial sentence via indexing</li>
+<li>etc.</li></ul></li>
+<li><strong>NEAT algorithm (NeuraoEvolution of Augmenting Topologies)</strong>: genetic algorithm</li></ul></li>
+<li><a href="https://rd.springer.com/chapter/10.1007/978-1-4614-8806-4_40#page-1">Conversational Computation</a>, 2013 <br>
+<ul><li>Conversational Knowledge.</li></ul></li>
+<li>etc.</li>
+</ul>
+
+
+
+<h2 id="structured-prediction-cascade">Structured Prediction Cascade</h2>
+
+<ul>
+<li><a href="https://www.jaypujara.org/pubs/2011/pujara:ceas11/pujara_ceas2011_camera.pdf">Using Classifier Cascades for Scalable E-Mail Classification</a>, 2011.</li>
+</ul>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/williams2014ranking.pdf">Web-style ranking and SLU combination for dialog state tracking</a>, 2014 Best SigDIAL.</li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.08360.pdf">Neural Map: Structured Memory for Deep Reinforcement Learning</a>, Feb. 27 arXiv. Ruslan’s group.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08165.pdf">Reinforcement Learning with Deep Energy-Based Policies</a>, Feb. 27 arXiv.</p></li>
+<li><p><a href="http://rll.berkeley.edu/deeprlworkshop/papers/BaconPrecup2015.pdf">The Option-Critic Architecture</a>, AAAI 17 Best Paper.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08892.pdf">Bridging the Gap Between Value and Policy Based Reinforcement Learning</a>, arXiv Feb. 28.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1703.00441.pdf">Learning to Optimize Neural Nets</a>, Mar. 1 arXiv.</p>
+
+<ul><li><script type="math/tex" id="MathJax-Element-9"> \mathbb{E}_{f \thicksim \mathcal{F}, x^{(0)} \thicksim \mathcal{D}} [\mathcal{L} (f, \mathcal{A}^*(f, x^{(0)}))] </script></li>
+<li>That is <script type="math/tex" id="MathJax-Element-10"> \mathcal{A}^*(\cdot) </script> will take in a objective function to be optimized and a initial random point and output a trajectory of walking in the <script type="math/tex" id="MathJax-Element-11"> \mathcal{X} </script> space: <script type="math/tex" id="MathJax-Element-12"> x^{(1)}, x^{(2)}, ..., x^{(T)} </script>.</li>
+<li>This loss <script type="math/tex" id="MathJax-Element-13"> \mathcal{L} </script> is called a meta-loss, and can be intuitively designed as accumulative function value along the trajectory: <script type="math/tex" id="MathJax-Element-14"> \Sigma_{i=1}^{T} f(x^{(i)}) </script>.</li>
+<li><strong>The Meta-Learning setting is formulated within Reinforcement Learning</strong>.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07826.pdf">Rationalization: A Neural Macine Translation Approach to Generating Natural Language Explanation</a>, Feb. 25.</p></li>
+</ul>
+
+
+
+<h3 id="adversarial-example">Adversarial Example</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1703.00410.pdf">Detecting Adversarial Samples from Artifacts</a>, Mar. 1 arXiv.</li>
+</ul>
+
+
+
+<h3 id="adversarial-inference-and-generative-model">Adversarial Inference and Generative Model</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1703.00573.pdf">Generalization and Equilibrium in Generative Adversarial Nets</a>, Sanjeev Arora.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07956.pdf">Generative Adversarial Active Learning</a>, Feb. 25 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07983.pdf">Maximum-Likelihood Augmented Discrete Generative Adversarial Networks</a>, Feb. 26 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1612.02136.pdf">Mode Regularized Generative Adversarial Networks</a>, Feb. 20 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08398.pdf">McGan: Mean and Covariance Feature Matching GAN</a>, arXiv Feb. 27.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08396.pdf">Learning  Hierarchical Features from Generative Models</a>, arXiv Feb. 27.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08658.pdf">Towards a Deeper Understanding of Variational Autoencoding Models</a>, Feb. 28.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08484.pdf">Boosted Generative Models</a>, Stefano Ermon, Feb. 27 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08896.pdf">Deep and Hierarchical Implicit Models</a>, arXiv Feb. 28, Tustin Tran.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08575.pdf">Learning Latent Networks in Vector Auto Regressive Models</a>, Feb. 27 arXiv.</p></li>
+</ul>
+
+
+
+<h3 id="variational-inference">Variational Inference</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.08139.pdf">Improved Variational Autoencoders for Text Modeling using Dilated Convolutions</a>, Feb. 27 arXiv.</p></li>
+<li><p>[]</p></li>
+</ul>
+
+
+
+<h3 id="active-learning">Active Learning</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.08553.pdf">Diameter-Based Active Learning</a>, Feb. 27 arXiv.</li>
+</ul>
+
+
+
+<h3 id="neural-network-architecture">Neural Network Architecture</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1703.00443.pdf">OptNet: Differentiable Optimization as a Layer in Neural Networks</a>, Mar. 1 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1703.00381.pdf">The Statistical Recurrent Unit</a>, Mar. 1 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08653.pdf">Scaffolding Networks for Teaching and Learning to Comprehend</a>, Feb. 28.</p></li>
+</ul>
+
+<p><strong>One Shot Learning</strong></p>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1703.00767.pdf">Attentive Recurrent Comparators</a>, Mar. 2 arXiv.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1703.00837.pdf">Meta Networks</a>, Mar. 2 arXiv.</p>
+
+<ul><li><strong>Fast Weight parameterization</strong></li>
+<li><strong>Base learner: slow weight</strong></li>
+<li><strong>Fast Weight is generated by a neural network</strong></li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1703.03400.pdf">Model-Agnostic Meta-Learning for Fast Adaption of Deep Networks</a></p>
+
+<ul><li>In meta-learning, the goal of the trained model is to quickly learn a new task from a small amount of new data, and the model is trained by the meta-learner to be able to learn on a large number of different tasks.</li>
+<li>Fast adaptation.</li>
+<li>Model <script type="math/tex" id="MathJax-Element-15"> f </script> with parameters <script type="math/tex" id="MathJax-Element-16"> \theta </script>. When adapting to a new task <script type="math/tex" id="MathJax-Element-17"> \mathcal{T_i} </script>, the model parameter <script type="math/tex" id="MathJax-Element-18"> \theta </script> becomes <script type="math/tex" id="MathJax-Element-19"> \theta_i' </script>. Since we are within the framework of gradient based learning and one-/few-shot learning, the update rule is just:</li>
+<li><script type="math/tex" id="MathJax-Element-20"> \theta_i' = \theta - \alpha \nabla_\theta \mathcal{L}_{\mathcal{T_i}}(f_\theta) </script></li>
+<li>So conceptually, the meta-learning objective is designed as learning a parameter <script type="math/tex" id="MathJax-Element-21"> \theta </script> that after one step update according to multiple tasks <script type="math/tex" id="MathJax-Element-22"> \mathcal{T_i} </script> and its corresponded loss <script type="math/tex" id="MathJax-Element-23"> \mathcal{L}_{\mathcal{T_i}} </script> over its training sample, that will result in an overall minimization over the sum of those loss. Mathematically,</li>
+<li><script type="math/tex" id="MathJax-Element-24"> min_{\theta} \Sigma_i \mathcal{L_{\mathcal{T_i}} (f_{\theta_i'})} =</script></li>
+<li>The intuition is very simple: we can think that learning a great many samples from a sine function is useful to learn a new transformed or scaled sine function.</li></ul></li>
+</ul>
+
+<p><strong>Neural Network Training</strong></p>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1703.00522.pdf">Understanding Synthetic Gradients and Decoupled Neural Interfaces</a>, Mar. 2 arXiv DeepMind.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1703.00788.pdf">A Robust Adaptive Stochastic Gradient Method for Deep Learning</a>, Yoshua Bengio.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1703.00810.pdf">Opening the Black Box of Deep Neural Networks via Information</a>, Naftali Tishby.</p></li>
+</ul>
+
+
+
+<h3 id="others">Others</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.08563.pdf">Improved Machine Learning Ability with Fine-Tuning</a>, Feb. 27 arXiv.</p>
+
+<ul><li>Application of <strong>Item Response Theory</strong>.</li></ul></li>
+<li><p><a href="https://arxiv.org/pdf/1702.08608.pdf">A Roadmap for a Rigorous Sicence of Interpretability</a>, Feb. 28.</p></li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><a href="https://www.jaypujara.org/index.html">Jay Pujara</a> <br>
+<ul><li>Working in Knowledge Graph Construction.</li>
+<li><a href="https://kgtutorial.github.io/">This</a> tutorial is very impressive. </li></ul></li>
+</ul></div></body>
+</html>

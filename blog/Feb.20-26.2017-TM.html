@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feb.20-26.2017 - Trivial Matteres</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="feb20-262017-trivial-matters">Feb.20-26.2017 - Trivial Matters</h1>
+
+<p><div class="toc">
+<ul>
+<li><a href="#feb20-262017-trivial-matters">Feb.20-26.2017 - Trivial Matters</a><ul>
+<li><a href="#coarse-to-fine-approach-in-machine-learning">Coarse-to-fine Approach in Machine Learning</a></li>
+<li><a href="#actor-critic-reinforce-the-difference">Actor-Critic &amp; REINFORCE: the difference</a></li>
+<li><a href="#semantic-parsing-survey-lectures">Semantic Parsing Survey Lectures</a></li>
+<li><a href="#discriminative-training">Discriminative Training</a></li>
+<li><a href="#agreement-search-in-learning-and-decision-making">Agreement &amp; Search in Learning and Decision Making</a></li>
+<li><a href="#nmt-recent-advances-in-evaluation">NMT - Recent Advances in Evaluation</a></li>
+<li><a href="#arxiv-weekly">arXiv Weekly</a><ul>
+<li><a href="#morphology">Morphology</a></li>
+<li><a href="#qa">QA</a></li>
+<li><a href="#nlg">NLG</a></li>
+<li><a href="#dialogue">Dialogue</a></li>
+<li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+<li><a href="#topic-models">Topic Models</a></li>
+<li><a href="#morphology-1">Morphology</a></li>
+<li><a href="#semantic-parsing">Semantic Parsing</a></li>
+<li><a href="#structured-prediction">Structured Prediction</a></li>
+<li><a href="#generative-sequence-model">Generative Sequence Model</a></li>
+<li><a href="#variational-models">Variational Models</a></li>
+<li><a href="#visual-semantics">Visual Semantics</a></li>
+<li><a href="#adversarial-domain-adaptation">Adversarial &amp; Domain Adaptation</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+</li>
+<li><a href="#people">People</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+
+
+<h2 id="coarse-to-fine-approach-in-machine-learning">Coarse-to-fine Approach in Machine Learning</h2>
+
+<p><strong>Structured Prediction Cascade</strong></p>
+
+
+
+<h2 id="actor-critic-reinforce-the-difference">Actor-Critic &amp; REINFORCE: the difference</h2>
+
+<p>The <a href="https://www.quora.com/Whats-the-difference-between-Reinforce-and-Actor-Critic/answer/Ishan-Durugkar?__filter__=all&amp;__nsrc__=1&amp;__snid3__=772440595">Quora post</a> is well-explained!</p>
+
+<ul>
+<li><a href="https://openreview.net/pdf?id=Hk3mPK5gg">Training Agent for First Person Shooter Game with Actor-Critic Curriculum Learning</a>, ICLR 2017.</li>
+</ul>
+
+
+
+<h2 id="semantic-parsing-survey-lectures">Semantic Parsing Survey Lectures</h2>
+
+<p>Jonathan Berant’s course at Tel-AViv <a href="http://www.cs.tau.ac.il/~joberant/teaching/nlp_seminar_fall_2016.html">here</a>. <br>
+- <strong>Advanced Topics in Natural Language Processing Seminar - Fall 2016</strong></p>
+
+
+
+<h2 id="discriminative-training">Discriminative Training</h2>
+
+<ul>
+<li><p><a href="http://www.aclweb.org/anthology/W02-1001">Discriminative Training Methods for Hidden Markov Models: Theory and Experiments with Perceptron Algorithms</a>, Michael Collins.</p></li>
+<li><p><a href="https://cs.stanford.edu/~pliang/papers/discriminative-mt-acl2006.pdf">An End-to-End Discriminative Approach to Machine Translation</a>, Percy Liang.</p></li>
+</ul>
+
+
+
+<h2 id="agreement-search-in-learning-and-decision-making">Agreement &amp; Search in Learning and Decision Making</h2>
+
+<ul>
+<li><p><a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI16/paper/view/12028/11999">Agreement on Target-Bidirectional LSTMs for Sequence-to-Sequence Learning</a>, Lemao Liu, AAAI 2016.</p></li>
+<li><p><a href="https://cs.stanford.edu/~pliang/papers/alignment-naacl2006.pdf">Alignment by Agreement</a>, Percy Liang 2006.</p></li>
+</ul>
+
+<p>And his 2008 NIPS:</p>
+
+<ul>
+<li><a href="https://cs.stanford.edu/~pliang/papers/agreement-nips2008.pdf">Agreement Based Learning</a>.</li>
+</ul>
+
+<p>And 2016, Yang Liu’s group has two paper on the topic of <strong>agreement based learning</strong>, see below:</p>
+
+<ul>
+<li><a href="http://nlp.csai.tsinghua.edu.cn/~ly/papers/acl2016_agree.pdf">Agreement based Learning of Parallel Lexicons and Phrases from Non-Parallel Corpora</a>, ACL 2016.</li>
+<li><a href="http://nlp.csai.tsinghua.edu.cn/~ly/papers/ijcai16_agree.pdf">Agreement based Joint Training for Bidirectional Attention-based Neural Machine Translation</a></li>
+</ul>
+
+<p>And in 2015, they have one paper:</p>
+
+<ul>
+<li><a href="http://nlp.csai.tsinghua.edu.cn/~ly/papers/emnlp2015_lcy.pdf">Generalized Agreement for Bidirectional Word Alignment</a>, ACL 2015.</li>
+<li><a href="http://nlp.csai.tsinghua.edu.cn/~ly/papers/emnlp2015_ssq.pdf">Consistency-Aware Search for Word Alignment</a>, EMNLP 2015.</li>
+</ul>
+
+
+
+<h2 id="nmt-recent-advances-in-evaluation">NMT - Recent Advances in Evaluation</h2>
+
+<p><strong>Edinburgh Neural Machine Translation Systems</strong> <br>
+Here are two reports on Edinburgh’s NMT systems:</p>
+
+<ul>
+<li><a href="https://ec.europa.eu/info/sites/info/files/tef2016_haddow_en.pdf">Edinburgh’s Neural Machine Translation Systems</a>, Oct. 27 2016.</li>
+<li><a href="http://www.meta-net.eu/events/meta-forum-2016/slides/09_sennrich.pdf">Neural Machine Translation: Breaking the Performance Plateau</a>, Rico Sennrich, Jul. 4 2016.</li>
+</ul>
+
+<p><strong>To summarize some KEY ideas:</strong></p>
+
+<blockquote>
+  <p><strong>Vocabulary-Free NMT</strong>: by using Byte Pair Encoding mechanism. <em>SO, KNOW ABOUT BPE and WHY IT WORKS?</em> <br>
+  <strong>Monolingual Data</strong>: When have plenty of target monolingual data, we can use a target2source system to construct dummy source-target parallel pairs and again feed it into the original seq2seq model to augment its training data. <br>
+  <strong>The author claims that the above two points are the KEY to their success.</strong></p>
+</blockquote>
+
+<p><strong>Some Open Questions</strong>:</p>
+
+<ol>
+<li><strong>Relax Independence Assumption</strong>: first of all, what is independent assumption? <strong>Document-level translation, multimodal input</strong>.</li>
+<li><strong>Share Parts of Networks across Tasks</strong>: Universal Translation Model, Multi-task Models.</li>
+<li><strong>Computer Aided and Interactive MT</strong></li>
+<li><strong>Incremental Training</strong>?</li>
+<li><strong>Extra Knowledge Sources</strong> (context, multi-modal)</li>
+<li><strong>Sharing Across Languages, Domains</strong></li>
+</ol>
+
+
+
+<h2 id="arxiv-weekly">arXiv Weekly</h2>
+
+
+
+<h3 id="morphology">Morphology</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.06675.pdf">Context-aware Prediction of Derivational Word-Forms</a> Trevor Cohn’s group. They propose a new task of Cloze, given context and the original form of a word and predict its reflection.</li>
+</ul>
+
+
+
+<h3 id="qa">QA</h3>
+
+<ul>
+<li><p><a href="%2a%2ahttps://arxiv.org/pdf/1606.01994.pdf%2a%2a">CFO: Conditional Focused Neural Question Answering with Large-scale Knowledge Bases</a>, Zihang Dai, CMU, Toutiao.com.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.06589.pdf">Neural Multi-Step Reasoning for Question Answering on Semi-Structured Tables</a>, Feb. 23 ETU.</p></li>
+</ul>
+
+
+
+<h3 id="nlg">NLG</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.06235.pdf">Learning to Generate One-Sentence Biographies from Wikidata</a>, arXiv Feb. 21.</li>
+</ul>
+
+
+
+<h3 id="dialogue">Dialogue</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.05962.pdf">Latent Variable Dialogue Models and their Diversity</a>, Univ. of Cambridge.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.06336.pdf">Hybrid Dialog State Tracker with ASR Features</a>, IBM.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.06703.pdf">Data Distillation for Controlling Specificity in Dialogue Generation</a>, Feb. 23 Jiwei Li.</p></li>
+</ul>
+
+
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.06239.pdf">Reinforcement Learning Based Argument Component Detection</a>, Institute of Software, Chinese Academy of Sciences.</p></li>
+<li><p><a href="http://aclweb.org/anthology/P/P16/P16-1001.pdf">Noise Reduction and Targeted Exploration in Imitation Learning for Abstract Meaning Representation Parsing</a>, ACL 2016.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07121.pdf">Consistent On-Line Off-Policy Evaluation</a>, arXiv Feb. 23.</p>
+
+<ul><li>Technion, Haifa, Israel. <strong>Work in Policy Evaluation</strong>, a problem we will encounter during policy improvement, that is, accurate policy evaluation will lead to accurate/stable policy improvement.</li>
+<li><strong>Topic:</strong> Off-Policy Evaluation, that is, <strong>assessing the performance of a complex strategy without applying it.</strong>  <br>
+<ul><li>More formally in MDP setting, value function w.r.t. to policy <script type="math/tex" id="MathJax-Element-9"> \pi </script> is an operator that maps a state <script type="math/tex" id="MathJax-Element-10"> s </script> to a discounted accumulative reward, which is semantically defined as initialized in state <script type="math/tex" id="MathJax-Element-11"> s </script>, and start to follow a policy <script type="math/tex" id="MathJax-Element-12"> \pi </script>, and sum over the expected discounted reward from now on into the future. In finite state MDPs, value function could be a finite vector, whereas in the infinite settings, it could be an infinite vector.</li>
+<li>Policy evaluation is the quest for accurate value function estimation according to some policy. Off-policy evaluation is to accumulate samples not follow the policy <script type="math/tex" id="MathJax-Element-13"> \pi </script> we try to evaluate but another policy <script type="math/tex" id="MathJax-Element-14"> \mu </script>.</li></ul></li>
+<li>Why we care about <strong>Offline Policy Evaluation (OPE)</strong>? In some settings there is limited <strong>sampling capability</strong>, such as <strong>marketing, recommender systems, drug administration</strong>.</li>
+<li>Motivation of this work: to heal another’s fault, <strong>Most TD methods ignore discrepancy between the stationary distribution of the behavior and target policies and its effect on the convergence limit when function approximation is applied.</strong></li>
+<li>Sheds light on <strong>Emphatic TD Learning</strong>.</li>
+<li><strong>WHY call it ON-LINE</strong>: because each new sample is immediately used to update our current value estimate of some previously unseen policy.</li>
+<li>Related work: Emphatic TD, ETD(<script type="math/tex" id="MathJax-Element-15">\lambda, \beta</script>).</li>
+<li><strong>MDP formulation:</strong> <script type="math/tex" id="MathJax-Element-16"> M = (\mathcal{S}, \mathcal{A}, \mathcal{P}, \mathcal{R}, \xi, \gamma) </script>, state space, action space, transition and reward (environment), initial state distribution and discount factor.</li></ul></li>
+</ul>
+
+
+
+<h3 id="topic-models">Topic Models</h3>
+
+<ul>
+<li><a href="http://aclweb.org/anthology/C16-1166">Modeling Topic Dependencies in Semantically Coherent Text Spans with Copulas</a>, COLING 2016. <br>
+<ul><li>This is the paper referred from my professor’s reviewing paper “Topical Coherence in LDA-based Models through Induced Segmentation”.</li></ul></li>
+</ul>
+
+
+
+<h3 id="morphology-1">Morphology</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.07015.pdf">Unsupervised Learning of Morphological Forests</a>, Feb. 22.</li>
+</ul>
+
+
+
+<h3 id="semantic-parsing">Semantic Parsing</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.05053.pdf">Addressing the Data Sparsity Issue in Neural AMR Parsing</a>, Nianwen Xue’s group.</li>
+</ul>
+
+
+
+<h3 id="structured-prediction">Structured Prediction</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.05658.pdf">MAT: A Multimodal Attentive Translator for Image Captioning</a>, Tsinghua Univ. MSRA, UESTC, JHU. </p></li>
+<li><p><a href="http://jmlr.org/proceedings/papers/v48/raghunathan16.pdf">Estimation from Indirect Supervision with Linear Moments</a>, ICML 2016.</p>
+
+<ul><li>The main question: how to formulate indirect supervision of the output within a probabilistic models.</li>
+<li>And then I should try to understand why these two problems exist: 1). non-convexity of the objective; 2). intractability of even a single gradient computation.</li>
+<li>They solve both of these problems within the setting dubbed “linear indirectly-supervised problems”.</li>
+<li>Method: 1). solve a linear system for estimation of some of the model’s sufficient statistics; 2). solve a convex optimization.</li>
+<li><strong>Indirect supervision is naturally handled  by defining a latent-variable model where the structure of interest is treated as latent variable.</strong> However computational challenges are introduced. <br>
+<ul><li><strong>First, maximum marginal likelihood requires non-convex optimization where GD or EM are only guaranteed to converge to local optima.</strong></li>
+<li><strong>Second, even the computation of the gradient or performing the E-step can be intractable, requiring probabilistic inference on a <u>loopy graphical model induced by the indirect supervision</u>(?).</strong></li></ul></li>
+<li><strong>Method of Moments</strong> although not appeal to <strong>tensor factorization</strong>.</li>
+<li><strong>!!</strong> They express indirect supervision as a <strong>linear combination</strong> of the sufficient statistics of the model, which are recovered by solving a simple noisy linear system.</li>
+<li>Once they have sufficient statistics they use convex optimization to solve for the model parameters.</li>
+<li><strong>The KEY is that: while supervision per example is indirect and leads to intractability, aggregation over a large number of examples renders the problem tractable.</strong></li></ul></li>
+<li><p><a href="http://www.sidaw.xyz/pubs/sidaw13feature.pdf">Feature Noising for Log-linear Structured Prediction</a>, ACL 2013.</p></li>
+<li><p><a href="https://ryancotterell.github.io/papers/cotterell+ala.eacl17.pdf">Neural Graphical Models over Strings for Principal Parts Morphological Paradigm Completion</a>, EACL 2017,</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.04770.pdf">Trainable Language Models Using Target-Propagation</a>, Sam Wiseman.</p></li>
+</ul>
+
+<p><strong>Minimum Risk Training and Minimum Bayesian Risk Training</strong></p>
+
+<ul>
+<li><p><a href="http://www.aclweb.org/anthology/P03-1021">Minimum Error Rate Training in Statistical Machine Translation</a>, 2003.</p></li>
+<li><p><a href="http://www.aclweb.org/anthology/N04-1022">Minimum Bayes-Risk Decoding for Statistical Machine Translation</a>, 2004.</p></li>
+<li><p><a href="http://mt-archive.info/EMNLP-2008-Macherey.pdf">Lattice Based Minimum Error Rate Training for Statistical Machine Translation</a>, EMNLP 2008.</p></li>
+<li><p><a href="http://mt-archive.info/EMNLP-2008-Tromble.pdf">Lattice Minimum Bayes-Risk Decoding for Statistical Machine Translation</a>, 2008.</p></li>
+<li><p><a href="http://www.cs.jhu.edu/~zfli/pubs/variational_decoding_zhifei_acl09.pdf">Variational Decoding for Statistical Machine Translation</a>, ACL 2009.</p></li>
+<li><p><a href="http://www.statmt.org/wmt10/pdf/WMT56.pdf">A Unified Approach to Minimum Risk Training and Decoding</a>, 2010. Phillip Koehn.</p></li>
+</ul>
+
+
+
+<h3 id="generative-sequence-model">Generative Sequence Model</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.04649.pdf">Generative Temporal Models with Memory</a>, ICLR 2017.</li>
+</ul>
+
+
+
+<h3 id="variational-models">Variational Models</h3>
+
+<ul>
+<li><a href="http://papers.nips.cc/paper/6275-ladder-variational-autoencoders.pdf">Ladder Variational Autoencoders</a>, NIPS 2015.</li>
+</ul>
+
+
+
+<h3 id="visual-semantics">Visual Semantics</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.05729.pdf">Person Search with Natural Language Description</a>, Chinese Univ. of HK, Tsinghua Univ. and MIT.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.05711.pdf">Zoom Out-and-In Network with Recursive Training for Object Proposal</a>, Chinese Univ. of HK, et al.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07191.pdf">Vip-CNN: A Visual Phrase Reasoning Convolutional Neural Network for Visual Relationship Detection</a>, Feb. 23, CUHK.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.05270.pdf">Be Precise or Fuzzy: Learning the Meaning of Cardinals and Quantifiers from Vision</a>, EACL 2017</p></li>
+</ul>
+
+
+
+<h3 id="adversarial-domain-adaptation">Adversarial &amp; Domain Adaptation</h3>
+
+<ul>
+<li><p><a href="https://arxiv.org/pdf/1702.05464.pdf">Adversarial Discriminative Domain Adaptation</a>, arXiv Feb. 17. UCB, Stanford and Boston Univ.</p></li>
+<li><p><a href="https://arxiv.org/pdf/1702.07319.pdf">Learning to Draw Dynamic Agent Goals with Generative Adversarial Networks</a>, Feb.  23.</p></li>
+</ul>
+
+
+
+<h3 id="others">Others</h3>
+
+<ul>
+<li><a href="https://arxiv.org/pdf/1702.04832.pdf">Dynamic Partition Models</a>, ICLR 2017.</li>
+</ul>
+
+
+
+<h2 id="people">People</h2>
+
+<ul>
+<li><p><a href="http://cs.stanford.edu/~rfrostig/">Roy Frostig</a></p>
+
+<ul><li>My research is in the realm of computational tools core to statistical machine learning.  <br>
+A recent theme aims to match the performance of common, though often heavyweight, numerical methods using limited computational resources.</li></ul></li>
+<li><p><a href="http://bingning.wang/research/aboutme">Bingning Wang</a></p>
+
+<ul><li>PhD at Institute of Automation, 2 years older than me. He has published 2 papers on Machine Reading.</li></ul></li>
+<li><p><a href="http://iiis.tsinghua.edu.cn/~wu/index.html">Chenye Wu</a></p>
+
+<ul><li>His PhD supervisor is Andrew Yao. And his research is very new and interesting to me, as they are about Power System Design and Renewable Resource. I haven’t had a well grasp about his research, what is his research related to those of Computer Science, machine learning (deep learning), optimization, multi-agent algorithmic game theory, economic theory.</li></ul></li>
+<li><p><a href="http://www.cs.cornell.edu/people/tj/">Thorsten Joachims</a></p>
+
+<ul><li>Professor at Cornell Univ. He is interested in human-in-the-loop learning or active learning for knowledge discovery. He has recent works on Recommendation Systems to resolve the issue of selectio bias.</li>
+<li>He is also a supporter for learning to rank, learning from feedback.</li>
+<li>He gave a tutorial on Counterfactual Learning at SIGIR 2016 <a href="http://www.cs.cornell.edu/~adith/CfactSIGIR2016/">here</a>, and tackle the problem of selectio bias in Recommendation Systems by saying intervention as treatment in medical study.</li>
+<li><strong>The reason his work is appealing to me is that he has the similar thought on learning behavior from human being, both human-intervention based machine learning and reinforcement learning. So I wish I can learn from him with the idea of counterfactual reasoning in search of better trajectory. I would like to propose the learning from trajectory generated during learning/training, to mine knowledge out of it and used as feedback for better learning. This can be seen as a intrinsic motivation of a learning algorithm.</strong> Thorsten also has a paper on this, titled <a href="http://www.cs.cornell.edu/people/tj/publications/jain_etal_13a.pdf">“Learning Trajectory Preferences for Manipulators via Iterative Improvement”</a> on NIPS 2013.</li></ul></li>
+</ul></div></body>
+</html>
